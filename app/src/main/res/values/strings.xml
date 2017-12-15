@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">dhdexamplesecond</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="app_name_dhd">DHd Konferenz 2018</string>
+    <string name="veranstaltungen">Veranstaltungen</string>
+    <string name="veranstaltungsort">Veranstaltungsort</string>
+    <string name="timetable">Meine Veranstaltungen</string>
+    <string name="settings">Einstellungen</string>
+    <string name="subtitle">Kritik an der digitalen Vernunft</string>
+</resources>
