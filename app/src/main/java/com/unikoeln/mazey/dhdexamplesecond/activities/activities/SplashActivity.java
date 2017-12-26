@@ -1,4 +1,4 @@
-package com.unikoeln.mazey.dhdexamplesecond.activities;
+package com.unikoeln.mazey.dhdexamplesecond.activities.activities;
 
 import android.content.Intent;
 import android.os.Bundle;

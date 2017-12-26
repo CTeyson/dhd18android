@@ -41,6 +41,4 @@
         android:text="@string/subtitle"
         app:layout_constraintBottom_toBottomOf="@id/navcontainer"/>
 
-
-
 </android.support.constraint.ConstraintLayout>

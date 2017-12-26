@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.unikoeln.mazey.dhdexamplesecond">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_dhd"
@@ -17,20 +15,18 @@
             android:value=" AIzaSyDqNhAFAjAvwRmIwcwILVHB1slKk7aCGbs " />
 
         <activity
-            android:name=".activities.SplashActivity"
+            android:name=".activities.activities.SplashActivity"
             android:theme="@style/Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.activities.MainActivity"
             android:label="@string/app_name_dhd"
             android:theme="@style/AppTheme.NoActionBar" />
-
     </application>
 
 </manifest>

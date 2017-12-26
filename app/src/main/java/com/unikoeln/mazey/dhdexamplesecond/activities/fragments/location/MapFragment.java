@@ -1,8 +1,6 @@
-package com.unikoeln.mazey.dhdexamplesecond.activities.location;
+package com.unikoeln.mazey.dhdexamplesecond.activities.fragments.location;
 
 import android.app.Fragment;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -20,8 +18,6 @@ import com.unikoeln.mazey.dhdexamplesecond.R;
 
 public class MapFragment extends Fragment {
 
-    private Context context;
-
     private MapView mapView;
     private GoogleMap googleMap;
 
@@ -29,11 +25,6 @@ public class MapFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.map_fragment, container, false);
-
-        // TODO Think about Minimum SDK
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            context = this.getContext();
-        }
 
         mapView = view.findViewById(R.id.map_view);
         mapView.onCreate(savedInstanceState);
@@ -49,14 +40,9 @@ public class MapFragment extends Fragment {
             @Override
             public void onMapReady(GoogleMap gMap) {
                 googleMap = gMap;
-                userLocationCheck();
                 setPositionAndMarkerForConference();
             }
         });
-    }
-
-    private void userLocationCheck() {
-        // TODO implement request for location services
     }
 
     private void setPositionAndMarkerForConference() {

@@ -1,4 +1,4 @@
-package com.unikoeln.mazey.dhdexamplesecond.activities;
+package com.unikoeln.mazey.dhdexamplesecond.activities.activities;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -14,10 +14,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
-import com.unikoeln.mazey.dhdexamplesecond.activities.location.MapFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.asynctask.ConfToolCommunication;
+import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.Session;
+import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.location.MapFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.imprint.ImprintFragment;
+
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private List<Session> sessions = null;
+    private ConfToolCommunication communication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +44,29 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        sessions = this.loadDataFromConfTool();
+
+        this.openWithEventOverview();
+    }
+
+    private List<Session> loadDataFromConfTool() {
+        List<Session> tmp = null;
+        try {
+            communication = new ConfToolCommunication();
+            communication.execute();
+            tmp = communication.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        return tmp;
+    }
+
+
+    private void openWithEventOverview() {
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new WorkInProgressFragment());
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -71,18 +104,17 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         if (id == R.id.nav_events) {
-            DrawerLayout drawer = findViewById(R.id.drawer_layout);
-            if (drawer.isDrawerOpen(GravityCompat.START)) drawer.closeDrawer(GravityCompat.START);
+            fragment = new WorkInProgressFragment();
         } else if (id == R.id.nav_timetable) {
-
+            fragment = new WorkInProgressFragment();
         } else if (id == R.id.nav_navigation) {
             fragment = new MapFragment();
         } else if (id == R.id.nav_settings) {
-
+            fragment = new ImprintFragment();
         }
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.add(R.id.main_activity, fragment);
+        transaction.replace(R.id.main_activity, fragment);
         transaction.commit();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
