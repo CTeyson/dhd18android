@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:layout_marginBottom="16dp">
+
+
+
+
+
+
+
+<android.support.constraint.ConstraintLayout
+    android:id="@+id/wrapper"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <TextView
+        android:id="@+id/textfield1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Impressum / Datenschutz"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toTopOf="@id/wrapper" />
+
+
+    <TextView
+        android:id="@+id/imprint_headline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Impressum"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/textfield1" />
+
+    <TextView
+        android:id="@+id/imp_l1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Angaben gemäß § 5 TMG:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/imprint_headline" />
+
+    <TextView
+        android:id="@+id/imp_l2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Universität zu Köln\nSprachliche Informationsverarbeitung\nInstitut für Linguistik"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/imp_l1" />
+
+    <TextView
+        android:id="@+id/imp_l3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Albertus-Magnus-Platz\n50923 Köln "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/imp_l2" />
+
+
+    <TextView
+        android:id="@+id/imp_l4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Vertreten durch: Dr. Jürgen Hermes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/imp_l3" />
+
+    <TextView
+        android:id="@+id/imp_l5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Kontakt:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/imp_l4" />
+
+    <TextView
+        android:id="@+id/imp_l6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Telefon: 0221/470-5193\nTelefax: 0221/470-4170\nE-Mail: buero@spinfo.uni-koeln.de\nInternet: http://www.spinfo.phil-fak.uni-koeln.de/"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/imp_l5"
+        android:autoLink="web"/>
+
+    <TextView
+        android:id="@+id/imp_l7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/imp_l6" />
+
+    <TextView
+        android:id="@+id/imp_l8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Dr. Jürgen Hermes\nAlbertus-Magnus-Platz\n50923 Köln"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/imp_l7" />
+
+    <TextView
+        android:id="@+id/terms_headline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Datenschutzerklärung"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/imp_l8" />
+
+    <TextView
+        android:id="@+id/terms_1"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/terms_headline"
+        android:text="Diese App erhebt und speichert selbst keinerlei persönliche Daten von Ihrem Smartphone."
+        />
+
+
+    <TextView
+        android:id="@+id/terms_2"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/terms_1"
+        android:text="Wir weisen Sie jedoch darauf hin, dass die Nutzung unserer Navigationsfunktion ihnen per Knopfdruck ermöglicht, die Google Maps-App Ihres Smartphones aufzurufen, um sich von der Google Maps-App zu den Veranstaltungsräumen navigieren zu lassen. Die Google Maps-App bezieht und verarbeitet persönliche Daten für seine Navigationsfunktionen. Für nähere Informationen informieren Sie sich bitte anhand der Google Datenschutzerklärung unter https://www.google.de/intl/de/policies/privacy/."
+        android:autoLink="web"
+        />
+
+    <TextView
+        android:id="@+id/terms_3"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/wrapper"
+        app:layout_constraintTop_toBottomOf="@id/terms_2"
+        android:text="Bitte haben Sie Verständnis dafür, dass diese App hierauf keinen Einfluss nehmen kann."
+        />
+
+</android.support.constraint.ConstraintLayout>
+</ScrollView>

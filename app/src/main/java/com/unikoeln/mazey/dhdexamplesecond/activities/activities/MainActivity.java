@@ -97,19 +97,22 @@ public class MainActivity extends AppCompatActivity
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
-    @Override
+    @Override       // navigation item is clicked
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // read item id
         int id = item.getItemId();
 
         Fragment fragment = null;
-
+        // switch cases with the id read from xml-file
         if (id == R.id.nav_events) {
             fragment = new WorkInProgressFragment();
         } else if (id == R.id.nav_timetable) {
             fragment = new WorkInProgressFragment();
         } else if (id == R.id.nav_navigation) {
             fragment = new MapFragment();
+            //if the item with the id nav_settings is read
         } else if (id == R.id.nav_settings) {
+            // save the new Object "ImprinFragment" in fragment
             fragment = new ImprintFragment();
         }
 

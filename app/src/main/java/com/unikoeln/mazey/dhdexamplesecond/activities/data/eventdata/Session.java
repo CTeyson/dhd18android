@@ -41,6 +41,8 @@ public class Session {
         this.sessionPresentations = sessionPresentations;
     }
 
+    // soooviele Getter...
+
     public int getSessionID() {
         return sessionID;
     }
