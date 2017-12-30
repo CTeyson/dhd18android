@@ -22,8 +22,8 @@ public class HttpURL {
     public HttpURL() {
         endpointEventor = "https://www.conftool.com/dhd2018/eventor.php?";
         endpointC4me = "https://www.conftool.com/dhd2018/c4me.php?";
-        keyEventor = "shZUfkNE";
-        keyC4me = "4umDj98Z";
+        keyEventor = "";
+        keyC4me = "";
     }
 
     // TODO Check why timestamp is behaving strangely
