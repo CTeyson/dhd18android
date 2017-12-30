@@ -13,11 +13,17 @@ import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.Session;
 
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
-public class WorkInProgressFragment extends Fragment {
+// TODO Access data via "singleton object"
+
+public class WorkInProgressFragment extends Fragment implements Observer {
 
     private View view;
     private TextView textView;
+
+    boolean sessionsLoaded;
 
     List<Session> sessions = null;
 
@@ -40,5 +46,8 @@ public class WorkInProgressFragment extends Fragment {
         });
     }
 
-
+    @Override
+    public void update(Observable observable, Object o) {
+        sessionsLoaded = (Boolean) o;
+    }
 }

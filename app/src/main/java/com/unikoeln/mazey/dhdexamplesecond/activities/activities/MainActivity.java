@@ -14,20 +14,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
-import com.unikoeln.mazey.dhdexamplesecond.activities.asynctask.ConfToolCommunication;
-import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.Session;
+import com.unikoeln.mazey.dhdexamplesecond.activities.utils.httpcommunication.NetworkComunicationVolley;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.location.MapFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.imprint.ImprintFragment;
 
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private List<Session> sessions = null;
-    private ConfToolCommunication communication;
+    private NetworkComunicationVolley comunicationVolley;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,23 +40,13 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        sessions = this.loadDataFromConfTool();
+        // TODO Make sure a valid internet connection is available
+
+        comunicationVolley = new NetworkComunicationVolley(this);
+        comunicationVolley.loadData();
 
         this.openWithEventOverview();
     }
-
-    private List<Session> loadDataFromConfTool() {
-        List<Session> tmp = null;
-        try {
-            communication = new ConfToolCommunication();
-            communication.execute();
-            tmp = communication.get();
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-        }
-        return tmp;
-    }
-
 
     private void openWithEventOverview() {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -106,6 +91,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_events) {
             fragment = new WorkInProgressFragment();
         } else if (id == R.id.nav_timetable) {
+            // TODO Implement a different placeholder
             fragment = new WorkInProgressFragment();
         } else if (id == R.id.nav_navigation) {
             fragment = new MapFragment();

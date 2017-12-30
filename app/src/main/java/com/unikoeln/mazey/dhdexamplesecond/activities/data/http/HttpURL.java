@@ -4,6 +4,8 @@ import com.unikoeln.mazey.dhdexamplesecond.activities.utils.Security;
 
 import java.sql.Timestamp;
 
+// TODO: Remove senstive data like passwords and keys
+
 public class HttpURL {
 
     private Timestamp timestamp = null;
@@ -18,22 +20,26 @@ public class HttpURL {
     private Security security = new Security("SHA-256");
 
     public HttpURL() {
-        timestamp = new Timestamp(System.currentTimeMillis());
         endpointEventor = "https://www.conftool.com/dhd2018/eventor.php?";
         endpointC4me = "https://www.conftool.com/dhd2018/c4me.php?";
-        timestampAsString = String.valueOf(timestamp.getTime());
         keyEventor = "shZUfkNE";
         keyC4me = "4umDj98Z";
-        stringToHashC4me = String.format("%1s%2s", timestampAsString, keyC4me);
-        stringToHashEventor = String.format("%1s%2s", timestampAsString, keyEventor);
     }
 
+    // TODO Check why timestamp is behaving strangely
+
     public String getResourceUrlEventor() {
+        timestamp = new Timestamp(System.currentTimeMillis() + 1000000);
+        timestampAsString = String.valueOf(timestamp.getTime());
+        stringToHashEventor = String.format("%1s%2s", timestampAsString, keyEventor);
         String sha256 = security.getHash(stringToHashEventor);
         return String.format("%1s%2s%3s%4s%5s", endpointEventor, "&nonce=", timestampAsString, "&passhash=", sha256);
     }
 
     public String getResourceUrlC4me() {
+        timestamp = new Timestamp(System.currentTimeMillis() + 10000000);
+        timestampAsString = String.valueOf(timestamp.getTime());
+        stringToHashC4me = String.format("%1s%2s", timestampAsString, keyC4me);
         String sha256 = security.getHash(stringToHashC4me);
         return String.format("%1s%2s%3s%4s%5s", endpointC4me, "&nonce=", timestampAsString, "&passhash=", sha256);
     }
