@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.main_activity, fragment);
-        transaction.add(R.id.main_activity, fragment);
         transaction.commit();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
