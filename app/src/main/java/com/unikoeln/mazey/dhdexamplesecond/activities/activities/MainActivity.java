@@ -14,15 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
-import com.unikoeln.mazey.dhdexamplesecond.activities.utils.httpcommunication.NetworkComunicationVolley;
+import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventDataOverviewFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.location.MapFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.imprint.ImprintFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    private NetworkComunicationVolley comunicationVolley;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,17 +38,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // TODO Make sure a valid internet connection is available
-
-        comunicationVolley = new NetworkComunicationVolley(this);
-        comunicationVolley.loadData();
-
         this.openWithEventOverview();
     }
 
     private void openWithEventOverview() {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_activity, new WorkInProgressFragment());
+        fragmentTransaction.replace(R.id.main_activity, new EventDataOverviewFragment());
         fragmentTransaction.commit();
     }
 
@@ -89,9 +82,8 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         if (id == R.id.nav_events) {
-            fragment = new WorkInProgressFragment();
+            fragment = new EventDataOverviewFragment();
         } else if (id == R.id.nav_timetable) {
-            // TODO Implement a different placeholder
             fragment = new WorkInProgressFragment();
         } else if (id == R.id.nav_navigation) {
             fragment = new MapFragment();
@@ -101,6 +93,7 @@ public class MainActivity extends AppCompatActivity
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.main_activity, fragment);
+        transaction.add(R.id.main_activity, fragment);
         transaction.commit();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
