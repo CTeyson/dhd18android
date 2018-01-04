@@ -16,6 +16,21 @@
 
     <string name="sample_abstract">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
 
+    <string name="imprint_privacy_headline">Impressum / Datenschutz</string>
+    <string name="imprint_headline">Impressum</string>
+    <string name="tmg_parag">Angaben gemäß § 5 TMG:</string>
+    <string name="institution_name">Universität zu Köln\nSprachliche Informationsverarbeitung\nInstitut für Linguistik</string>
+    <string name="adress">Albertus-Magnus-Platz\n50923 Köln</string>
+    <string name="accountable_person">Vertreten durch: Dr. Jürgen Hermes</string>
+    <string name="contact_headline">Kontakt:</string>
+    <string name="contact_details">Telefon: 0221/470 5193\nTelefax: 0221/470 4170\nE-Mail: buero@spinfo.uni-koeln.de\nInternet: http://www.spinfo.phil-fak.uni-koeln.de/</string>
+    <string name="rstv">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</string>
+    <string name="responsible_person_for_content">Dr. Jürgen Hermes\nAlbertus-Magnus-Platz\n50923 Köln</string>
+    <string name="privacy_headline">Datenschutzerklärung</string>
+    <string name="privacy_paragraph1">Diese App erhebt und speichert selbst keinerlei persönliche Daten von Ihrem Smartphone.</string>
+    <string name="privacy_paragraph2">Wir weisen Sie jedoch darauf hin, dass die Nutzung unserer Navigationsfunktion ihnen per Knopfdruck ermöglicht, die Google Maps-App Ihres Smartphones aufzurufen, um sich von der Google Maps-App zu den Veranstaltungsräumen navigieren zu lassen. Die Google Maps-App bezieht und verarbeitet persönliche Daten für seine Navigationsfunktionen. Für nähere Informationen informieren Sie sich bitte anhand der Google Datenschutzerklärung unter https://www.google.de/intl/de/policies/privacy/.</string>
+    <string name="privacy_paragraph3">Bitte haben Sie Verständnis dafür, dass diese App hierauf keinen Einfluss nehmen kann.</string>
+
     <string-array name="language_choices">
         <item>Deutsch</item>
         <item>Englisch</item>

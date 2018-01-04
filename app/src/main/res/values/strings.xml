@@ -13,4 +13,22 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="sample_abstract">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+
+    <string name="imprint_privacy_headline">Imprint / Privacy Policy</string>
+    <string name="imprint_headline">Imprint</string>
+    <string name="tmg_parag">General information of the service provider (§ 5 TMG):</string>
+    <string name="institution_name">University of Cologne\nSprachliche Informationsverarbeitung\nInstitut für Institute of Linguistics</string>
+    <string name="adress">Albertus-Magnus-Platz\n50923 Cologne</string>
+    <string name="accountable_person">Accountable person: Dr. Jürgen Hermes</string>
+    <string name="contact_headline">Contact:</string>
+    <string name="contact_details">Phone: 0221/470 5193\Fax: 0221/470 4170\nE-Mail: buero@spinfo.uni-koeln.de\nInternet: http://www.spinfo.phil-fak.uni-koeln.de/</string>
+    <string name="rstv">Responsible for the editorial content (§ 55 parag. 2 RStV):</string>
+    <string name="responsible_person_for_content">Dr. Jürgen Hermes\nAlbertus-Magnus-Platz\n50923 Cologne</string>
+    <string name="privacy_headline">Privacy Policy</string>
+    <string name="privacy_paragraph1">This mobile app is not actively extracting and saving any personal data from your smartphone.</string>
+    <string name="privacy_paragraph2">Please be advised though, that our navigation function allows you to open the Google Maps app of your device to help you navigate to the seminar buildings. The Google Maps app itself is saving several kinds of personal data for its navigation functions. Please consult the Google Privacy Policy for further information on the use of personal data of your Google Maps app: https://www.google.de/intl/en_de/policies/privacy/.</string>
+    <string name="privacy_paragraph3">Please be aware, that this mobile app has no influence on the data usage of other mobile apps like Google Maps.</string>
+
+
+
 </resources>
