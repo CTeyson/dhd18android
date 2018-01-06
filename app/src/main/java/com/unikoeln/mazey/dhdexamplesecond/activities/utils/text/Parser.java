@@ -1,7 +1,7 @@
 package com.unikoeln.mazey.dhdexamplesecond.activities.utils.text;
 
-import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.Presentation;
-import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.Session;
+import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.presentations.Presentation;
+import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.sessions.Session;
 
 import org.dom4j.Element;
 import org.dom4j.Node;

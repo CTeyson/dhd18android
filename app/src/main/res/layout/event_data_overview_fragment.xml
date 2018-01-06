@@ -6,12 +6,22 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/list_container">
 
         <ListView
-            android:id="@+id/event_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:id="@+id/list_event"
+            app:layout_constraintBottom_toBottomOf="@+id/list_container"
+            app:layout_constraintLeft_toLeftOf="@+id/list_container"
+            app:layout_constraintRight_toRightOf="@+id/list_container"
+            app:layout_constraintTop_toTopOf="@+id/list_container"
+            />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -20,7 +30,6 @@
         style="?android:progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"

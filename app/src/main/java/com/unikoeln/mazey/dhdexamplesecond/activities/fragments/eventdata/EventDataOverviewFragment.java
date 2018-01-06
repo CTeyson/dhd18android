@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.android.volley.Request;
@@ -21,7 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.unikoeln.mazey.dhdexamplesecond.R;
-import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.Session;
+import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.sessions.Session;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.http.HttpURL;
 import com.unikoeln.mazey.dhdexamplesecond.activities.utils.text.Parser;
 import com.unikoeln.mazey.dhdexamplesecond.activities.utils.text.XmlCreater;
@@ -38,6 +39,7 @@ public class EventDataOverviewFragment extends Fragment {
 
     private View view;
     private ProgressBar bar;
+    private ListView listView;
 
     private Context context;
 
@@ -50,15 +52,21 @@ public class EventDataOverviewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.event_data_overview_fragment, container, false);
         bar = view.findViewById(R.id.progress);
+        listView = view.findViewById(R.id.list_event);
 
-        context = view.getContext();
+//        List<EventData> eventData = DummyEventDataDummy.getInstance().getEventData();
+//
+//        ArrayAdapter adapter = new EventListArrayAdapter(getContext(), R.layout.event_list_item, eventData);
+//        listView.setAdapter(adapter);
 
-        if (this.isNetworkAvailable()) {
-            confToolCommunicationAsyncTask = new ConfToolCommunicationAsyncTask();
-            confToolCommunicationAsyncTask.execute();
-        } else {
-            this.makeSureThereIsValidConnectionSnack();
-        }
+//        context = view.getContext();
+//
+//        if (this.isNetworkAvailable()) {
+//            confToolCommunicationAsyncTask = new ConfToolCommunicationAsyncTask();
+//            confToolCommunicationAsyncTask.execute();
+//        } else {
+//            this.makeSureThereIsValidConnectionSnack();
+//        }
 
         return view;
     }
@@ -71,15 +79,6 @@ public class EventDataOverviewFragment extends Fragment {
             bar.setVisibility(View.GONE);
             Snackbar.make(view, String.valueOf(sessions.size()), Snackbar.LENGTH_SHORT).show();
         }
-    }
-
-    private void createSessionList(String serverResponse) {
-        Parser parser = new Parser();
-        XmlCreater creater = new XmlCreater();
-        Document document = creater.createXmlDocumentFromString(serverResponse);
-        List<Node> nodes = creater.getNodesOfXml(document, "//sessions/session");
-        this.sessions = parser.parseDataFromConfTool(nodes);
-        this.updateUI();
     }
 
     private void makeSureThereIsValidConnectionSnack() {
@@ -98,10 +97,17 @@ public class EventDataOverviewFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
 
+            Log.i("Server Communication", "Start request");
+
             HttpURL url = new HttpURL();
+
 
             RequestQueue queue = Volley.newRequestQueue(getContext());
             queue.add(new StringRequest(Request.Method.GET, url.getResourceUrlC4me(), new Response.Listener<String>() {
+
+                Parser parser = new Parser();
+                XmlCreater creater = new XmlCreater();
+
                 @Override
                 public void onResponse(String response) {
                     if (response.contains("<result>false</result>")) {
@@ -109,7 +115,12 @@ public class EventDataOverviewFragment extends Fragment {
                         updateUI();
                     } else {
                         Log.i("Check Server Response", "Success.");
-                        createSessionList(response);
+                        //createSessionList(response);
+                        Document document = creater.createXmlDocumentFromString(response);
+                        List<Node> nodes = creater.getNodesOfXml(document, "//sessions/session");
+                        sessions = parser.parseDataFromConfTool(nodes);
+                        updateUI();
+
                     }
                 }
             }, new Response.ErrorListener() {
@@ -121,5 +132,11 @@ public class EventDataOverviewFragment extends Fragment {
             }));
             return null;
         }
+
+        private void createSessionList(String serverResponse) {
+
+
+        }
+
     }
 }
