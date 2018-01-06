@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventDataOverviewFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventOverviewListFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.location.MapFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.imprint.ImprintFragment;
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity
 
     private void openWithEventOverview() {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_activity, new EventDataOverviewFragment());
+        fragmentTransaction.replace(R.id.main_activity, new EventOverviewListFragment());
         fragmentTransaction.commit();
     }
 
@@ -82,7 +83,8 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         if (id == R.id.nav_events) {
-            fragment = new EventDataOverviewFragment();
+           // fragment = new EventDataOverviewFragment();
+            fragment = new EventOverviewListFragment();
         } else if (id == R.id.nav_timetable) {
             fragment = new WorkInProgressFragment();
         } else if (id == R.id.nav_navigation) {
