@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_navigation) {
             fragment = new MapFragment();
         } else if (id == R.id.nav_settings) {
+            // save the new Object "ImprinFragment" in fragment
             fragment = new ImprintFragment();
         }
 
