@@ -1,4 +1,4 @@
-package com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata;
+package com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.presentations;
 
 public class Presentation {
 

@@ -1,4 +1,6 @@
-package com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata;
+package com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.sessions;
+
+import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.presentations.Presentation;
 
 import java.util.List;
 
