@@ -6,13 +6,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="16dp">
+>
 
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/wrapper"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         >
 
         <TextView
@@ -186,10 +186,12 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/privacy_paragraph3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/wrapper"
-            app:layout_constraintTop_toBottomOf="@id/privacy_paragraph2" />
+            app:layout_constraintTop_toBottomOf="@id/privacy_paragraph2"
+            app:layout_constraintBottom_toBottomOf="@id/wrapper"/>
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
