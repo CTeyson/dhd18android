@@ -1,17 +1,82 @@
 package com.unikoeln.mazey.dhdexamplesecond.activities.utils.text;
 
+import com.unikoeln.mazey.dhdexamplesecond.activities.data.EventItem;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.presentations.Presentation;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.sessions.Session;
 
 import org.dom4j.Element;
 import org.dom4j.Node;
+import org.jsoup.Jsoup;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Parser {
 
-    public List<Session> parseDataFromConfTool(List<Node> elements) {
+    public List<EventItem> createEventItemListFromLocalFile(List<Node> nodes) {
+
+        List<EventItem> events = new ArrayList<EventItem>();
+
+        for (int i = 0; i < nodes.size(); i++) {
+            Element element = (Element) nodes.get(i);
+
+            String eventStart = element.elementText("session_start");
+            String eventEnd = element.elementText("session_end");
+            int counter;
+
+            if (element.elementText("presentations") == null || element.elementText("presentations") == "") {
+                counter = 0;
+            } else {
+                counter = Integer.valueOf(element.elementText("presentations"));
+            }
+
+            events = getPresentationsFromLocalFile(events, element, eventStart, eventEnd, counter);
+        }
+        return events;
+    }
+
+    private List<EventItem> getPresentationsFromLocalFile(List<EventItem> events, Element element, String eventStart, String eventEnd, int counter) {
+        if (counter != 0) {
+            int countVariable = 1;
+            for (int j = 0; j < 69; j++) {
+                String pX = "p" + String.valueOf(countVariable);
+
+                if (element.elementText(pX + "_paperID") != "") {
+                    String eventTitle = element.elementText(pX + "_title");
+                    String eventAuthor = element.elementText(pX + "_presenting_author");
+                    String eventLocation = "Ort nicht bekannt";
+                    String eventAbstract = element.elementText(pX + "_abstract");
+
+                    eventAbstract = Jsoup.parse(eventAbstract).text();
+
+                    Date start = this.getDate(eventStart);
+                    Date end = this.getDate(eventEnd);
+
+                    events.add(new EventItem(eventTitle, eventAuthor, eventLocation, eventAbstract, start, end));
+                }
+
+                countVariable = countVariable + 1;
+            }
+        }
+        return events;
+    }
+
+    private Date getDate(String eventStart) {
+        Date tmp = null;
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+            tmp = dateFormat.parse(eventStart);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return tmp;
+    }
+
+    public List<Session> parseDataFromConfToolC4me(List<Node> elements) {
 
         Session session = null;
         List<Session> sessions = new ArrayList<Session>();
@@ -82,7 +147,7 @@ public class Parser {
             Presentation presentation = new Presentation(Integer.valueOf(paperId), paperContributionType, paperAuthors, paperOrganizations, paperPresentingAuthor, paperTitle, paperAbstract);
 
             tmpList.add(presentation);
-            counter = counter ++;
+            counter = counter++;
         }
         return tmpList;
     }

@@ -1,5 +1,7 @@
 package com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter;
 
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,13 +9,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.EventItem;
+import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class CustomArrayAdapter extends BaseAdapter {
     private boolean isBookmarked;
 
     static class ViewHolder {
+        TextView selelctor;
         TextView titleView;
         TextView descriptionView;
         TextView authorView;
@@ -65,6 +67,7 @@ public class CustomArrayAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.list_event_item, null);
             holder = new ViewHolder();
 
+            holder.selelctor = convertView.findViewById(R.id.event_separator);
             holder.titleView = (TextView) convertView.findViewById(R.id.title);
             holder.authorView = (TextView) convertView.findViewById(R.id.author);
             holder.descriptionView = (TextView) convertView.findViewById(R.id.description);
@@ -79,22 +82,39 @@ public class CustomArrayAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
+        String date = listData.get(position).getStartTime().toString();
+
+        String formatted = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
+
+        holder.selelctor.setText(formatted);
         holder.titleView.setText(listData.get(position).getTitle());
-        holder.authorView.setText(listData.get(position).getAuthor());
+        holder.authorView.setText(listData.get(position).getAuthor().replaceAll(";", ""));
         holder.descriptionView.setText(listData.get(position).getDescription());
-        holder.locationView.setText(listData.get(position).getLocation());
+        holder.locationView.setText(listData.get(position).getLocation() + ", ");
         holder.reportedDateView.setText(getTime(position));
 
+        holder.descriptionView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                WorkInProgressFragment eventOverviewListFragment = new WorkInProgressFragment();
+                FragmentTransaction transaction = ((Activity) context).getFragmentManager().beginTransaction();
+                transaction.addToBackStack(null);
+                transaction.add(R.id.main_activity, eventOverviewListFragment);
+                transaction.commit();
+            }
+        });
+
+
+        // TODO Refactor
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!isBookmarked) {
-                    holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
-                    isBookmarked = true;
-                } else {
+                if (isBookmarked) {
                     holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
-                    isBookmarked = false;
+                } else {
+                    holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
                 }
+                isBookmarked = !isBookmarked;
             }
         });
 
@@ -105,12 +125,9 @@ public class CustomArrayAdapter extends BaseAdapter {
 
         Date start = listData.get(position).getStartTime();
         Date end = listData.get(position).getEndTime();
-        String startTime = start.toString();
-        String endTime = end.toString();
 
-        return String.format("%1s%2s%3s", start.toString().substring(11, 19), " - ", end.toString().substring(11, 19));
+        return String.format("%1s%2s%3s", start.toString().substring(11, 16), " - ", end.toString().substring(11, 16));
     }
-
 
 
 }

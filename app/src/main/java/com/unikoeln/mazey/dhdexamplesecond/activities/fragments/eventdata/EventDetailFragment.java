@@ -21,14 +21,6 @@ public class EventDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.test, container, false);
 
-        textView = view.findViewById(R.id.test);
-
-
-
-        String title = this.getArguments().getString("title");
-
-        textView.setText(title);
-
         return view;
     }
 }

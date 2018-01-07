@@ -14,11 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
-import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventDataOverviewFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.data.EventItem;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventOverviewListFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.location.MapFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.imprint.ImprintFragment;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -100,5 +102,9 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public List<EventItem> getList() {
+        return null;
     }
 }

@@ -118,7 +118,7 @@ public class EventDataOverviewFragment extends Fragment {
                         //createSessionList(response);
                         Document document = creater.createXmlDocumentFromString(response);
                         List<Node> nodes = creater.getNodesOfXml(document, "//sessions/session");
-                        sessions = parser.parseDataFromConfTool(nodes);
+                        sessions = parser.parseDataFromConfToolC4me(nodes);
                         updateUI();
 
                     }
