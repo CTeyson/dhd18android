@@ -17,6 +17,12 @@
 
     <string name="sample_abstract">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
 
+    <string name="map_marker_headline">Dhd Conference 2018</string>
+    <string name="map_marker_mainbuilding">Mainbuilding</string>
+    <string name="map_marker_seminarbuilding">Seminarbuilding</string>
+    <string name="map_marker_mensa">University Cafeteria</string>
+    <string name="map_marker_artheatre">Artheatre</string>
+
     <string name="imprint_privacy_headline">Imprint / Privacy Policy</string>
     <string name="imprint_headline">Imprint</string>
     <string name="tmg_parag">General information of the service provider (§ 5 TMG):</string>

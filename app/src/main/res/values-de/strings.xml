@@ -16,6 +16,12 @@
 
     <string name="sample_abstract">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
 
+    <string name="map_marker_headline">Dhd Konferenz 2018</string>
+    <string name="map_marker_mainbuilding">Hauptgebäude</string>
+    <string name="map_marker_seminarbuilding">Seminargebäude</string>
+    <string name="map_marker_mensa">Uni-Mensa</string>
+    <string name="map_marker_artheatre">Artheater</string>
+
     <string name="imprint_privacy_headline">Impressum / Datenschutz</string>
     <string name="imprint_headline">Impressum</string>
     <string name="tmg_parag">Angaben gemäß § 5 TMG:</string>
