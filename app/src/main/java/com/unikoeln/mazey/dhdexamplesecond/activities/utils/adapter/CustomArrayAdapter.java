@@ -3,6 +3,7 @@ package com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.EventItem;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventDetailFragment;
 
 import java.util.Collections;
 import java.util.Date;
@@ -60,7 +62,7 @@ public class CustomArrayAdapter extends BaseAdapter {
         return position;
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final ViewHolder holder;
         if (convertView == null) {
             layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -82,9 +84,10 @@ public class CustomArrayAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        String date = listData.get(position).getStartTime().toString();
 
-        String formatted = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
+        final String date = listData.get(position).getStartTime().toString();
+
+        final String formatted = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
         holder.selelctor.setText(formatted);
         holder.titleView.setText(listData.get(position).getTitle());
@@ -96,10 +99,21 @@ public class CustomArrayAdapter extends BaseAdapter {
         holder.descriptionView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WorkInProgressFragment eventOverviewListFragment = new WorkInProgressFragment();
+                EventDetailFragment eventDetailFragment = new EventDetailFragment();
+
+                Bundle event = new Bundle();
+                event.putString("Title", listData.get(position).getTitle());
+                event.putString("Abstract", listData.get(position).getDescription());
+                event.putString("Author", listData.get(position).getAuthor().replaceAll(";", ""));
+                event.putString("Location", listData.get(position).getLocation());
+                event.putString("Time", getTime(position));
+                event.putString("Date", formatted);
+                eventDetailFragment.setArguments(event);
+
                 FragmentTransaction transaction = ((Activity) context).getFragmentManager().beginTransaction();
                 transaction.addToBackStack(null);
-                transaction.add(R.id.main_activity, eventOverviewListFragment);
+
+                transaction.replace(R.id.main_activity, eventDetailFragment);
                 transaction.commit();
             }
         });
