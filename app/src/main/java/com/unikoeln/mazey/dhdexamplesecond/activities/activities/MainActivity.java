@@ -15,10 +15,13 @@ import android.view.MenuItem;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventDataOverviewFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.FavoriteListFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventOverviewListFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.location.MapFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.imprint.ImprintFragment;
+
+import junit.framework.Test;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -86,7 +89,8 @@ public class MainActivity extends AppCompatActivity
            // fragment = new EventDataOverviewFragment();
             fragment = new EventOverviewListFragment();
         } else if (id == R.id.nav_timetable) {
-            fragment = new WorkInProgressFragment();
+            fragment = new FavoriteListFragment();
+            //fragment = new WorkInProgressFragment();
         } else if (id == R.id.nav_navigation) {
             fragment = new MapFragment();
         } else if (id == R.id.nav_settings) {
@@ -101,4 +105,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

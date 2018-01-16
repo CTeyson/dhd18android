@@ -1,3 +1,5 @@
+//detaillierte Ansicht der ausgewählten Veranstaltung
+
 package com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata;
 
 import android.app.Fragment;
@@ -22,8 +24,6 @@ public class EventDetailFragment extends Fragment {
         view = inflater.inflate(R.layout.test, container, false);
 
         textView = view.findViewById(R.id.test);
-
-
 
         String title = this.getArguments().getString("title");
 

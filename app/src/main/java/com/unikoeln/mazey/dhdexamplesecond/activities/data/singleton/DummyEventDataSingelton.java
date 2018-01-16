@@ -10,7 +10,6 @@ public class DummyEventDataSingelton {
 
     private List<EventItem> dummyDataList;
 
-
     public static DummyEventDataSingelton getInstance(){
         return new DummyEventDataSingelton();
     }

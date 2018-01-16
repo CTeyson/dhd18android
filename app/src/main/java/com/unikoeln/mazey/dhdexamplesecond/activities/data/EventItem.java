@@ -13,6 +13,7 @@ private String location;
 private String description;
 private Date startTime;
 private Date endTime;
+ public boolean isSelected;
 
 public EventItem(String title, String author, String location, String description, Date startTime, Date endTime) {
     this.title = title;
@@ -70,6 +71,7 @@ public EventItem(String title, String author, String location, String descriptio
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
+
 
     @Override
     public boolean equals(Object o) {
