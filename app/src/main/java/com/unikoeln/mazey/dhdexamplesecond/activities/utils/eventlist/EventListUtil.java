@@ -12,7 +12,7 @@ import java.util.List;
 public class EventListUtil {
 
     public List<EventItem> initList(String content) {
-        List<EventItem> events = null;
+        List<EventItem> events;
         XMLParser parser = new XMLParser();
         XMLCreater xml = new XMLCreater();
         Document document = xml.createXmlDocumentFromString(content);
