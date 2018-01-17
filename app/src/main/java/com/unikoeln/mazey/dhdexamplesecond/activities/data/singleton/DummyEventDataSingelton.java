@@ -1,6 +1,6 @@
 package com.unikoeln.mazey.dhdexamplesecond.activities.data.singleton;
 
-import com.unikoeln.mazey.dhdexamplesecond.activities.data.EventItem;
+import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
 
 import java.util.ArrayList;
 import java.util.Date;
