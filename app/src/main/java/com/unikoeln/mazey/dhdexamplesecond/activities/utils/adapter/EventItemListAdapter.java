@@ -32,7 +32,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
         View view;
 
-        TextView selelctor;
+        TextView selector;
         TextView titleView;
         TextView descriptionView;
         TextView authorView;
@@ -45,7 +45,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
             this.view = view;
 
-            selelctor = view.findViewById(R.id.event_separator);
+            selector = view.findViewById(R.id.event_separator);
             titleView =  view.findViewById(R.id.title);
             authorView =  view.findViewById(R.id.author);
             descriptionView =  view.findViewById(R.id.description);
@@ -71,7 +71,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
         final String formatted = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
-        holder.selelctor.setText(formatted);
+        holder.selector.setText(formatted);
         holder.titleView.setText(events.get(position).getTitle());
         holder.authorView.setText(events.get(position).getAuthor().replaceAll(";", ""));
         holder.descriptionView.setText(events.get(position).getDescription());
