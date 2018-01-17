@@ -12,8 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
-import com.unikoeln.mazey.dhdexamplesecond.activities.data.EventItem;
-import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventDetailFragment;
 
 import java.util.Collections;
