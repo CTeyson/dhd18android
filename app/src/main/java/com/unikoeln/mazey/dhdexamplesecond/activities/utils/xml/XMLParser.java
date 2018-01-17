@@ -1,6 +1,6 @@
-package com.unikoeln.mazey.dhdexamplesecond.activities.utils.text;
+package com.unikoeln.mazey.dhdexamplesecond.activities.utils.xml;
 
-import com.unikoeln.mazey.dhdexamplesecond.activities.data.EventItem;
+import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.presentations.Presentation;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.sessions.Session;
 
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Parser {
+public class XMLParser {
 
     public List<EventItem> createEventItemListFromLocalFile(List<Node> nodes) {
 
@@ -135,6 +135,7 @@ public class Parser {
         List<Presentation> tmpList = new ArrayList<Presentation>();
         int counter = 1;
         for (int j = 0; j < sessionPresentations; j++) {
+
             String pX = "p" + String.valueOf(counter);
             String paperId = element.elementText(pX + "_paperID");
             String paperContributionType = element.elementText(pX + "_contribution_type");
