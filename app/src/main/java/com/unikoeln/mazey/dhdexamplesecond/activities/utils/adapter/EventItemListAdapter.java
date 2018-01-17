@@ -99,8 +99,6 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                 transaction.commit();
             }
         });
-
-
     }
 
     @Override
