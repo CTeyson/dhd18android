@@ -1,4 +1,4 @@
-package com.unikoeln.mazey.dhdexamplesecond.activities.utils;
+package com.unikoeln.mazey.dhdexamplesecond.activities.utils.security;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
