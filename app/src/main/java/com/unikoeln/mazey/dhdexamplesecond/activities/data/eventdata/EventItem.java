@@ -1,11 +1,12 @@
-package com.unikoeln.mazey.dhdexamplesecond.activities.data;
+package com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata;
 
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class EventItem implements Comparable<EventItem> {
+public class EventItem implements Comparable<EventItem>, Serializable {
 
     private String title;
     private String author;
@@ -86,7 +87,6 @@ public class EventItem implements Comparable<EventItem> {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(title, author, location, description, startTime, endTime);
     }
 
@@ -101,7 +101,6 @@ public class EventItem implements Comparable<EventItem> {
                 ", endTime=" + endTime +
                 '}';
     }
-
 
     @Override
     public int compareTo(@NonNull EventItem eventItem) {
