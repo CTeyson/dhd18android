@@ -14,7 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
-import com.unikoeln.mazey.dhdexamplesecond.activities.data.EventItem;
+import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventOverviewListFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.location.MapFragment;
