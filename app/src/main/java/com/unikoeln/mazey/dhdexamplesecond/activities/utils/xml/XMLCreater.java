@@ -1,4 +1,4 @@
-package com.unikoeln.mazey.dhdexamplesecond.activities.utils.text;
+package com.unikoeln.mazey.dhdexamplesecond.activities.utils.xml;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -7,7 +7,7 @@ import org.dom4j.Node;
 
 import java.util.List;
 
-public class XmlCreater {
+public class XMLCreater {
 
     private Document document = null;
 
