@@ -38,6 +38,27 @@
     <string name="privacy_paragraph2">Please be advised though, that our navigation function allows you to open the Google Maps app of your device to help you navigate to the seminar buildings. The Google Maps app itself is saving several kinds of personal data for its navigation functions. Please consult the Google Privacy Policy for further information on the use of personal data of your Google Maps app: https://www.google.de/intl/en_de/policies/privacy/.</string>
     <string name="privacy_paragraph3">Please be aware, that this mobile app has no influence on the data usage of other mobile apps like Google Maps.</string>
 
+    <string name="filter_title_time">Time</string>
+    <string name="filter_title_day">Day</string>
+
+    <string-array name="time_slots">
+        <item>9:00 - 10:30</item>
+        <item>11:00 - 12:30</item>
+        <item>14:00 - 15:30</item>
+        <item>16:00 - 17:30</item>
+        <item>17:45 - 19:15</item>
+        <item>All Day</item>
+    </string-array>
+
+    <string-array name="day_slots">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
+
+
     <string-array name="language_choices">
         <item>German</item>
         <item>English</item>

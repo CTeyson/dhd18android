@@ -37,8 +37,37 @@
     <string name="privacy_paragraph2">Wir weisen Sie jedoch darauf hin, dass die Nutzung unserer Navigationsfunktion ihnen per Knopfdruck ermöglicht, die Google Maps-App Ihres Smartphones aufzurufen, um sich von der Google Maps-App zu den Veranstaltungsräumen navigieren zu lassen. Die Google Maps-App bezieht und verarbeitet persönliche Daten für seine Navigationsfunktionen. Für nähere Informationen informieren Sie sich bitte anhand der Google Datenschutzerklärung unter https://www.google.de/intl/de/policies/privacy/.</string>
     <string name="privacy_paragraph3">Bitte haben Sie Verständnis dafür, dass diese App hierauf keinen Einfluss nehmen kann.</string>
 
+
+
+
+    <string name="filter_title_time">Zeit</string>
+    <string name="filter_title_day">Tag</string>
+
+    <string-array name="time_slots">
+        <item>9:00 - 10:30</item>
+        <item>11:00 - 12:30</item>
+        <item>14:00 - 15:30</item>
+        <item>16:00 - 17:30</item>
+        <item>17:45 - 19:15</item>
+        <item>All Day</item>
+    </string-array>
+
+    <string-array name="day_slots">
+        <item>Montag</item>
+        <item>Dienstag</item>
+        <item>Mittwoch</item>
+        <item>Donnerstag</item>
+        <item>Freitag</item>
+    </string-array>
+
+
     <string-array name="language_choices">
         <item>Deutsch</item>
         <item>Englisch</item>
     </string-array>
+
+
+
+
+
 </resources>

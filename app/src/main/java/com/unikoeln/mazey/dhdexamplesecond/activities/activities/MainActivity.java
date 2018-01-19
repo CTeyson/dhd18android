@@ -17,6 +17,7 @@ import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.asynctask.ConfToolCommunication;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.Session;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.filtered_calendar.filtered_calendarFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.location.MapFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.imprint.ImprintFragment;
 
@@ -108,7 +109,9 @@ public class MainActivity extends AppCompatActivity
             fragment = new WorkInProgressFragment();
         } else if (id == R.id.nav_timetable) {
             fragment = new WorkInProgressFragment();
-        } else if (id == R.id.nav_navigation) {
+        } else if (id == R.id.filtered_nav_events) {
+            fragment = new filtered_calendarFragment();
+        }  else if (id == R.id.nav_navigation) {
             fragment = new MapFragment();
             //if the item with the id nav_settings is read
         } else if (id == R.id.nav_settings) {
