@@ -33,6 +33,14 @@ dependencies {
     // Library for doing network requests
     compile 'com.android.volley:volley:1.1.0'
 
+    repositories {
+        maven {
+            url 'https://maven.google.com'
+        }
+    }
+
+    compile 'com.android.support.constraint:constraint-layout:1.1.0-beta1'
+
     // External Libraries
     implementation 'com.google.android.gms:play-services-maps:11.6.2'
 
