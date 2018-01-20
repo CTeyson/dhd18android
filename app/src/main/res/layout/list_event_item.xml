@@ -29,26 +29,19 @@
         android:text="Kuchen"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/event_separator" />
+        app:layout_constraintTop_toBottomOf="@id/event_separator"
+        android:ellipsize="end"
+        android:maxLines="3"/>
 
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Halloooooo"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title" />
 
     <TextView
         android:id="@+id/author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Geschrieben"
-        android:maxLines="1"
+        android:maxLines="2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
@@ -56,23 +49,37 @@
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:text="ORT"
-        app:layout_constraintBaseline_toBaselineOf="@id/time"
-        app:layout_constraintRight_toLeftOf="@id/time" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="0dp"
+        android:text="Halloooooo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/location" />
 
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="84dp"
+        android:maxLines="5"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="8dp"
         android:text="@string/sample_abstract"
+        android:ellipsize="end"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/author" />
+        app:layout_constraintTop_toBottomOf="@+id/time"
+
+        />
 
     <!--android:fadingEdgeLength="100dp"
         android:requiresFadingEdge="vertical"-->
