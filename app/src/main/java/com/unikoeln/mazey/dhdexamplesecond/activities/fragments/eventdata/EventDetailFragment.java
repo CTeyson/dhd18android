@@ -3,8 +3,8 @@ package com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
-import com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter.CustomArrayAdapter;
+
+import java.util.Calendar;
 
 public class EventDetailFragment extends Fragment {
-
-    TextView textView;
 
     private View view;
 
@@ -25,7 +24,7 @@ public class EventDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.event_detail_fragment, container, false);
 
-
+        // Strings aus EventOverviewList holen
         String strAbstractText = getArguments().getString("Abstract");
         String strTitleText = getArguments().getString("Title");
         String strAuthorText = getArguments().getString("Author");
@@ -33,14 +32,18 @@ public class EventDetailFragment extends Fragment {
         String strTimeText = getArguments().getString("Time");
         String strDateText = getArguments().getString("Date");
 
+        // TextViews definieren
+        TextView abstractText = view.findViewById(R.id.event_abstract);
+        TextView titleText = view.findViewById(R.id.event_title);
+        TextView authorText = view.findViewById(R.id.event_author);
+        TextView locationText = view.findViewById(R.id.event_location);
+        TextView timeText = view.findViewById(R.id.event_time);
+        TextView dateText = view.findViewById(R.id.event_separator);
 
-        TextView abstractText = (TextView) view.findViewById(R.id.event_abstract);
-        TextView titleText = (TextView) view.findViewById(R.id.event_title);
-        TextView authorText = (TextView) view.findViewById(R.id.event_author);
-        TextView locationText = (TextView) view.findViewById(R.id.event_location);
-        TextView timeText = (TextView) view.findViewById(R.id.event_time);
-        TextView dateText = (TextView) view.findViewById(R.id.event_separator);
+        ImageView shareImg = view.findViewById(R.id.event_share);
+        ImageView calImg = view.findViewById(R.id.event_calendar);
 
+        // Strings den TextViews zuweisen
         abstractText.setText(strAbstractText);
         titleText.setText(strTitleText);
         authorText.setText(strAuthorText);
@@ -48,55 +51,124 @@ public class EventDetailFragment extends Fragment {
         timeText.setText(strTimeText);
         dateText.setText(strDateText);
 
-/*      Muss noch zweisprachig gestaltet werden
+        // Format des Datums verschönern
         if (strDateText.contains("26 Feb")) {
-            dateText.setText("Montag, 26.02.2018");
+            dateText.setText(getString(R.string.monday));
         }
         else if (strDateText.contains("27 Feb")) {
-            dateText.setText("Dienstag, 27.02.2018");
+            dateText.setText(getString(R.string.tuesday));
         }
-        else if (strDateText.contains("28  Feb")) {
-            dateText.setText("Mittwoch, 28.02.2018");
+        else if (strDateText.contains("28 Feb")) {
+            dateText.setText(getString(R.string.wednesday));
         }
         else if (strDateText.contains("01 Mar")) {
-            dateText.setText("Donnerstag, 01.03.2018");
+            dateText.setText(getString(R.string.thursday));
         }
         else if (strDateText.contains("02 Mar")) {
-            dateText.setText("Freitag, 02.03.2018");
-        }*/
+            dateText.setText(getString(R.string.friday));
+        }
 
-        ImageView myImg = (ImageView) view.findViewById(R.id.event_share);
-        myImg.setOnClickListener(new View.OnClickListener() {
+        shareImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shareIt();
+                shareEvent();
+            }
+        });
+        calImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToCalendar();
             }
         });
 
         return view;
     }
 
-
-    private void shareIt() {
+    // Share-Button: Zu teilenden Text erstellen und per Intent mit externer App teilen
+    private void shareEvent() {
         String strDateText = getArguments().getString("Date");
         String strTimeText = getArguments().getString("Time");
         String strTitleText = getArguments().getString("Title");
-        //String strLocationText = getArguments().getString("Location");
+        String strLocationText = getArguments().getString("Location");
+        String shareVia = getString(R.string.share_via);
+
+        if (strDateText.contains("26 Feb")) {
+            getString(R.string.monday_short);
+        }
+        else if (strDateText.contains("27 Feb")) {
+            getString(R.string.tuesday_short);
+        }
+        else if (strDateText.contains("28 Feb")) {
+            getString(R.string.wednesday_short);
+        }
+        else if (strDateText.contains("01 Mar")) {
+            getString(R.string.thursday_short);
+        }
+        else if (strDateText.contains("02 Mar")) {
+            getString(R.string.friday_short);
+        }
+
+        String shareOutput = ("DHd 2018: " + strDateText + ", " + strTimeText + ": " + strTitleText);
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, shareOutput);
+        sendIntent.setType("text/plain");
+        startActivity(Intent.createChooser(sendIntent, shareVia));
+    }
+
+    // Kalendar-Button: Daten zum Event sammeln und per Intent in Kalendar-App übergeben
+    private void addToCalendar() {
+        String strTitleText = getArguments().getString("Title");
+        String strDateText = getArguments().getString("Date");
+        String strTimeText = getArguments().getString("Time");
+        String strLocationText = getArguments().getString("Location");
+
+        int year = 2018;
+        int month = 0;
+        int day = 0;
+        int hStart = Integer.parseInt(strTimeText.substring(0,2));
+        int mStart = Integer.parseInt(strTimeText.substring(3,5));
+        int hEnd = Integer.parseInt(strTimeText.substring(8,10));
+        int mEnd = Integer.parseInt(strTimeText.substring(11,13));
+
         StringBuilder sb = new StringBuilder();
         sb.append("DHd 2018: ");
-        sb.append(strDateText);
-        sb.append(", ");
-        sb.append(strTimeText);
-        sb.append(": ");
         sb.append(strTitleText);
 
-        sendIntent.putExtra(Intent.EXTRA_TEXT, sb.toString());
+        if (strDateText.contains("26 Feb")) {
+            month = 01;
+            day = 26;
+        }
+        else if (strDateText.contains("27 Feb")) {
+            month = 01;
+            day = 27;
+        }
+        else if (strDateText.contains("28 Feb")) {
+            month = 01;
+            day = 28;
+        }
+        else if (strDateText.contains("01 Mar")) {
+            month = 02;
+            day = 01;
+        }
+        else if (strDateText.contains("02 Mar")) {
+            month = 02;
+            day = 02;
+        }
 
-        sendIntent.setType("text/plain");
-        startActivity(sendIntent);
+        Calendar beginTime = Calendar.getInstance();
+        beginTime.set(year, month, day, hStart, mStart);
+        Calendar endTime = Calendar.getInstance();
+        endTime.set(year, month, day, hEnd, mEnd);
+        Intent intent = new Intent(Intent.ACTION_INSERT)
+                .setData(CalendarContract.Events.CONTENT_URI)
+                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
+                .putExtra(CalendarContract.Events.TITLE, sb.toString())
+                .putExtra(CalendarContract.Events.EVENT_LOCATION, strLocationText);
+
+        startActivity(intent);
     }
 
 }
