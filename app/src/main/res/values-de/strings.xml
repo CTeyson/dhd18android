@@ -39,7 +39,7 @@
 
 
 
-
+    <string name="filter_headline">Veranstaltungen filtern:</string>
     <string name="filter_title_time">Zeit</string>
     <string name="filter_title_day">Tag</string>
 

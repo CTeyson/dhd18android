@@ -36,7 +36,7 @@
     <string name="privacy_paragraph2">Please be advised though, that our navigation function allows you to open the Google Maps app of your device to help you navigate to the seminar buildings. The Google Maps app itself is saving several kinds of personal data for its navigation functions. Please consult the Google Privacy Policy for further information on the use of personal data of your Google Maps app: https://www.google.de/intl/en_de/policies/privacy/.</string>
     <string name="privacy_paragraph3">Please be aware, that this mobile app has no influence on the data usage of other mobile apps like Google Maps.</string>
 
-
+    <string name="filter_headline">Filter events:</string>
     <string name="filter_title_time">Time</string>
     <string name="filter_title_day">Day</string>
 
