@@ -2,8 +2,9 @@
 <resources>
     <string name="app_name_dhd">DHd Conference 2018</string>
     <string name="veranstaltungen">Events</string>
-    <string name="veranstaltungsort">Location</string>
     <string name="timetable">Bookmarked Events</string>
+    <string name="filter_events">Filter Events</string>
+    <string name="veranstaltungsort">Location</string>
     <string name="imprint">Imprint</string>
     <string name="subtitle">Criticism of digital reason</string>
     <string name="settings_language">Language:</string>
