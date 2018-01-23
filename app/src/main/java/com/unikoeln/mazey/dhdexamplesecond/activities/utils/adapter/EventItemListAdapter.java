@@ -57,7 +57,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             locationView =  view.findViewById(R.id.location);
             reportedDateView =  view.findViewById(R.id.time);
             imageView = view.findViewById(R.id.bookmark);
-            imageView.setTag(R.id.bookmark);
+            //imageView.setTag(R.id.bookmark);
 
         }
     }

@@ -29,6 +29,8 @@ public class FavoriteEventAdapter extends BaseAdapter{
         TextView autor;
         TextView ort;
         ImageView delete;
+
+        TextView selector;
     }
 
     public FavoriteEventAdapter(Context context, List<EventItem> boomarkedData) {
@@ -63,6 +65,8 @@ public class FavoriteEventAdapter extends BaseAdapter{
             holder.autor = (TextView) convertView.findViewById(R.id.autor);
             holder.ort = (TextView) convertView.findViewById(R.id.ort);
 
+            holder.selector = (TextView) convertView.findViewById(R.id.separator);
+
             convertView.setTag(holder);
 
         } else {
@@ -72,6 +76,12 @@ public class FavoriteEventAdapter extends BaseAdapter{
         holder.titel.setText(boomarkedData.get(position).getTitle());
         holder.autor.setText(boomarkedData.get(position).getAuthor());
         holder.ort.setText(boomarkedData.get(position).getLocation());
+
+        final String date = boomarkedData.get(position).getStartTime().toString();
+
+        final String angepasst = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
+
+        holder.selector.setText(angepasst);
 
         /*ermöglicht löschen*/
         holder.delete = (ImageView) convertView.findViewById(R.id.delete);
