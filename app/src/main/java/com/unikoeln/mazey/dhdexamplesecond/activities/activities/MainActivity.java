@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventFavoriteFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventOverviewListFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.FilterEventsFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.location.MapFragment;
@@ -83,7 +84,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_events) {
             fragment = new EventOverviewListFragment();
         } else if (id == R.id.nav_timetable) {
-            fragment = new WorkInProgressFragment();
+            fragment = new EventFavoriteFragment();
+           // fragment = new WorkInProgressFragment();
         } else if (id == R.id.nav_filter_events) {
             fragment = new FilterEventsFragment();
         } else if (id == R.id.nav_navigation) {

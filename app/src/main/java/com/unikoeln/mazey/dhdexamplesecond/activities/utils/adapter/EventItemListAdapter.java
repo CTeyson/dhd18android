@@ -10,10 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventDetailFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.utils.SharedPreference;
 
 import java.util.Date;
 import java.util.List;
@@ -23,9 +25,12 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
     private List<EventItem> events;
     private Context context;
 
+    SharedPreference sharedPreference;
+
     public EventItemListAdapter(List<EventItem> events, Context context) {
         this.events = events;
         this.context = context;
+        sharedPreference = new SharedPreference();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -64,8 +69,9 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         return new ViewHolder(view);
     }
 
+    //holder musste wegen Vergleich auf final gesetzt werden
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         final String date = events.get(position).getStartTime().toString();
 
@@ -99,6 +105,39 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                 transaction.commit();
             }
         });
+
+        //set tag
+        if (checkFavoriteItem(events.get(position))) {
+            holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
+            holder.imageView.setTag("checked");
+        } else {
+            holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
+            holder.imageView.setTag("removed");
+            System.out.println("gelöscht wurde: " + events.get(position));
+        }
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tag = holder.imageView.getTag().toString();
+
+                if(tag.equalsIgnoreCase("removed")){
+                    sharedPreference.addFavorite(context, events.get(position));
+                    holder.imageView.setTag("checked");
+                    holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
+                    notifyDataSetChanged();
+                    System.out.println("Element : " + events.get(position) + " wurde hinzugefügt !");
+                    Toast.makeText(context, "Wurde erfolgreich hinzugefügt!", Toast.LENGTH_SHORT).show();
+                }else{
+                    sharedPreference.removeFavorite(context, events.get(position));
+                    holder.imageView.setTag("removed");
+                    holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
+                    notifyDataSetChanged();
+                    Toast.makeText(context, "Wurde erfolgreich gelöscht!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -112,6 +151,21 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         Date end = events.get(position).getEndTime();
 
         return String.format("%1s%2s%3s", start.toString().substring(11, 16), " - ", end.toString().substring(11, 16));
+    }
+
+    public boolean checkFavoriteItem(EventItem checkEvent) {
+        boolean check = false;
+        List<EventItem> favorites = sharedPreference.getFavorites(context);
+        if (favorites != null) {
+            for (EventItem item : favorites) {
+                if (item.equals(checkEvent)) {
+                    check = true;
+                    break;
+                }
+            }
+        }
+
+        return check;
     }
 
 

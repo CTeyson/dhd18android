@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/haupt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="8dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/favoritenListe"
+        app:layout_constraintBottom_toBottomOf="@+id/haupt"
+        app:layout_constraintLeft_toLeftOf="@+id/haupt"
+        app:layout_constraintRight_toRightOf="@+id/haupt"
+        app:layout_constraintTop_toTopOf="@+id/haupt"
+        />
+
+</android.support.constraint.ConstraintLayout>
+
+    <!--markierte Veranstaltungen Übersicht Liste Layout-->

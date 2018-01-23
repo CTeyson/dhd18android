@@ -1,6 +1,6 @@
 package com.unikoeln.mazey.dhdexamplesecond.activities.data.http;
 
-import com.unikoeln.mazey.dhdexamplesecond.activities.utils.Security;
+import com.unikoeln.mazey.dhdexamplesecond.activities.utils.security.Security;
 
 import java.sql.Timestamp;
 import java.util.Date;
