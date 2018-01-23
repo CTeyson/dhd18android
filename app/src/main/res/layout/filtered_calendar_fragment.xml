@@ -75,11 +75,12 @@
     <android.support.v7.widget.RecyclerView
 
         android:id="@+id/list_event"
-        android:layout_width="match_parent"
+        android:layout_width="395dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1.0"
         android:clipToPadding="false"
+        android:minHeight="500dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/filter_dropdown_time">
@@ -88,5 +89,9 @@
 
 
 </android.support.constraint.ConstraintLayout>
+
+
+
+
 
 

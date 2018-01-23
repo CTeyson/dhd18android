@@ -6,24 +6,22 @@
     <group
         android:id="@+id/menu_top"
         android:checkableBehavior="single">
-    <item
-        android:id="@+id/nav_events"
-        android:icon="@drawable/ic_event_black_24dp"
-        android:title="@string/veranstaltungen" />
-
-    <item
-        android:id="@+id/filtered_nav_events"
-        android:icon="@drawable/ic_bookmark_border_black_24dp_copy"
-        android:title="@string/veranstaltungen" />
-
-    <item
-        android:id="@+id/nav_timetable"
-        android:icon="@drawable/ic_list_black_24dp"
-        android:title="@string/timetable" />
-    <item
-        android:id="@+id/nav_navigation"
-        android:icon="@drawable/ic_navigation_black_24dp"
-        android:title="@string/veranstaltungsort" />
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/ic_event_black_24dp"
+            android:title="@string/veranstaltungen" />
+        <item
+            android:id="@+id/nav_timetable"
+            android:icon="@drawable/ic_list_black_24dp"
+            android:title="@string/timetable" />
+        <item
+            android:id="@+id/nav_filter_events"
+            android:icon="@drawable/ic_bookmark_border_black_24dp"
+            android:title="@string/filter_events" />
+        <item
+            android:id="@+id/nav_navigation"
+            android:icon="@drawable/ic_navigation_black_24dp"
+            android:title="@string/veranstaltungsort" />
     </group>
 
     <group
