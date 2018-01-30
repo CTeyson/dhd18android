@@ -1,3 +1,5 @@
+//das ist alt und wird nicht mehr gebraucht
+
 package com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter;
 
 import android.app.Activity;
@@ -30,7 +32,7 @@ public class CustomArrayAdapter extends BaseAdapter {
     private boolean isBookmarked;
 
     static class ViewHolder {
-        TextView selelctor;
+        TextView selector;
         TextView titleView;
         TextView descriptionView;
         TextView authorView;
@@ -68,7 +70,7 @@ public class CustomArrayAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.list_event_item, null);
             holder = new ViewHolder();
 
-            holder.selelctor = convertView.findViewById(R.id.event_separator);
+            holder.selector = convertView.findViewById(R.id.event_separator);
             holder.titleView = (TextView) convertView.findViewById(R.id.title);
             holder.authorView = (TextView) convertView.findViewById(R.id.author);
             holder.descriptionView = (TextView) convertView.findViewById(R.id.description);
@@ -88,7 +90,7 @@ public class CustomArrayAdapter extends BaseAdapter {
 
         final String formatted = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
-        holder.selelctor.setText(formatted);
+        holder.selector.setText(formatted);
         holder.titleView.setText(listData.get(position).getTitle());
         holder.authorView.setText(listData.get(position).getAuthor().replaceAll(";", ""));
         holder.descriptionView.setText(listData.get(position).getDescription());

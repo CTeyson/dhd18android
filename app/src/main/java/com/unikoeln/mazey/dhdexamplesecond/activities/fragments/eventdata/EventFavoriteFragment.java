@@ -5,10 +5,10 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
@@ -22,13 +22,10 @@ public class EventFavoriteFragment extends Fragment{
 
     private ListView favoriteView;
     private View view;
-    private ImageView remove;
 
-    SharedPreference sharedPreference;
-
-    List<EventItem> favoriteList;
-
-    FavoriteEventAdapter favoriteEventAdapter;
+    private SharedPreference sharedPreference;
+    private List<EventItem> favoriteList;
+    private FavoriteEventAdapter favoriteEventAdapter;
 
     @Nullable
     @Override
@@ -39,10 +36,12 @@ public class EventFavoriteFragment extends Fragment{
         favoriteList = sharedPreference.getFavorites(getContext());
 
         if(favoriteList == null){
-            showAlert("Willkommen zu deinen Favoriten", "Du kannst hier deine Lieblingsveranstaltungen festhalten");
+            Snackbar welcomeSnackbar = Snackbar.make(view, R.string.welcome_screen_title, Snackbar.LENGTH_LONG);
+            welcomeSnackbar.show();
         }else{
             if(favoriteList.size() == 0){
-                showAlert("Willkommen zu deinen Favoriten", "Du kannst hier deine Lieblingsveranstaltungen festhalten");
+                Snackbar messageSnackbar = Snackbar.make(view, R.string.welcome_screen_message, Snackbar.LENGTH_LONG);
+                messageSnackbar.show();
             }
 
             favoriteView = (ListView) view.findViewById(R.id.favoritenListe);
@@ -55,28 +54,6 @@ public class EventFavoriteFragment extends Fragment{
         }
 
         return view;
-    }
-
-    public void showAlert(String title, String message) {
-        if (getActivity() != null && !getActivity().isFinishing()) {
-            AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
-                    .create();
-            alertDialog.setTitle(title);
-            alertDialog.setMessage(message);
-            alertDialog.setCancelable(false);
-
-            // setting OK Button
-            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
-                    new DialogInterface.OnClickListener() {
-
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                            // activity.finish();
-                            getFragmentManager().popBackStackImmediate();
-                        }
-                    });
-            alertDialog.show();
-        }
     }
 
     @Override

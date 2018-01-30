@@ -41,6 +41,12 @@
     <string name="filter_title_time">Zeit</string>
     <string name="filter_title_day">Tag</string>
 
+    <string name="added">Die Veranstaltung wurde erfolgreich hinzugefügt !</string>
+    <string name="deleted">Die Veranstaltung wurde erfolgreich gelöscht !</string>
+
+    <string name="welcome_screen_title">Deine favorisierten Veranstaltungen!</string>
+    <string name="welcome_screen_message">Du kannst hier deine Lieblingsveranstaltungen festhalten !</string>
+
     <string-array name="time_slots">
         <item>9:00 - 10:30</item>
         <item>11:00 - 12:30</item>

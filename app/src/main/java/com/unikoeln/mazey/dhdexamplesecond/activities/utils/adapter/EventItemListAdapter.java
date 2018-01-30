@@ -1,9 +1,12 @@
+// die neue custom array adapter version - zeigt events einzeln an
+
 package com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -113,7 +116,6 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         } else {
             holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
             holder.imageView.setTag("removed");
-            System.out.println("gelöscht wurde: " + events.get(position));
         }
 
         holder.imageView.setOnClickListener(new View.OnClickListener() {
@@ -126,14 +128,19 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                     holder.imageView.setTag("checked");
                     holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
                     notifyDataSetChanged();
-                    System.out.println("Element : " + events.get(position) + " wurde hinzugefügt !");
-                    Toast.makeText(context, "Wurde erfolgreich hinzugefügt!", Toast.LENGTH_SHORT).show();
+
+                    Snackbar addSnackbar = Snackbar.make(view, R.string.deleted, Snackbar.LENGTH_LONG);
+                    addSnackbar.show();
+
                 }else{
+
                     sharedPreference.removeFavorite(context, events.get(position));
                     holder.imageView.setTag("removed");
                     holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
                     notifyDataSetChanged();
-                    Toast.makeText(context, "Wurde erfolgreich gelöscht!", Toast.LENGTH_SHORT).show();
+
+                    Snackbar deleteSnackbar = Snackbar.make(view, R.string.added, Snackbar.LENGTH_LONG);
+                    deleteSnackbar.show();
                 }
             }
         });

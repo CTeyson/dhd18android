@@ -32,36 +32,36 @@
         android:layout_marginTop="16dp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/separator"
-        android:id="@+id/titel"
+        android:id="@+id/favorite_title"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titel"
+        app:layout_constraintTop_toBottomOf="@+id/favorite_title"
         android:text="Geschrieben"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:id="@+id/autor"
+        android:id="@+id/favorite_author"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titel"
+        app:layout_constraintTop_toBottomOf="@+id/favorite_title"
         android:text="ORT"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="16dp"
-        android:id="@+id/ort"
+        android:id="@+id/favorite_location"
         />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ort"
+        app:layout_constraintTop_toBottomOf="@+id/favorite_location"
 
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="8dp"
