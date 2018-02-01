@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.design.widget.Snackbar;
@@ -16,20 +16,12 @@ import com.unikoeln.mazey.dhdexamplesecond.activities.utils.SharedPreference;
 import java.util.Collections;
 import java.util.List;
 
-public class FavoriteEventAdapter extends BaseAdapter{
+public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdapter.ViewHolder> {
 
     private List<EventItem> boomarkedData;
     private LayoutInflater layoutInflater;
     private Context context;
     SharedPreference sharedPreference;
-
-    static class ViewHolder {
-        TextView title;
-        TextView author;
-        TextView location;
-        ImageView delete;
-        TextView selector;
-    }
 
     public FavoriteEventAdapter(Context context, List<EventItem> boomarkedData) {
         this.context = context;
@@ -38,52 +30,49 @@ public class FavoriteEventAdapter extends BaseAdapter{
         sharedPreference = new SharedPreference();
     }
 
-    @Override
-    public int getCount() {
-        return boomarkedData.size();
-    }
+    public static class ViewHolder extends RecyclerView.ViewHolder{
 
-    @Override
-    public Object getItem(int position) {
-        return boomarkedData.get(position);
-    }
+        View view;
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
+        TextView title;
+        TextView author;
+        TextView location;
+        ImageView delete;
+        TextView selector;
 
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        final FavoriteEventAdapter.ViewHolder holder;
+        public ViewHolder(View view) {
+            super(view);
 
-        if (convertView == null) {
-            layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.favorite_event_items, null);
-            holder = new FavoriteEventAdapter.ViewHolder();
+            this.view = view;
 
-            holder.title = (TextView) convertView.findViewById(R.id.favorite_title);
-            holder.author = (TextView) convertView.findViewById(R.id.favorite_author);
-            holder.location = (TextView) convertView.findViewById(R.id.favorite_location);
-            holder.selector = (TextView) convertView.findViewById(R.id.separator);
-
-            convertView.setTag(holder);
-
-        } else {
-            holder = (FavoriteEventAdapter.ViewHolder) convertView.getTag();
+            title = (TextView) view.findViewById(R.id.favorite_title);
+            author = (TextView) view.findViewById(R.id.favorite_author);
+            location = (TextView) view.findViewById(R.id.favorite_location);
+            selector = (TextView) view.findViewById(R.id.separator);
+            delete = (ImageView) view.findViewById(R.id.delete);
         }
+    }
+
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.favorite_event_items, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(final ViewHolder holder, final int position){
+
+        final String date = boomarkedData.get(position).getStartTime().toString();
+        final String fittingDate = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
         holder.title.setText(boomarkedData.get(position).getTitle());
         holder.author.setText(boomarkedData.get(position).getAuthor());
         holder.location.setText(boomarkedData.get(position).getLocation());
-
-        final String date = boomarkedData.get(position).getStartTime().toString();
-        final String angepasst = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
-
-        holder.selector.setText(angepasst);
+        holder.selector.setText(fittingDate);
 
         /*ermöglicht löschen*/
-        holder.delete = (ImageView) convertView.findViewById(R.id.delete);
-
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,11 +82,13 @@ public class FavoriteEventAdapter extends BaseAdapter{
                 Snackbar deleteSnackbar = Snackbar.make(view, R.string.deleted, Snackbar.LENGTH_LONG);
                 deleteSnackbar.show();
 
-                }
+            }
         });
+    }
 
-        notifyDataSetChanged();
-        return convertView;
+    @Override
+    public int getItemCount() {
+        return boomarkedData.size();
     }
 
     //letzte Klammer

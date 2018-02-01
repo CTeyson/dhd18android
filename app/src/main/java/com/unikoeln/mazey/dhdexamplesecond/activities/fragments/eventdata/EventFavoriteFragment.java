@@ -1,15 +1,14 @@
 package com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata;
 
-import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.utils.SharedPreference;
@@ -20,7 +19,9 @@ import java.util.List;
 
 public class EventFavoriteFragment extends Fragment{
 
-    private ListView favoriteView;
+    private RecyclerView favoriteView;
+    private RecyclerView.LayoutManager layoutManager;
+
     private View view;
 
     private SharedPreference sharedPreference;
@@ -35,21 +36,22 @@ public class EventFavoriteFragment extends Fragment{
         sharedPreference = new SharedPreference();
         favoriteList = sharedPreference.getFavorites(getContext());
 
-        if(favoriteList == null){
-            Snackbar welcomeSnackbar = Snackbar.make(view, R.string.welcome_screen_title, Snackbar.LENGTH_LONG);
-            welcomeSnackbar.show();
+        favoriteView = view.findViewById(R.id.favoritenListe);
+        layoutManager = new LinearLayoutManager(getContext());
+        favoriteView.setLayoutManager(layoutManager);
+
+        if(favoriteList.size() == 0){
+//            favoriteEventAdapter = new FavoriteEventAdapter(getContext(), favoriteList);
+//            favoriteView.setAdapter(favoriteEventAdapter);
+
+//            Snackbar addSnackbar = Snackbar.make(view, R.string.added, Snackbar.LENGTH_LONG);
+//            addSnackbar.show();
+
         }else{
-            if(favoriteList.size() == 0){
-                Snackbar messageSnackbar = Snackbar.make(view, R.string.welcome_screen_message, Snackbar.LENGTH_LONG);
-                messageSnackbar.show();
-            }
-
-            favoriteView = (ListView) view.findViewById(R.id.favoritenListe);
-
             if(favoriteList != null){
                 favoriteEventAdapter = new FavoriteEventAdapter(getContext(), favoriteList);
-                favoriteEventAdapter.notifyDataSetChanged();
                 favoriteView.setAdapter(favoriteEventAdapter);
+                favoriteEventAdapter.notifyDataSetChanged();
             }
         }
 
@@ -59,7 +61,7 @@ public class EventFavoriteFragment extends Fragment{
     @Override
     public void onResume(){
         super.onResume();
-        favoriteEventAdapter.notifyDataSetChanged();
+//        favoriteEventAdapter.notifyDataSetChanged();
     }
 
     //Letzte Klammer

@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
@@ -27,7 +26,6 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
     private List<EventItem> events;
     private Context context;
-
     SharedPreference sharedPreference;
 
     public EventItemListAdapter(List<EventItem> events, Context context) {
@@ -129,7 +127,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                     holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
                     notifyDataSetChanged();
 
-                    Snackbar addSnackbar = Snackbar.make(view, R.string.deleted, Snackbar.LENGTH_LONG);
+                    Snackbar addSnackbar = Snackbar.make(view, R.string.added, Snackbar.LENGTH_LONG);
                     addSnackbar.show();
 
                 }else{
@@ -139,25 +137,12 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                     holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
                     notifyDataSetChanged();
 
-                    Snackbar deleteSnackbar = Snackbar.make(view, R.string.added, Snackbar.LENGTH_LONG);
+                    Snackbar deleteSnackbar = Snackbar.make(view, R.string.deleted, Snackbar.LENGTH_LONG);
                     deleteSnackbar.show();
                 }
             }
         });
 
-    }
-
-    @Override
-    public int getItemCount() {
-        return events.size();
-    }
-
-    private String getTime(int position) {
-
-        Date start = events.get(position).getStartTime();
-        Date end = events.get(position).getEndTime();
-
-        return String.format("%1s%2s%3s", start.toString().substring(11, 16), " - ", end.toString().substring(11, 16));
     }
 
     public boolean checkFavoriteItem(EventItem checkEvent) {
@@ -175,5 +160,17 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         return check;
     }
 
+    @Override
+    public int getItemCount() {
+        return events.size();
+    }
+
+    private String getTime(int position) {
+
+        Date start = events.get(position).getStartTime();
+        Date end = events.get(position).getEndTime();
+
+        return String.format("%1s%2s%3s", start.toString().substring(11, 16), " - ", end.toString().substring(11, 16));
+    }
 
 }
