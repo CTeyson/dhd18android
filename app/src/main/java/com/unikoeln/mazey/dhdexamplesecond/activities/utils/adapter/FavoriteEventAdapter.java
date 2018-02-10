@@ -80,19 +80,25 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
 
                 sharedPreference.removeFavorite(context, boomarkedData.get(position));
                 holder.delete.setImageResource(R.drawable.add_26);
-                notifyDataSetChanged();}
+                notifyDataSetChanged();
 
-                else{
-                    sharedPreference.addFavorite(context, boomarkedData.get(position));
-                    holder.delete.setImageResource(R.drawable.trash_24px);
-                    notifyDataSetChanged();
+                    //lokal möglich aber greift nicht auf die string.xml
+                    Snackbar deleteSnackbar = Snackbar.make(view, "Deleted", Snackbar.LENGTH_LONG);
+                    TextView snackView = (TextView) deleteSnackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+                    deleteSnackbar.show();
+
+                }else{
+
+                sharedPreference.addFavorite(context, boomarkedData.get(position));
+                holder.delete.setImageResource(R.drawable.trash_24px);
+                notifyDataSetChanged();
+
+                    //lokal möglich aber greift nicht auf die string.xml
+                    Snackbar deleteSnackbar = Snackbar.make(view, "Added again", Snackbar.LENGTH_LONG);
+                    TextView snackView = (TextView) deleteSnackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+                    deleteSnackbar.show();
+
                 }
-
-                //lokal möglich aber greift nicht auf die string.xml
-                Snackbar deleteSnackbar = Snackbar.make(view, "Test", Snackbar.LENGTH_LONG);
-                TextView snackView = (TextView) deleteSnackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
-                deleteSnackbar.show();
-
             }
         });
     }
