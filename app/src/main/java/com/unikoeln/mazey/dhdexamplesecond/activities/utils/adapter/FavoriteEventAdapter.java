@@ -1,13 +1,13 @@
 package com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.support.design.widget.Snackbar;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
@@ -72,18 +72,44 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         holder.location.setText(boomarkedData.get(position).getLocation());
         holder.selector.setText(fittingDate);
 
-        /*ermöglicht löschen*/
+        /*ermöglicht löschen und neu: direktes erneutes hinzufügen, elegantes umgehen des fragmentaktualsiertproblems*/
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sharedPreference.removeFavorite(context, boomarkedData.get(position));
-                notifyDataSetChanged();
+                if(checkFavoriteItem(boomarkedData.get(position))){
 
-                Snackbar deleteSnackbar = Snackbar.make(view, R.string.deleted, Snackbar.LENGTH_LONG);
+                sharedPreference.removeFavorite(context, boomarkedData.get(position));
+                holder.delete.setImageResource(R.drawable.add_26);
+                notifyDataSetChanged();}
+
+                else{
+                    sharedPreference.addFavorite(context, boomarkedData.get(position));
+                    holder.delete.setImageResource(R.drawable.trash_24px);
+                    notifyDataSetChanged();
+                }
+
+                //lokal möglich aber greift nicht auf die string.xml
+                Snackbar deleteSnackbar = Snackbar.make(view, "Test", Snackbar.LENGTH_LONG);
+                TextView snackView = (TextView) deleteSnackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
                 deleteSnackbar.show();
 
             }
         });
+    }
+
+    public boolean checkFavoriteItem(EventItem checkEvent) {
+        boolean check = false;
+        List<EventItem> favorites = sharedPreference.getFavorites(context);
+        if (favorites != null) {
+            for (EventItem item : favorites) {
+                if (item.equals(checkEvent)) {
+                    check = true;
+                    break;
+                }
+            }
+        }
+
+        return check;
     }
 
     @Override

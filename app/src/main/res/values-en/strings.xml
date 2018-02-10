@@ -42,8 +42,8 @@
     <string name="filter_title_time">Time</string>
     <string name="filter_title_day">Day</string>
 
-    <string name="added">The event was added successfully !</string>
-    <string name="deleted">The event was removed successfully !</string>
+    <string name="marked">It was added successfully to your list!</string>
+    <string name="removed">It was removed successfully!</string>
 
     <string name="welcome_screen_title">Your favorite events !</string>
     <string name="welcome_screen_message">This is the overview of your favorite events !</string>

@@ -127,7 +127,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                     holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
                     notifyDataSetChanged();
 
-                    Snackbar addSnackbar = Snackbar.make(view, R.string.added, Snackbar.LENGTH_LONG);
+                    Snackbar addSnackbar = Snackbar.make(view, "added", Snackbar.LENGTH_LONG);
                     addSnackbar.show();
 
                 }else{
@@ -137,7 +137,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                     holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
                     notifyDataSetChanged();
 
-                    Snackbar deleteSnackbar = Snackbar.make(view, R.string.deleted, Snackbar.LENGTH_LONG);
+                    Snackbar deleteSnackbar = Snackbar.make(view, "deleted", Snackbar.LENGTH_LONG);
                     deleteSnackbar.show();
                 }
             }

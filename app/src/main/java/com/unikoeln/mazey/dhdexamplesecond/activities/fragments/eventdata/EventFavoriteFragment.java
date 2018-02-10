@@ -38,7 +38,7 @@ public class EventFavoriteFragment extends Fragment{
 
         favoriteView = view.findViewById(R.id.favoritenListe);
         layoutManager = new LinearLayoutManager(getContext());
-        favoriteView.setLayoutManager(layoutManager);
+        favoriteView.setLayoutManager(this.layoutManager);
 
         if(favoriteList.size() == 0){//
 //            favoriteEventAdapter = new FavoriteEventAdapter(getContext(), favoriteList);
