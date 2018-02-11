@@ -165,33 +165,86 @@
             app:layout_constraintLeft_toLeftOf="@id/wrapper"
             app:layout_constraintTop_toBottomOf="@id/privacy_headline" />
 
+        <TextView
+            android:id="@+id/disclaimer_mapFunction_headline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:text="@string/disclaimer_mapFunction_headline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/wrapper"
+            app:layout_constraintTop_toBottomOf="@id/privacy_paragraph1" />
+
 
         <TextView
-            android:id="@+id/privacy_paragraph2"
+            android:id="@+id/disclaimer_mapFunction"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
             android:autoLink="web"
-            android:text="@string/privacy_paragraph2"
+            android:text="@string/disclaimer_mapFunction"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/wrapper"
-            app:layout_constraintTop_toBottomOf="@id/privacy_paragraph1" />
+            app:layout_constraintTop_toBottomOf="@id/disclaimer_mapFunction_headline" />
 
         <TextView
-            android:id="@+id/privacy_paragraph3"
+            android:id="@+id/disclaimer_sharingFunction_headline"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/privacy_paragraph3"
+            android:text="@string/disclaimer_sharingFunction_headline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/wrapper"
-            app:layout_constraintTop_toBottomOf="@id/privacy_paragraph2"
+            app:layout_constraintTop_toBottomOf="@id/disclaimer_mapFunction"
+            />
+
+
+        <TextView
+            android:id="@+id/disclaimer_sharingFunction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/disclaimer_sharingFunction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/wrapper"
+            app:layout_constraintTop_toBottomOf="@id/disclaimer_sharingFunction_headline"
+            />
+
+        <TextView
+            android:id="@+id/disclaimer_calendarFunction_headline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/disclaimer_calendarFunction_headline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/wrapper"
+            app:layout_constraintTop_toBottomOf="@id/disclaimer_sharingFunction"
+            />
+
+        <TextView
+            android:id="@+id/disclaimer_calendarFunction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/disclaimer_calendarFunction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/wrapper"
+            app:layout_constraintTop_toBottomOf="@id/disclaimer_calendarFunction_headline"
             app:layout_constraintBottom_toBottomOf="@id/wrapper"/>
+
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
