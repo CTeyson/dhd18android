@@ -27,11 +27,15 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
     private List<EventItem> events;
     private Context context;
     SharedPreference sharedPreference;
+    private String adding;
+    private String delete;
 
     public EventItemListAdapter(List<EventItem> events, Context context) {
         this.events = events;
         this.context = context;
         sharedPreference = new SharedPreference();
+        adding = context.getString(R.string.marked);
+        delete = context.getString(R.string.removed);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -67,6 +71,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.list_event_item, parent, false);
+
         return new ViewHolder(view);
     }
 
@@ -75,7 +80,6 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         final String date = events.get(position).getStartTime().toString();
-
         final String formatted = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
         holder.selector.setText(formatted);
@@ -119,25 +123,35 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String tag = holder.imageView.getTag().toString();
 
                 if(tag.equalsIgnoreCase("removed")){
+
+                    //adding to list
                     sharedPreference.addFavorite(context, events.get(position));
                     holder.imageView.setTag("checked");
                     holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
                     notifyDataSetChanged();
 
-                    Snackbar addSnackbar = Snackbar.make(view, "added", Snackbar.LENGTH_LONG);
+                    //snackbar
+                    Snackbar addSnackbar = Snackbar.make(view, adding, Snackbar.LENGTH_LONG);
+                    View viewSnack = addSnackbar.getView();
+                    TextView textView = (TextView) viewSnack.findViewById(android.support.design.R.id.snackbar_text);
                     addSnackbar.show();
 
                 }else{
 
+                    //remove and change tag
                     sharedPreference.removeFavorite(context, events.get(position));
                     holder.imageView.setTag("removed");
                     holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
                     notifyDataSetChanged();
 
-                    Snackbar deleteSnackbar = Snackbar.make(view, "deleted", Snackbar.LENGTH_LONG);
+                    //snackbar
+                    Snackbar deleteSnackbar = Snackbar.make(view, delete, Snackbar.LENGTH_LONG);
+                    View viewSnack = deleteSnackbar.getView();
+                    TextView textView = (TextView) viewSnack.findViewById(android.support.design.R.id.snackbar_text);
                     deleteSnackbar.show();
                 }
             }

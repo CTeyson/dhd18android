@@ -23,11 +23,16 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
     private Context context;
     SharedPreference sharedPreference;
 
+    private String marked;
+    private String removed;
+
     public FavoriteEventAdapter(Context context, List<EventItem> boomarkedData) {
         this.context = context;
         this.boomarkedData = boomarkedData;
         Collections.sort(boomarkedData);
         sharedPreference = new SharedPreference();
+        marked = context.getString(R.string.marked);
+        removed = context.getString(R.string.removed);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -82,8 +87,7 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
                 holder.delete.setImageResource(R.drawable.add_26);
                 notifyDataSetChanged();
 
-                    //lokal möglich aber greift nicht auf die string.xml
-                    Snackbar deleteSnackbar = Snackbar.make(view, "Deleted", Snackbar.LENGTH_LONG);
+                    Snackbar deleteSnackbar = Snackbar.make(view, removed, Snackbar.LENGTH_LONG);
                     TextView snackView = (TextView) deleteSnackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
                     deleteSnackbar.show();
 
@@ -93,10 +97,9 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
                 holder.delete.setImageResource(R.drawable.trash_24px);
                 notifyDataSetChanged();
 
-                    //lokal möglich aber greift nicht auf die string.xml
-                    Snackbar deleteSnackbar = Snackbar.make(view, "Added again", Snackbar.LENGTH_LONG);
-                    TextView snackView = (TextView) deleteSnackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
-                    deleteSnackbar.show();
+                    Snackbar markedSnackbar = Snackbar.make(view, marked, Snackbar.LENGTH_LONG);
+                    TextView snackView = (TextView) markedSnackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+                    markedSnackbar.show();
 
                 }
             }
