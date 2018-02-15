@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         TextView reportedDateView;
         TextView locationView;
         ImageView imageView;
+        ImageView shareButton;
 
         public ViewHolder(View view) {
             super(view);
@@ -53,6 +55,8 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             reportedDateView =  view.findViewById(R.id.time);
             imageView = view.findViewById(R.id.bookmark);
             imageView.setTag(R.id.bookmark);
+            shareButton = view.findViewById(R.id.share);
+            shareButton.setTag(R.id.share);
 
         }
     }
@@ -99,6 +103,14 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                 transaction.commit();
             }
         });
+
+        holder.shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Hier kannst du die Sharefunktion implementieren.", Snackbar.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override
