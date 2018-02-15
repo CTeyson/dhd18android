@@ -63,5 +63,16 @@
         <item>German</item>
         <item>English</item>
     </string-array>
+    <string name="share_via">Share via</string>
+    <string name="monday">Monday, 26 February 2018</string>
+    <string name="tuesday">Tuesday, 27 February 2018</string>
+    <string name="wednesday">Wednesday, 28 February 2018</string>
+    <string name="thursday">Thursday, 01 March 2018</string>
+    <string name="friday">Friday, 02 March 2018</string>
+    <string name="monday_short">26/02/2018</string>
+    <string name="tuesday_short">27/02/2018</string>
+    <string name="wednesday_short">28/02/2018</string>
+    <string name="thursday_short">01/03/2018</string>
+    <string name="friday_short">02/03/2018</string>
 </resources>
 

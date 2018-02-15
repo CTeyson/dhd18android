@@ -14,4 +14,15 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="sample_abstract">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+    <string name="share_via">Share via</string>
+    <string name="monday">Monday, 26 February 2018</string>
+    <string name="tuesday">Tuesday, 27 February 2018</string>
+    <string name="wednesday">Wednesday, 28 February 2018</string>
+    <string name="thursday">Thursday, 01 March 2018</string>
+    <string name="friday">Friday, 02 March 2018</string>
+    <string name="monday_short">26/02/2018</string>
+    <string name="tuesday_short">27/02/2018</string>
+    <string name="wednesday_short">28/02/2018</string>
+    <string name="thursday_short">01/03/2018</string>
+    <string name="friday_short">02/03/2018</string>
 </resources>

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp">
+    android:layout_marginBottom="16dp"
+    >
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -31,6 +32,7 @@
             android:layout_marginTop="16dp"
             android:text="Android für absolute Anfänger"
             android:textIsSelectable="true"
+            android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/event_separator" />
 
@@ -86,13 +88,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginTop="8dp"
             android:onClick="True"
             android:src="@drawable/ic_menu_share"
             android:tint="@color/colorDhdPrimary"
             app:layout_constraintRight_toLeftOf="@id/event_bookmark"
             app:layout_constraintTop_toBottomOf="@id/event_time" />
+
+        <ImageView
+            android:id="@+id/event_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:onClick="True"
+            android:src="@drawable/ic_event_black_24dp_4"
+            android:tint="@color/colorDhdPrimary"
+            app:layout_constraintRight_toLeftOf="@id/event_share"
+            app:layout_constraintTop_toBottomOf="@id/event_time" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="100dp"
+            android:layout_height="16dp"
+            app:barrierDirection="bottom"
+
+            app:constraint_referenced_ids="event_calendar,event_author" />
 
 
         <TextView
@@ -103,10 +126,18 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Hallo Test"
+            android:paddingBottom="16dp"
+            android:text="Hallo Test fdsggggggggggggggggsssssssssssssssd dfsddddddddddddddddddddddd"
             android:textIsSelectable="true"
+            app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:padding="16dp"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/event_bookmark" />
+            app:layout_constraintTop_toBottomOf="@id/event_abstract" />
+
 
 
     </android.support.constraint.ConstraintLayout>

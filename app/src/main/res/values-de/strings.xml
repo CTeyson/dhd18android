@@ -62,4 +62,15 @@
         <item>Deutsch</item>
         <item>Englisch</item>
     </string-array>
+    <string name="share_via">Teilen über</string>
+    <string name="monday">Montag, 26. Februar 2018</string>
+    <string name="tuesday">Dienstag, 27. Februar 2018</string>
+    <string name="wednesday">Mittwoch, 28. Februar 2018</string>
+    <string name="thursday">Donnerstag, 01. März 2018</string>
+    <string name="friday">Freitag, 02. März 2018</string>
+    <string name="monday_short">26.02.2018</string>
+    <string name="tuesday_short">27.02.2018</string>
+    <string name="wednesday_short">28.02.2018</string>
+    <string name="thursday_short">01.03.2018</string>
+    <string name="friday_short">02.03.2018</string>
 </resources>
