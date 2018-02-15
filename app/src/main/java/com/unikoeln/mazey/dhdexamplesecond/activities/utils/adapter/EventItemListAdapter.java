@@ -74,7 +74,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         holder.selector.setText(formatted);
         holder.titleView.setText(events.get(position).getTitle());
         holder.authorView.setText(events.get(position).getAuthor().replaceAll(";", ""));
-        holder.descriptionView.setText(events.get(position).getDescription().substring(0,300));
+        holder.descriptionView.setText(events.get(position).getDescription());
         holder.locationView.setText(events.get(position).getLocation() + ", ");
         holder.reportedDateView.setText(getTime(position));
 
@@ -85,7 +85,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
                 Bundle event = new Bundle();
                 event.putString("Title", events.get(position).getTitle());
-                event.putString("Abstract", events.get(position).getDescription());
+                event.putString("Abstract", events.get(position).getDescription().substring(0,300));
                 event.putString("Author", events.get(position).getAuthor().replaceAll(";", ""));
                 event.putString("Location", events.get(position).getLocation());
                 event.putString("Time", getTime(position));
