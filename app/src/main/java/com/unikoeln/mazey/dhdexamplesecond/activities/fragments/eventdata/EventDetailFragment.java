@@ -93,19 +93,19 @@ public class EventDetailFragment extends Fragment {
         String shareVia = getString(R.string.share_via);
 
         if (strDateText.contains("26 Feb")) {
-            getString(R.string.monday_short);
+            strDateText = getString(R.string.monday_short);
         }
         else if (strDateText.contains("27 Feb")) {
-            getString(R.string.tuesday_short);
+            strDateText = getString(R.string.tuesday_short);
         }
         else if (strDateText.contains("28 Feb")) {
-            getString(R.string.wednesday_short);
+            strDateText = getString(R.string.wednesday_short);
         }
         else if (strDateText.contains("01 Mar")) {
-            getString(R.string.thursday_short);
+            strDateText = getString(R.string.thursday_short);
         }
         else if (strDateText.contains("02 Mar")) {
-            getString(R.string.friday_short);
+            strDateText = getString(R.string.friday_short);
         }
 
         String shareOutput = ("DHd 2018: " + strDateText + ", " + strTimeText + ": " + strTitleText);
