@@ -3,7 +3,9 @@ package com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,20 +34,21 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
         View view;
 
-        TextView selelctor;
+        TextView selector;
         TextView titleView;
         TextView descriptionView;
         TextView authorView;
         TextView reportedDateView;
         TextView locationView;
         ImageView imageView;
+        ImageView shareButton;
 
         public ViewHolder(View view) {
             super(view);
 
             this.view = view;
 
-            selelctor = view.findViewById(R.id.event_separator);
+            selector = view.findViewById(R.id.event_separator);
             titleView =  view.findViewById(R.id.title);
             authorView =  view.findViewById(R.id.author);
             descriptionView =  view.findViewById(R.id.description);
@@ -53,6 +56,8 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             reportedDateView =  view.findViewById(R.id.time);
             imageView = view.findViewById(R.id.bookmark);
             imageView.setTag(R.id.bookmark);
+            shareButton = view.findViewById(R.id.share);
+            shareButton.setTag(R.id.share);
 
         }
     }
@@ -65,13 +70,13 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         final String date = events.get(position).getStartTime().toString();
 
         final String formatted = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
-        holder.selelctor.setText(formatted);
+        holder.selector.setText(formatted);
         holder.titleView.setText(events.get(position).getTitle());
         holder.authorView.setText(events.get(position).getAuthor().replaceAll(";", ""));
         holder.descriptionView.setText(events.get(position).getDescription());
@@ -85,7 +90,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
                 Bundle event = new Bundle();
                 event.putString("Title", events.get(position).getTitle());
-                event.putString("Abstract", events.get(position).getDescription());
+                event.putString("Abstract", events.get(position).getDescription().substring(0,300));
                 event.putString("Author", events.get(position).getAuthor().replaceAll(";", ""));
                 event.putString("Location", events.get(position).getLocation());
                 event.putString("Time", getTime(position));
@@ -100,6 +105,41 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             }
         });
 
+        holder.shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String strDateText = formatted;
+                String strTimeText = getTime(position);
+                String strTitleText = events.get(position).getTitle();
+                String strLocationText = events.get(position).getLocation(); // mit neuer XML testen!
+                String shareVia = context.getString(R.string.share_via);
+
+                if (strDateText.contains("26 Feb")) {
+                    strDateText = context.getString(R.string.monday_short);
+                }
+                else if (strDateText.contains("27 Feb")) {
+                    strDateText = context.getString(R.string.tuesday_short);
+                }
+                else if (strDateText.contains("28 Feb")) {
+                    strDateText = context.getString(R.string.wednesday_short);
+                }
+                else if (strDateText.contains("01 Mar")) {
+                    strDateText = context.getString(R.string.thursday_short);
+                }
+                else if (strDateText.contains("02 Mar")) {
+                    strDateText = context.getString(R.string.friday_short);
+                }
+
+                String shareOutput = ("DHd 2018: " + strDateText + ", " + strTimeText + ": " + strTitleText);
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, shareOutput);
+                sendIntent.setType("text/plain");
+                context.startActivity(Intent.createChooser(sendIntent, shareVia));
+            }
+        });
 
     }
 
