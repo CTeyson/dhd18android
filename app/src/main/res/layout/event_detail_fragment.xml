@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorDhdPrimary"
             android:paddingEnd="16dp"
-            android:text="Montag - 26.02.2018"
+            android:text="Montag - 24.02.2018"
             android:textAlignment="center"
             android:textColor="@color/icon_map" />
 

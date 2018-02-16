@@ -3,6 +3,7 @@ package com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventDetailFragment;
+import com.unikoeln.mazey.dhdexamplesecond.activities.utils.SharedPreference;
 
 import java.util.Date;
 import java.util.List;
@@ -23,10 +25,17 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
     private List<EventItem> events;
     private Context context;
+    private SharedPreference sharedPreference;
+
+    private String adding;
+    private String delete;
 
     public EventItemListAdapter(List<EventItem> events, Context context) {
         this.events = events;
         this.context = context;
+        sharedPreference = new SharedPreference();
+        adding = context.getString(R.string.marked);
+        delete = context.getString(R.string.removed);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -48,11 +57,11 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             this.view = view;
 
             selector = view.findViewById(R.id.event_separator);
-            titleView =  view.findViewById(R.id.title);
-            authorView =  view.findViewById(R.id.author);
-            descriptionView =  view.findViewById(R.id.description);
-            locationView =  view.findViewById(R.id.location);
-            reportedDateView =  view.findViewById(R.id.time);
+            titleView = view.findViewById(R.id.title);
+            authorView = view.findViewById(R.id.author);
+            descriptionView = view.findViewById(R.id.description);
+            locationView = view.findViewById(R.id.location);
+            reportedDateView = view.findViewById(R.id.time);
             imageView = view.findViewById(R.id.bookmark);
             imageView.setTag(R.id.bookmark);
             shareButton = view.findViewById(R.id.share);
@@ -69,7 +78,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         final String date = events.get(position).getStartTime().toString();
 
@@ -89,7 +98,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
                 Bundle event = new Bundle();
                 event.putString("Title", events.get(position).getTitle());
-                event.putString("Abstract", events.get(position).getDescription().substring(0,300));
+                event.putString("Abstract", events.get(position).getDescription().substring(0, 300));
                 event.putString("Author", events.get(position).getAuthor().replaceAll(";", ""));
                 event.putString("Location", events.get(position).getLocation());
                 event.putString("Time", getTime(position));
@@ -107,9 +116,104 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         holder.shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Hier kannst du die Sharefunktion implementieren.", Snackbar.LENGTH_SHORT).show();
+                String strDateText = formatted;
+                String strTimeText = getTime(position);
+                String strTitleText = events.get(position).getTitle();
+                String strLocationText = events.get(position).getLocation(); // mit neuer XML testen!
+                String shareVia = context.getString(R.string.share_via);
+
+                if (strDateText.contains("26 Feb")) {
+                    strDateText = context.getString(R.string.monday_short);
+                } else if (strDateText.contains("27 Feb")) {
+                    strDateText = context.getString(R.string.tuesday_short);
+                } else if (strDateText.contains("28 Feb")) {
+                    strDateText = context.getString(R.string.wednesday_short);
+                } else if (strDateText.contains("01 Mar")) {
+                    strDateText = context.getString(R.string.thursday_short);
+                } else if (strDateText.contains("02 Mar")) {
+                    strDateText = context.getString(R.string.friday_short);
+                }
+
+                String shareOutput = ("DHd 2018: " + strDateText + ", " + strTimeText + ": " + strTitleText);
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, shareOutput);
+                sendIntent.setType("text/plain");
+                context.startActivity(Intent.createChooser(sendIntent, shareVia));
+        }
+    });
+
+
+    //set tag
+        if(
+
+    checkFavoriteItem(events.get(position)))
+
+    {
+        holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
+        holder.imageView.setTag("checked");
+    } else
+
+    {
+        holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
+        holder.imageView.setTag("removed");
+    }
+
+        holder.imageView.setOnClickListener(new View.OnClickListener()
+
+    {
+        @Override
+        public void onClick (View view){
+
+        String tag = holder.imageView.getTag().toString();
+
+        if (tag.equalsIgnoreCase("removed")) {
+
+            //adding to list
+            sharedPreference.addFavorite(context, events.get(position));
+            holder.imageView.setTag("checked");
+            holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
+            notifyDataSetChanged();
+
+            //snackbar
+            Snackbar addSnackbar = Snackbar.make(view, adding, Snackbar.LENGTH_LONG);
+            View viewSnack = addSnackbar.getView();
+            TextView textView = (TextView) viewSnack.findViewById(android.support.design.R.id.snackbar_text);
+            addSnackbar.show();
+
+        } else {
+
+            //remove and change tag
+            sharedPreference.removeFavorite(context, events.get(position));
+            holder.imageView.setTag("removed");
+            holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
+            notifyDataSetChanged();
+
+            //snackbar
+            Snackbar deleteSnackbar = Snackbar.make(view, delete, Snackbar.LENGTH_LONG);
+            View viewSnack = deleteSnackbar.getView();
+            TextView textView = (TextView) viewSnack.findViewById(android.support.design.R.id.snackbar_text);
+            deleteSnackbar.show();
+        }
+    }
+    });
+
+}
+
+    public boolean checkFavoriteItem(EventItem checkEvent) {
+        boolean check = false;
+        List<EventItem> favorites = sharedPreference.getFavorites(context);
+        if (favorites != null) {
+            for (EventItem item : favorites) {
+                if (item.equals(checkEvent)) {
+                    check = true;
+                    break;
+                }
             }
-        });
+        }
+
+        return check;
 
     }
 

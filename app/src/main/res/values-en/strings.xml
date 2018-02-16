@@ -42,6 +42,11 @@
     <string name="filter_title_time">Time</string>
     <string name="filter_title_day">Day</string>
 
+    <string name="marked">It was added successfully to your list!</string>
+    <string name="removed">It was removed successfully!</string>
+    <string name="welcome_screen_title">Your favorite events !</string>
+    <string name="welcome_screen_message">This is the overview of your favorite events !</string>
+
     <string-array name="time_slots">
         <item>9:00 - 10:30</item>
         <item>11:00 - 12:30</item>
