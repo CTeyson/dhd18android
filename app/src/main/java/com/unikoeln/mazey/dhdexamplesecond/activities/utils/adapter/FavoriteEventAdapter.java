@@ -21,21 +21,16 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
     private List<EventItem> boomarkedData;
     private LayoutInflater layoutInflater;
     private Context context;
-    SharedPreference sharedPreference;
-
-    private String marked;
-    private String removed;
+    private SharedPreference sharedPreference;
 
     public FavoriteEventAdapter(Context context, List<EventItem> boomarkedData) {
         this.context = context;
         this.boomarkedData = boomarkedData;
         Collections.sort(boomarkedData);
         sharedPreference = new SharedPreference();
-        marked = context.getString(R.string.marked);
-        removed = context.getString(R.string.removed);
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         View view;
 
@@ -60,14 +55,14 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
 
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.favorite_event_items, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position){
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         final String date = boomarkedData.get(position).getStartTime().toString();
         final String fittingDate = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
@@ -81,23 +76,23 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(checkFavoriteItem(boomarkedData.get(position))){
+                if (checkFavoriteItem(boomarkedData.get(position))) {
 
                     sharedPreference.removeFavorite(context, boomarkedData.get(position));
                     holder.delete.setImageResource(R.drawable.add_26);
                     notifyDataSetChanged();
 
-                    Snackbar deleteSnackbar = Snackbar.make(view, removed, Snackbar.LENGTH_LONG);
+                    Snackbar deleteSnackbar = Snackbar.make(view, R.string.removed, Snackbar.LENGTH_LONG);
                     TextView snackView = (TextView) deleteSnackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
                     deleteSnackbar.show();
 
-                }else{
+                } else {
 
                     sharedPreference.addFavorite(context, boomarkedData.get(position));
                     holder.delete.setImageResource(R.drawable.trash_24px);
                     notifyDataSetChanged();
 
-                    Snackbar markedSnackbar = Snackbar.make(view, marked, Snackbar.LENGTH_LONG);
+                    Snackbar markedSnackbar = Snackbar.make(view, R.string.marked, Snackbar.LENGTH_LONG);
                     TextView snackView = (TextView) markedSnackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
                     markedSnackbar.show();
 
