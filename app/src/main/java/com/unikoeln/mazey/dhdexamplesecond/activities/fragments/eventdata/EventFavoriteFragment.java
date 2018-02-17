@@ -17,7 +17,7 @@ import com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter.FavoriteEven
 
 import java.util.List;
 
-public class EventFavoriteFragment extends Fragment{
+public class EventFavoriteFragment extends Fragment {
 
     private RecyclerView favoriteView;
     private RecyclerView.LayoutManager layoutManager;
@@ -40,26 +40,26 @@ public class EventFavoriteFragment extends Fragment{
         layoutManager = new LinearLayoutManager(getContext());
         favoriteView.setLayoutManager(this.layoutManager);
 
-        if(favoriteList.size() == 0){//
+        //if(favoriteList.size() == 0){//
 //            favoriteEventAdapter = new FavoriteEventAdapter(getContext(), favoriteList);
 //            favoriteView.setAdapter(favoriteEventAdapter);
 
 //            Snackbar addSnackbar = Snackbar.make(view, R.string.added, Snackbar.LENGTH_LONG);
 //            addSnackbar.show();
 
-        }else{
-            if(favoriteList != null){
-                favoriteEventAdapter = new FavoriteEventAdapter(getContext(), favoriteList);
-                favoriteView.setAdapter(favoriteEventAdapter);
-                favoriteEventAdapter.notifyDataSetChanged();
-            }
+        //}else{
+        if (favoriteList != null) {
+            favoriteEventAdapter = new FavoriteEventAdapter(getContext(), favoriteList);
+            favoriteView.setAdapter(favoriteEventAdapter);
+            favoriteEventAdapter.notifyDataSetChanged();
         }
+        //}
 
         return view;
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
 //        favoriteEventAdapter.notifyDataSetChanged();
     }
