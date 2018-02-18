@@ -88,6 +88,12 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         holder.titleView.setText(events.get(position).getTitle());
         holder.authorView.setText(events.get(position).getAuthor().replaceAll(";", ""));
         holder.descriptionView.setText(events.get(position).getDescription());
+        if (holder.descriptionView.length() >= 300) {
+            holder.descriptionView.setText(events.get(position).getDescription().substring(0, 300));
+        }
+        else {
+            holder.descriptionView.setText(events.get(position).getDescription());
+        }
         holder.locationView.setText(events.get(position).getLocation() + ", ");
         holder.reportedDateView.setText(getTime(position));
 
