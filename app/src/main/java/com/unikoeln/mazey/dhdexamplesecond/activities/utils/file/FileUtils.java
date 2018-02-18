@@ -50,7 +50,7 @@ public class FileUtils {
         String content = null;
         try {
             AssetManager assetManager = context.getAssets();
-            content = IOUtils.toString(assetManager.open("DHd_Tagung2018_sessions_2017-12-19_14-36-02.xml"), "UTF-8");
+            content = IOUtils.toString(assetManager.open("DHd_Tagung2018_sessions_2018-02-01_14-29-58.xml"), "UTF-8");
         } catch (IOException e) {
             e.printStackTrace();
         }

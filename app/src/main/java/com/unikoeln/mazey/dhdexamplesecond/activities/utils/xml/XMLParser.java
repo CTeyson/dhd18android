@@ -42,12 +42,13 @@ public class XMLParser {
     private List<EventItem> getPresentationsFromLocalFile(List<EventItem> events, Element element, String eventStart, String eventEnd, int counter) {
         if (counter != 0) {
             int countVariable = 1;
-            for (int j = 0; j < 69; j++) {
+            for (int j = 0; j < 68; j++) {
                 String pX = "p" + String.valueOf(countVariable);
 
                 if (element.elementText(pX + "_paperID") != "") {
                     String eventTitle = element.elementText(pX + "_title");
-                    String eventAuthor = element.elementText(pX + "_presenting_author");
+                    // String eventAuthor = element.elementText(pX + "_presenting_author");
+                    String eventAuthor = element.elementText(pX + "_authors").replaceAll("[0-9\\(\\);]","");
                     String eventLocation = "Ort nicht bekannt";
                     String eventAbstract = element.elementText(pX + "_abstract");
 
