@@ -85,9 +85,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new EventOverviewListFragment();
         } else if (id == R.id.nav_timetable) {
             fragment = new EventFavoriteFragment();
-            //fragment = new WorkInProgressFragment();
-        } else if (id == R.id.nav_filter_events) {
-            fragment = new FilterEventsFragment();
+            //} else if (id == R.id.nav_filter_events) {
+            //fragment = new FilterEventsFragment();
         } else if (id == R.id.nav_navigation) {
             fragment = new MapFragment();
         } else if (id == R.id.nav_settings) {
