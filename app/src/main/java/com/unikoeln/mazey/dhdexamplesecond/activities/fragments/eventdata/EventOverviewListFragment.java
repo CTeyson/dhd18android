@@ -73,26 +73,5 @@ public class EventOverviewListFragment extends Fragment {
         }
     }
 
-
-//    private class InitTask extends AsyncTask<Void, Void, CustomArrayAdapter> {
-//
-//        @Override
-//        protected CustomArrayAdapter doInBackground(Void... voids) {
-//
-//            FileUtils utils = new FileUtils();
-//            List<EventItem> events = utils.deserializeEventItemList(getContext());
-//
-//            return new CustomArrayAdapter(getContext(), events);
-//        }
-//
-//        @Override
-//        protected void onPostExecute(CustomArrayAdapter customArrayAdapter) {
-//            super.onPostExecute(customArrayAdapter);
-//            progressBar.setVisibility(View.INVISIBLE);
-//            //eventData.setAdapter(customArrayAdapter);
-//        }
-//
-//    }
-
 }
 
