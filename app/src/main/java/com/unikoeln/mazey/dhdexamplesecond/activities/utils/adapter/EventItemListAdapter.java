@@ -57,9 +57,9 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             this.view = view;
 
             selector = view.findViewById(R.id.event_separator);
-            titleView = view.findViewById(R.id.title);
-            authorView = view.findViewById(R.id.author);
-            descriptionView = view.findViewById(R.id.description);
+            titleView = view.findViewById(R.id.presentationTitle);
+            authorView = view.findViewById(R.id.presentationAuthor);
+            descriptionView = view.findViewById(R.id.presentationDescription);
             locationView = view.findViewById(R.id.location);
             reportedDateView = view.findViewById(R.id.time);
             imageView = view.findViewById(R.id.bookmark);
@@ -80,21 +80,20 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        final String date = events.get(position).getStartTime().toString();
+        final String date = events.get(position).getPresentationStartTime().toString();
 
         final String formatted = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
         holder.selector.setText(formatted);
-        holder.titleView.setText(events.get(position).getTitle());
-        holder.authorView.setText(events.get(position).getAuthor().replaceAll(";", ""));
-        holder.descriptionView.setText(events.get(position).getDescription());
+        holder.titleView.setText(events.get(position).getPresentationTitle() == null ? events.get(position).getSessionTitle() : events.get(position).getPresentationTitle());
+        holder.authorView.setText(events.get(position).getPresentationAuthor() == null ? "" : events.get(position).getPresentationAuthor().replaceAll(";", ""));
+        holder.descriptionView.setText(events.get(position).getPresentationDescription() == null ? events.get(position).getSessionAbstract() : events.get(position).getPresentationDescription());
         if (holder.descriptionView.length() >= 300) {
-            holder.descriptionView.setText(events.get(position).getDescription().substring(0, 300));
+            holder.descriptionView.setText(events.get(position).getPresentationDescription().substring(0, 300));
+        } else {
+            holder.descriptionView.setText(events.get(position).getPresentationDescription());
         }
-        else {
-            holder.descriptionView.setText(events.get(position).getDescription());
-        }
-        holder.locationView.setText(events.get(position).getLocation() + ", ");
+        holder.locationView.setText(events.get(position).getSessionRoom());
         holder.reportedDateView.setText(getTime(position));
 
         holder.descriptionView.setOnClickListener(new View.OnClickListener() {
@@ -103,10 +102,10 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                 EventDetailFragment eventDetailFragment = new EventDetailFragment();
 
                 Bundle event = new Bundle();
-                event.putString("Title", events.get(position).getTitle());
-                event.putString("Abstract", events.get(position).getDescription().substring(0, 300));
-                event.putString("Author", events.get(position).getAuthor().replaceAll(";", ""));
-                event.putString("Location", events.get(position).getLocation());
+                event.putString("Title", events.get(position).getPresentationTitle() == "" ? events.get(position).getSessionTitle() : events.get(position).getPresentationTitle());
+                event.putString("Abstract", events.get(position).getPresentationDescription());
+                event.putString("Author", events.get(position).getPresentationAuthor() == null ? "" : events.get(position).getPresentationAuthor().replaceAll(";", ""));
+                event.putString("Location", events.get(position).getSessionRoom());
                 event.putString("Time", getTime(position));
                 event.putString("Date", formatted);
                 eventDetailFragment.setArguments(event);
@@ -124,8 +123,8 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             public void onClick(View view) {
                 String strDateText = formatted;
                 String strTimeText = getTime(position);
-                String strTitleText = events.get(position).getTitle();
-                String strLocationText = events.get(position).getLocation(); // mit neuer XML testen!
+                String strTitleText = events.get(position).getPresentationTitle();
+                String strLocationText = events.get(position).getSessionRoom(); // mit neuer XML testen!
                 String shareVia = context.getString(R.string.share_via);
 
                 if (strDateText.contains("26 Feb")) {
@@ -147,65 +146,65 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                 sendIntent.putExtra(Intent.EXTRA_TEXT, shareOutput);
                 sendIntent.setType("text/plain");
                 context.startActivity(Intent.createChooser(sendIntent, shareVia));
+            }
+        });
+
+
+        //set tag
+        if (
+
+                checkFavoriteItem(events.get(position)))
+
+        {
+            holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
+            holder.imageView.setTag("checked");
+        } else
+
+        {
+            holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
+            holder.imageView.setTag("removed");
         }
-    });
-
-
-    //set tag
-        if(
-
-    checkFavoriteItem(events.get(position)))
-
-    {
-        holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
-        holder.imageView.setTag("checked");
-    } else
-
-    {
-        holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
-        holder.imageView.setTag("removed");
-    }
 
         holder.imageView.setOnClickListener(new View.OnClickListener()
 
-    {
-        @Override
-        public void onClick (View view){
+        {
+            @Override
+            public void onClick(View view) {
 
-        String tag = holder.imageView.getTag().toString();
+                String tag = holder.imageView.getTag().toString();
 
-        if (tag.equalsIgnoreCase("removed")) {
+                if (tag.equalsIgnoreCase("removed")) {
 
-            //adding to list
-            sharedPreference.addFavorite(context, events.get(position));
-            holder.imageView.setTag("checked");
-            holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
-            notifyDataSetChanged();
+                    //adding to list
+                    sharedPreference.addFavorite(context, events.get(position));
+                    holder.imageView.setTag("checked");
+                    holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
+                    notifyDataSetChanged();
 
-            //snackbar
-            Snackbar addSnackbar = Snackbar.make(view, adding, Snackbar.LENGTH_LONG);
-            View viewSnack = addSnackbar.getView();
-            TextView textView = (TextView) viewSnack.findViewById(android.support.design.R.id.snackbar_text);
-            addSnackbar.show();
+                    //snackbar
+                    Snackbar addSnackbar = Snackbar.make(view, adding, Snackbar.LENGTH_LONG);
+                    View viewSnack = addSnackbar.getView();
+                    TextView textView = (TextView) viewSnack.findViewById(android.support.design.R.id.snackbar_text);
+                    addSnackbar.show();
 
-        } else {
+                } else {
 
-            //remove and change tag
-            sharedPreference.removeFavorite(context, events.get(position));
-            holder.imageView.setTag("removed");
-            holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
-            notifyDataSetChanged();
+                    //remove and change tag
+                    sharedPreference.removeFavorite(context, events.get(position));
+                    holder.imageView.setTag("removed");
+                    holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
+                    notifyDataSetChanged();
 
-            //snackbar
-            Snackbar deleteSnackbar = Snackbar.make(view, delete, Snackbar.LENGTH_LONG);
-            View viewSnack = deleteSnackbar.getView();
-            TextView textView = (TextView) viewSnack.findViewById(android.support.design.R.id.snackbar_text);
-            deleteSnackbar.show();
-        }
+                    //snackbar
+                    Snackbar deleteSnackbar = Snackbar.make(view, delete, Snackbar.LENGTH_LONG);
+                    View viewSnack = deleteSnackbar.getView();
+                    TextView textView = (TextView) viewSnack.findViewById(android.support.design.R.id.snackbar_text);
+                    deleteSnackbar.show();
+                }
+            }
+        });
+
     }
-    });
-
-}
 
     public boolean checkFavoriteItem(EventItem checkEvent) {
         boolean check = false;
@@ -230,8 +229,8 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
     private String getTime(int position) {
 
-        Date start = events.get(position).getStartTime();
-        Date end = events.get(position).getEndTime();
+        Date start = events.get(position).getPresentationStartTime();
+        Date end = events.get(position).getPresentationEndTime();
 
         return String.format("%1s%2s%3s", start.toString().substring(11, 16), " - ", end.toString().substring(11, 16));
     }

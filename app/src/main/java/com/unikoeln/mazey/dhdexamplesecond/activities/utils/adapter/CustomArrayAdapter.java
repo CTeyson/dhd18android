@@ -70,8 +70,8 @@ public class CustomArrayAdapter extends BaseAdapter {
 
             holder.selelctor = convertView.findViewById(R.id.event_separator);
             holder.titleView = (TextView) convertView.findViewById(R.id.title);
-            holder.authorView = (TextView) convertView.findViewById(R.id.author);
-            holder.descriptionView = (TextView) convertView.findViewById(R.id.description);
+            holder.authorView = (TextView) convertView.findViewById(R.id.presentationAuthor);
+            holder.descriptionView = (TextView) convertView.findViewById(R.id.presentationDescription);
             holder.locationView = (TextView) convertView.findViewById(R.id.location);
             holder.reportedDateView = (TextView) convertView.findViewById(R.id.time);
             holder.imageView = convertView.findViewById(R.id.bookmark);
@@ -84,15 +84,15 @@ public class CustomArrayAdapter extends BaseAdapter {
         }
 
 
-        final String date = listData.get(position).getStartTime().toString();
+        final String date = listData.get(position).getPresentationStartTime().toString();
 
         final String formatted = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
         holder.selelctor.setText(formatted);
-        holder.titleView.setText(listData.get(position).getTitle());
-        holder.authorView.setText(listData.get(position).getAuthor().replaceAll(";", ""));
-        holder.descriptionView.setText(listData.get(position).getDescription());
-        holder.locationView.setText(listData.get(position).getLocation() + ", ");
+        holder.titleView.setText(listData.get(position).getPresentationTitle());
+        holder.authorView.setText(listData.get(position).getPresentationAuthor().replaceAll(";", ""));
+        holder.descriptionView.setText(listData.get(position).getPresentationDescription());
+        holder.locationView.setText(listData.get(position).getSessionRoomInfo() + ", ");
         holder.reportedDateView.setText(getTime(position));
 
         holder.descriptionView.setOnClickListener(new View.OnClickListener() {
@@ -101,10 +101,10 @@ public class CustomArrayAdapter extends BaseAdapter {
                 EventDetailFragment eventDetailFragment = new EventDetailFragment();
 
                 Bundle event = new Bundle();
-                event.putString("Title", listData.get(position).getTitle());
-                event.putString("Abstract", listData.get(position).getDescription());
-                event.putString("Author", listData.get(position).getAuthor().replaceAll(";", ""));
-                event.putString("Location", listData.get(position).getLocation());
+                event.putString("Title", listData.get(position).getPresentationTitle());
+                event.putString("Abstract", listData.get(position).getPresentationDescription());
+                event.putString("Author", listData.get(position).getPresentationAuthor().replaceAll(";", ""));
+                event.putString("Location", listData.get(position).getSessionRoomInfo());
                 event.putString("Time", getTime(position));
                 event.putString("Date", formatted);
                 eventDetailFragment.setArguments(event);
@@ -136,8 +136,8 @@ public class CustomArrayAdapter extends BaseAdapter {
 
     private String getTime(int position) {
 
-        Date start = listData.get(position).getStartTime();
-        Date end = listData.get(position).getEndTime();
+        Date start = listData.get(position).getPresentationStartTime();
+        Date end = listData.get(position).getPresentationEndTime();
 
         return String.format("%1s%2s%3s", start.toString().substring(11, 16), " - ", end.toString().substring(11, 16));
     }

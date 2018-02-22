@@ -17,8 +17,8 @@ public class EventListUtil {
         XMLCreater xml = new XMLCreater();
         Document document = xml.createXmlDocumentFromString(content);
         List<Node> nodes = xml.getNodesOfXml(document, "//sessions/session");
-        events = parser.createEventItemListFromLocalFile(nodes);
-        return events;
+        //events = parser.parseDataFromConfToolC4me(nodes);
+        return parser.parseDataFromConfToolC4me(nodes);
     }
 
 }

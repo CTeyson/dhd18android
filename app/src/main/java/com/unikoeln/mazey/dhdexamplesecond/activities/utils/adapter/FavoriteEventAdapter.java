@@ -64,12 +64,12 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        final String date = boomarkedData.get(position).getStartTime().toString();
+        final String date = boomarkedData.get(position).getPresentationStartTime().toString();
         final String fittingDate = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
-        holder.title.setText(boomarkedData.get(position).getTitle());
-        holder.author.setText(boomarkedData.get(position).getAuthor());
-        holder.location.setText(boomarkedData.get(position).getLocation());
+        holder.title.setText(boomarkedData.get(position).getPresentationTitle());
+        holder.author.setText(boomarkedData.get(position).getPresentationAuthor());
+        holder.location.setText(boomarkedData.get(position).getSessionRoomInfo());
         holder.selector.setText(fittingDate);
 
         /*ermöglicht löschen und neu: direktes erneutes hinzufügen, elegantes umgehen des fragmentaktualsiertproblems*/

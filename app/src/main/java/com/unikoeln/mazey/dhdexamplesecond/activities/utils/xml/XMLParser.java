@@ -2,7 +2,6 @@ package com.unikoeln.mazey.dhdexamplesecond.activities.utils.xml;
 
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.presentations.Presentation;
-import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.sessions.Session;
 
 import org.dom4j.Element;
 import org.dom4j.Node;
@@ -48,7 +47,7 @@ public class XMLParser {
                 if (element.elementText(pX + "_paperID") != "") {
                     String eventTitle = element.elementText(pX + "_title");
                     // String eventAuthor = element.elementText(pX + "_presenting_author");
-                    String eventAuthor = element.elementText(pX + "_authors").replaceAll("[0-9\\(\\);]","");
+                    String eventAuthor = element.elementText(pX + "_authors").replaceAll("[0-9\\(\\);]", "");
                     String eventLocation = "Ort nicht bekannt";
                     String eventAbstract = element.elementText(pX + "_abstract");
 
@@ -57,7 +56,7 @@ public class XMLParser {
                     Date start = this.getDate(eventStart);
                     Date end = this.getDate(eventEnd);
 
-                    events.add(new EventItem(eventTitle, eventAuthor, eventLocation, eventAbstract, start, end));
+                    // events.add(new EventItem(eventTitle, eventAuthor, eventLocation, eventAbstract, start, end));
                 }
 
                 countVariable = countVariable + 1;
@@ -77,10 +76,9 @@ public class XMLParser {
         return tmp;
     }
 
-    public List<Session> parseDataFromConfToolC4me(List<Node> elements) {
+    public List<EventItem> parseDataFromConfToolC4me(List<Node> elements) {
 
-        Session session = null;
-        List<Session> sessions = new ArrayList<Session>();
+        List<EventItem> eventItems = new ArrayList<EventItem>();
         List<Presentation> presentationsOfSession = null;
 
         for (int i = 0; i < elements.size(); i++) {
@@ -113,23 +111,45 @@ public class XMLParser {
                 presentationsOfSession = this.getPresentations(element, sessionPresentations);
             }
 
+            String parsedSessionAbstract = null;
+            if (sessionAbstract != null) {
+                parsedSessionAbstract = Jsoup.parse(sessionAbstract).text();
+            }
 
-            session = new Session(
-                    Integer.valueOf(sessionID),
-                    sessionShort,
-                    sessionTitle,
-                    sessionStart,
-                    sessionEnd,
-                    sessionRoomID,
-                    sessionRoom,
-                    sessionRoomInfo,
-                    sessionAbstract,
-                    sessionPresentations,
-                    presentationsOfSession);
-
-            sessions.add(session);
+            if (presentationsOfSession == null) {
+                EventItem eventItem = new EventItem(
+                        Integer.valueOf(sessionID),
+                        sessionShort,
+                        sessionTitle,
+                        sessionRoomID,
+                        sessionRoom,
+                        sessionRoomInfo,
+                        parsedSessionAbstract,
+                        this.getDate(sessionStart),
+                        this.getDate(sessionEnd));
+                if (!eventItems.contains(eventItem)) eventItems.add(eventItem);
+            } else {
+                for (Presentation presentation : presentationsOfSession) {
+                    EventItem eventItem = new EventItem(
+                            Integer.valueOf(sessionID),
+                            sessionShort,
+                            sessionTitle,
+                            sessionRoomID,
+                            sessionRoom,
+                            sessionRoomInfo,
+                            parsedSessionAbstract,
+                            presentation.getPresentationContributionType(),
+                            presentation.getPresentationTitle(),
+                            presentation.getPresentationAuthors().replaceAll("[0-9\\(\\);]", ""),
+                            Jsoup.parse(presentation.getPresentationAbstract()).text(),
+                            this.getDate(sessionStart),
+                            this.getDate(sessionEnd));
+                    if (!eventItems.contains(eventItem)) eventItems.add(eventItem);
+                }
+                presentationsOfSession = null;
+            }
         }
-        return sessions;
+        return eventItems;
     }
 
     private List<Presentation> getPresentations(Element element, int sessionPresentations) {

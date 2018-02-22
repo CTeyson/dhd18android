@@ -20,7 +20,7 @@
         android:textColor="@color/icon_map" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/presentationTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -35,7 +35,7 @@
 
 
     <TextView
-        android:id="@+id/author"
+        android:id="@+id/presentationAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -43,7 +43,7 @@
         android:text="Geschrieben"
         android:maxLines="2"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/presentationTitle" />
 
     <TextView
         android:id="@+id/location"
@@ -52,7 +52,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:text="ORT"
-        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/presentationTitle"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <TextView
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@id/location" />
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/presentationDescription"
         android:layout_width="match_parent"
         android:layout_height="84dp"
         android:maxLines="5"
@@ -95,7 +95,7 @@
         android:tint="@color/colorDhdPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        app:layout_constraintTop_toBottomOf="@+id/presentationDescription" />
 
     <ImageView
         android:id="@+id/share"
@@ -108,6 +108,6 @@
         android:tint="@color/colorDhdPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@id/bookmark"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        app:layout_constraintTop_toBottomOf="@+id/presentationDescription" />
 
 </android.support.constraint.ConstraintLayout>

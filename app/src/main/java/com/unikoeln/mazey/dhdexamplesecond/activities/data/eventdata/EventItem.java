@@ -8,102 +8,231 @@ import java.util.Objects;
 
 public class EventItem implements Comparable<EventItem>, Serializable {
 
-    private String title;
-    private String author;
-    private String location;
-    private String description;
-    private Date startTime;
-    private Date endTime;
+    private int sessionID;
+    private String sessionShort;
+    private String sessionTitle;
+    private String sessionRoomID;
+    private String sessionRoom;
+    private String sessionRoomInfo;
+    private String sessionAbstract;
+    private String presentationContributionType;
+    private String presentationTitle;
+    private String presentationAuthor;
+    private String presentationDescription;
+    private Date presentationStartTime;
+    private Date presentationEndTime;
 
-    public EventItem(String title, String author, String location, String description, Date startTime, Date endTime) {
-        this.title = title;
-        this.author = author;
-        this.location = location;
-        this.description = description;
-        this.startTime = startTime;
-        this.endTime = endTime;
+    public EventItem(int sessionID, String sessionShort, String sessionTitle, String sessionRoomID, String sessionRoom, String sessionRoomInfo, String sessionAbstract, Date startTime, Date presentationEndTime) {
+        this.sessionID = sessionID;
+        this.sessionShort = sessionShort;
+        this.sessionTitle = sessionTitle;
+        this.sessionRoomID = sessionRoomID;
+        this.sessionRoom = sessionRoom;
+        this.sessionRoomInfo = sessionRoomInfo;
+        this.sessionAbstract = sessionAbstract;
+        this.presentationStartTime = startTime;
+        this.presentationEndTime = presentationEndTime;
     }
 
-    public String getTitle() {
-        return title;
+    public EventItem(int sessionID, String sessionShort, String sessionTitle, String sessionRoomID, String sessionRoom, String sessionRoomInfo, String sessionAbstract, String presentationContributionType, String presentationTitle, String presentationAuthor, String presentationDescription, Date presentationStartTime, Date presentationEndTime) {
+        this.sessionID = sessionID;
+        this.sessionShort = sessionShort;
+        this.sessionTitle = sessionTitle;
+        this.sessionRoomID = sessionRoomID;
+        this.sessionRoom = sessionRoom;
+        this.sessionRoomInfo = sessionRoomInfo;
+        this.sessionAbstract = sessionAbstract;
+        this.presentationContributionType = presentationContributionType;
+        this.presentationTitle = presentationTitle;
+        this.presentationAuthor = presentationAuthor;
+        this.presentationDescription = presentationDescription;
+        this.presentationStartTime = presentationStartTime;
+        this.presentationEndTime = presentationEndTime;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    //    public EventItem(String presentationTitle, String presentationAuthor, String location, String description, Date startTime, Date presentationEndTime) {
+//        this.presentationTitle = presentationTitle;
+//        this.presentationAuthor = presentationAuthor;
+//        this.location = location;
+//        this.presentationDescription = description;
+//        this.presentationStartTime = startTime;
+//        this.presentationEndTime = presentationEndTime;
+//    }
+
+    public int getSessionID() {
+        return sessionID;
     }
 
-    public String getAuthor() {
-        return author;
+    public void setSessionID(int sessionID) {
+        this.sessionID = sessionID;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public String getSessionShort() {
+        return sessionShort;
     }
 
-    public String getLocation() {
-        return location;
+    public void setSessionShort(String sessionShort) {
+        this.sessionShort = sessionShort;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public String getSessionTitle() {
+        return sessionTitle;
     }
 
-    public String getDescription() {
-        return description;
+    public void setSessionTitle(String sessionTitle) {
+        this.sessionTitle = sessionTitle;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getSessionRoomID() {
+        return sessionRoomID;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public void setSessionRoomID(String sessionRoomID) {
+        this.sessionRoomID = sessionRoomID;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public String getSessionRoom() {
+        return sessionRoom;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public void setSessionRoom(String sessionRoom) {
+        this.sessionRoom = sessionRoom;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public String getSessionRoomInfo() {
+        return sessionRoomInfo;
+    }
+
+    public void setSessionRoomInfo(String sessionRoomInfo) {
+        this.sessionRoomInfo = sessionRoomInfo;
+    }
+
+    public String getSessionAbstract() {
+        return sessionAbstract;
+    }
+
+    public void setSessionAbstract(String sessionAbstract) {
+        this.sessionAbstract = sessionAbstract;
+    }
+
+    public String getPresentationContributionType() {
+        return presentationContributionType;
+    }
+
+    public void setPresentationContributionType(String presentationContributionType) {
+        this.presentationContributionType = presentationContributionType;
+    }
+
+    public String getPresentationTitle() {
+        return presentationTitle;
+    }
+
+    public void setPresentationTitle(String presentationTitle) {
+        this.presentationTitle = presentationTitle;
+    }
+
+    public String getPresentationAuthor() {
+        return presentationAuthor;
+    }
+
+    public void setPresentationAuthor(String presentationAuthor) {
+        this.presentationAuthor = presentationAuthor;
+    }
+
+    public String getPresentationDescription() {
+        return presentationDescription;
+    }
+
+    public void setPresentationDescription(String presentationDescription) {
+        this.presentationDescription = presentationDescription;
+    }
+
+    public Date getPresentationStartTime() {
+        return presentationStartTime;
+    }
+
+    public void setPresentationStartTime(Date presentationStartTime) {
+        this.presentationStartTime = presentationStartTime;
+    }
+
+    public Date getPresentationEndTime() {
+        return presentationEndTime;
+    }
+
+    public void setPresentationEndTime(Date presentationEndTime) {
+        this.presentationEndTime = presentationEndTime;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         EventItem eventItem = (EventItem) o;
-        return Objects.equals(title, eventItem.title) &&
-                Objects.equals(author, eventItem.author) &&
-                Objects.equals(location, eventItem.location) &&
-                Objects.equals(description, eventItem.description) &&
-                Objects.equals(startTime, eventItem.startTime) &&
-                Objects.equals(endTime, eventItem.endTime);
+
+        if (sessionID != eventItem.sessionID) return false;
+        if (sessionShort != null ? !sessionShort.equals(eventItem.sessionShort) : eventItem.sessionShort != null)
+            return false;
+        if (sessionTitle != null ? !sessionTitle.equals(eventItem.sessionTitle) : eventItem.sessionTitle != null)
+            return false;
+        if (sessionRoomID != null ? !sessionRoomID.equals(eventItem.sessionRoomID) : eventItem.sessionRoomID != null)
+            return false;
+        if (sessionRoom != null ? !sessionRoom.equals(eventItem.sessionRoom) : eventItem.sessionRoom != null)
+            return false;
+        if (sessionRoomInfo != null ? !sessionRoomInfo.equals(eventItem.sessionRoomInfo) : eventItem.sessionRoomInfo != null)
+            return false;
+        if (sessionAbstract != null ? !sessionAbstract.equals(eventItem.sessionAbstract) : eventItem.sessionAbstract != null)
+            return false;
+        if (presentationTitle != null ? !presentationTitle.equals(eventItem.presentationTitle) : eventItem.presentationTitle != null)
+            return false;
+        if (presentationAuthor != null ? !presentationAuthor.equals(eventItem.presentationAuthor) : eventItem.presentationAuthor != null)
+            return false;
+        if (presentationDescription != null ? !presentationDescription.equals(eventItem.presentationDescription) : eventItem.presentationDescription != null)
+            return false;
+        if (presentationStartTime != null ? !presentationStartTime.equals(eventItem.presentationStartTime) : eventItem.presentationStartTime != null)
+            return false;
+        return presentationEndTime != null ? presentationEndTime.equals(eventItem.presentationEndTime) : eventItem.presentationEndTime == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, author, location, description, startTime, endTime);
+        int result = sessionID;
+        result = 31 * result + (sessionShort != null ? sessionShort.hashCode() : 0);
+        result = 31 * result + (sessionTitle != null ? sessionTitle.hashCode() : 0);
+        result = 31 * result + (sessionRoomID != null ? sessionRoomID.hashCode() : 0);
+        result = 31 * result + (sessionRoom != null ? sessionRoom.hashCode() : 0);
+        result = 31 * result + (sessionRoomInfo != null ? sessionRoomInfo.hashCode() : 0);
+        result = 31 * result + (sessionAbstract != null ? sessionAbstract.hashCode() : 0);
+        result = 31 * result + (presentationContributionType != null ? presentationContributionType.hashCode() : 0);
+        result = 31 * result + (presentationTitle != null ? presentationTitle.hashCode() : 0);
+        result = 31 * result + (presentationAuthor != null ? presentationAuthor.hashCode() : 0);
+        result = 31 * result + (presentationDescription != null ? presentationDescription.hashCode() : 0);
+        result = 31 * result + (presentationStartTime != null ? presentationStartTime.hashCode() : 0);
+        result = 31 * result + (presentationEndTime != null ? presentationEndTime.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "EventItem{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", location='" + location + '\'' +
-                ", description='" + description + '\'' +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
+                "sessionID=" + sessionID +
+                ", sessionShort='" + sessionShort + '\'' +
+                ", sessionTitle='" + sessionTitle + '\'' +
+                ", sessionRoomID='" + sessionRoomID + '\'' +
+                ", sessionRoom='" + sessionRoom + '\'' +
+                ", sessionRoomInfo='" + sessionRoomInfo + '\'' +
+                ", sessionAbstract='" + sessionAbstract + '\'' +
+                ", presentationContributionType='" + presentationContributionType + '\'' +
+                ", presentationTitle='" + presentationTitle + '\'' +
+                ", presentationAuthor='" + presentationAuthor + '\'' +
+                ", presentationDescription='" + presentationDescription + '\'' +
+                ", presentationStartTime=" + presentationStartTime +
+                ", presentationEndTime=" + presentationEndTime +
                 '}';
     }
 
     @Override
     public int compareTo(@NonNull EventItem eventItem) {
-        return getStartTime().compareTo(eventItem.getStartTime());
+        return getPresentationStartTime().compareTo(eventItem.getPresentationStartTime());
     }
 }
