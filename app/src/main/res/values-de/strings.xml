@@ -33,6 +33,10 @@
     <string name="contact_details">Telefon: 0221/470 5193\nTelefax: 0221/470 4170\nE-Mail: buero@spinfo.uni-koeln.de\nInternet: http://www.spinfo.phil-fak.uni-koeln.de/</string>
     <string name="rstv">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</string>
     <string name="responsible_person_for_content">Dr. Jürgen Hermes\nAlbertus-Magnus-Platz\n50923 Köln</string>
+    <string name="meet_the_team_headline">Das Entwicklerteam:</string>
+    <string name="meet_the_team_text">Software Engineering: \nMarco Zeyen\n\nJava-Programmierung: \nBetül Büsra\n\nXML-Layouting und Bugtesting: \nTobias Weber\n\nProject Management und Rechtliches: \nJürgen Schmitz\n\niOS Version: \nChristian Theisen</string>
+
+
     <string name="privacy_headline">Datenschutzerklärung</string>
     <string name="privacy_paragraph1">Diese App erhebt und speichert selbst keinerlei persönliche Daten von Ihrem Smartphone.</string>
 

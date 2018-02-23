@@ -140,6 +140,32 @@
             app:layout_constraintLeft_toLeftOf="@id/wrapper"
             app:layout_constraintTop_toBottomOf="@id/rstv" />
 
+
+        <TextView
+            android:id="@+id/meet_the_team_headline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/meet_the_team_headline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/wrapper"
+            app:layout_constraintTop_toBottomOf="@id/responsible_person_for_content" />
+
+        <TextView
+            android:id="@+id/meet_the_team_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/meet_the_team_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/wrapper"
+            app:layout_constraintTop_toBottomOf="@id/meet_the_team_headline" />
+
+
         <TextView
             android:id="@+id/privacy_headline"
             android:layout_width="0dp"
@@ -151,7 +177,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/wrapper"
-            app:layout_constraintTop_toBottomOf="@id/responsible_person_for_content" />
+            app:layout_constraintTop_toBottomOf="@id/meet_the_team_text" />
 
         <TextView
             android:id="@+id/privacy_paragraph1"
@@ -242,9 +268,6 @@
             android:text="@string/disclaimer_calendarFunction"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/wrapper"
-            app:layout_constraintTop_toBottomOf="@id/disclaimer_calendarFunction_headline"
-            app:layout_constraintBottom_toBottomOf="@id/wrapper"/>
-
-
+            app:layout_constraintTop_toBottomOf="@+id/disclaimer_calendarFunction_headline" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

@@ -34,6 +34,8 @@
     <string name="contact_details">Phone: 0221/470 5193\nFax: 0221/470 4170\nE-Mail: buero@spinfo.uni-koeln.de\nInternet: http://www.spinfo.phil-fak.uni-koeln.de/</string>
     <string name="rstv">Responsible for the editorial content (§ 55 parag. 2 RStV):</string>
     <string name="responsible_person_for_content">Dr. Jürgen Hermes\nAlbertus-Magnus-Platz\n50923 Cologne</string>
+    <string name="meet_the_team_headline">The development team:</string>
+    <string name="meet_the_team_text">Software Engineering: \nMarco Zeyen\nJava-Programming: \nBetül Büsra\nXML-Layouting and Bugtesting: \nTobias Weber\nProject Management and Legal stuff: \nJürgen Schmitz\niOS Version: \nChristian Theisen</string>
 
 
     <string name="privacy_headline">Privacy Policy</string>

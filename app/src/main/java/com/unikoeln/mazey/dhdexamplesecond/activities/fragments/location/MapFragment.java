@@ -56,7 +56,7 @@ public class MapFragment extends Fragment {
 
         googleMap.addMarker(new MarkerOptions().position(cologneUniversityMainBuilding).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_mainbuilding)));
         googleMap.addMarker(new MarkerOptions().position(cologneUniversitySeminarBuilding).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_seminarbuilding)));
-        googleMap.addMarker(new MarkerOptions().position(cologneUniversityCafeteria).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_mensa)));
+        //googleMap.addMarker(new MarkerOptions().position(cologneUniversityCafeteria).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_mensa)));
         googleMap.addMarker(new MarkerOptions().position(cologneUniversityArtheatre).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_artheatre)));
 
         CameraPosition cameraPositionMain = new CameraPosition.Builder().target(CameraPositionCoordinates).zoom(13).build();

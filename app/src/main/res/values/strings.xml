@@ -33,7 +33,8 @@
     <string name="responsible_person_for_content">Dr. Jürgen Hermes\nAlbertus-Magnus-Platz\n50923 Cologne</string>
     <string name="privacy_headline">Privacy Policy</string>
     <string name="privacy_paragraph1">This mobile app is not actively extracting and saving any personal data from your smartphone.</string>
-
+    <string name="meet_the_team_headline">The development team:</string>
+    <string name="meet_the_team_text">Software Engineering: \nMarco Zeyen\n\nJava-Programming: \nBetül Büsra\n\nXML-Layouting and Bugtesting: \nTobias Weber\n\nProject Management and legalities: \nJürgen Schmitz\n\niOS Version: \nChristian Theisen</string>
 
     <string name="disclaimer_mapFunction_headline">Additional Information for the GoogleMaps-Navigation</string>
     <string name="disclaimer_mapFunction">Please be advised though, that our navigation function allows you to open the Google Maps app of your device to help you navigate to the seminar buildings. The Google Maps app itself is saving several kinds of personal data for its navigation functions. Please consult the Google Privacy Policy for further information on the use of personal data of your Google Maps app: https://www.google.de/intl/en_de/policies/privacy/. \n\nPlease be aware, that this mobile app has no influence on the data usage of other mobile apps like Google Maps.</string>
