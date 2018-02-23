@@ -70,7 +70,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/event_location" />
 
-        <ImageView
+       <!-- <ImageView
             android:id="@+id/event_bookmark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
             android:src="@drawable/ic_bookmark_border_black_24dp_copy_3"
             android:tint="@color/colorDhdPrimary"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/event_time" />
+            app:layout_constraintTop_toBottomOf="@id/event_time" /> !-->
 
         <ImageView
             android:id="@+id/event_share"
@@ -93,7 +93,7 @@
             android:onClick="True"
             android:src="@drawable/ic_menu_share"
             android:tint="@color/colorDhdPrimary"
-            app:layout_constraintRight_toLeftOf="@id/event_bookmark"
+            app:layout_constraintRight_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/event_time" />
 
         <ImageView
