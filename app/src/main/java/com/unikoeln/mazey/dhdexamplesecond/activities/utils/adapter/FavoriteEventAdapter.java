@@ -1,6 +1,9 @@
 package com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter;
 
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,9 +14,11 @@ import android.widget.TextView;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
 import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
+import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventDetailFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.utils.SharedPreference;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdapter.ViewHolder> {
@@ -37,6 +42,8 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         TextView title;
         TextView author;
         TextView location;
+        //
+        TextView time;
         ImageView delete;
         TextView selector;
 
@@ -48,6 +55,8 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
             title = (TextView) view.findViewById(R.id.favorite_title);
             author = (TextView) view.findViewById(R.id.favorite_author);
             location = (TextView) view.findViewById(R.id.favorite_location);
+            //
+            time = (TextView) view.findViewById(R.id.favorite_time);
             selector = (TextView) view.findViewById(R.id.separator);
             delete = (ImageView) view.findViewById(R.id.delete);
         }
@@ -69,8 +78,34 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
 
         holder.title.setText(boomarkedData.get(position).getPresentationTitle());
         holder.author.setText(boomarkedData.get(position).getPresentationAuthor());
-        holder.location.setText(boomarkedData.get(position).getSessionRoomInfo());
+        holder.location.setText(boomarkedData.get(position).getSessionRoom());
+        //
+        holder.time.setText(getTime(position));
         holder.selector.setText(fittingDate);
+
+        //einfügen der Detailseite
+        holder.title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EventDetailFragment eventDetailFragment = new EventDetailFragment();
+
+                Bundle event = new Bundle();
+                event.putString("Title", boomarkedData.get(position).getPresentationTitle() == "" ? boomarkedData.get(position).getSessionTitle() : boomarkedData.get(position).getPresentationTitle());
+                event.putString("Abstract", boomarkedData.get(position).getPresentationDescription());
+                event.putString("Author", boomarkedData.get(position).getPresentationAuthor() == null ? "" : boomarkedData.get(position).getPresentationAuthor().replaceAll(";", ""));
+                event.putString("Location", boomarkedData.get(position).getSessionRoom());
+                event.putString("Time", getTime(position));
+                event.putString("Date", fittingDate);
+                event.putString("Type", boomarkedData.get(position).getPresentationContributionType());
+                eventDetailFragment.setArguments(event);
+
+                FragmentTransaction transaction = ((Activity) context).getFragmentManager().beginTransaction();
+                transaction.addToBackStack(null);
+
+                transaction.replace(R.id.main_activity, eventDetailFragment);
+                transaction.commit();
+            }
+        });
 
         /*ermöglicht löschen und neu: direktes erneutes hinzufügen, elegantes umgehen des fragmentaktualsiertproblems*/
         holder.delete.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +149,15 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         }
 
         return check;
+    }
+
+    //Zeit hinzugefügt
+    private String getTime(int position) {
+
+        Date start = boomarkedData.get(position).getPresentationStartTime();
+        Date end = boomarkedData.get(position).getPresentationEndTime();
+
+        return String.format("%1s%2s%3s", start.toString().substring(11, 16), " - ", end.toString().substring(11, 16));
     }
 
     @Override
