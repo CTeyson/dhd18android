@@ -26,13 +26,13 @@
     <string name="imprint_privacy_headline">Imprint / Privacy Policy</string>
     <string name="imprint_headline">Imprint</string>
     <string name="tmg_parag">General information of the service provider (§ 5 TMG):</string>
-    <string name="institution_name">University of Cologne\nSprachliche Informationsverarbeitung\nInstitut für Institute of Linguistics</string>
-    <string name="adress">Albertus-Magnus-Platz\n50923 Cologne</string>
+    <string name="institution_name">University of Cologne Sprachliche Informationsverarbeitung Institut für Institute of Linguistics</string>
+    <string name="adress">Albertus-Magnus-Platz 50923 Cologne</string>
     <string name="accountable_person">Accountable person: Dr. Jürgen Hermes</string>
     <string name="contact_headline">Contact:</string>
-    <string name="contact_details">Phone: 0221/470 5193\Fax: 0221/470 4170\nE-Mail: buero@spinfo.uni-koeln.de\nInternet: http://www.spinfo.phil-fak.uni-koeln.de/</string>
+    <string name="contact_details">Phone: 0221/470 5193Fax: 0221/470 4170 E-Mail: buero@spinfo.uni-koeln.de Internet: http://www.spinfo.phil-fak.uni-koeln.de/</string>
     <string name="rstv">Responsible for the editorial content (§ 55 parag. 2 RStV):</string>
-    <string name="responsible_person_for_content">Dr. Jürgen Hermes\nAlbertus-Magnus-Platz\n50923 Cologne</string>
+    <string name="responsible_person_for_content">Dr. Jürgen Hermes Albertus-Magnus-Platz 50923 Cologne</string>
     <string name="privacy_headline">Privacy Policy</string>
     <string name="privacy_paragraph1">This mobile app is not actively extracting and saving any personal data from your smartphone.</string>
     <string name="privacy_paragraph2">Please be advised though, that our navigation function allows you to open the Google Maps app of your device to help you navigate to the seminar buildings. The Google Maps app itself is saving several kinds of personal data for its navigation functions. Please consult the Google Privacy Policy for further information on the use of personal data of your Google Maps app: https://www.google.de/intl/en_de/policies/privacy/.</string>
@@ -44,8 +44,8 @@
 
     <string name="marked">It was added successfully to your list!</string>
     <string name="removed">It was removed successfully!</string>
-    <string name="welcome_screen_title">Your favorite events !</string>
-    <string name="welcome_screen_message">This is the overview of your favorite events !</string>
+    <string name="welcome_screen_title">Your favorite events!</string>
+    <string name="welcome_screen_message">This is the overview of your favorite events!</string>
 
     <string-array name="time_slots">
         <item>9:00 - 10:30</item>
@@ -79,5 +79,6 @@
     <string name="wednesday_short">28/02/2018</string>
     <string name="thursday_short">01/03/2018</string>
     <string name="friday_short">02/03/2018</string>
+    <string name="talk">Talk</string>
 </resources>
 
