@@ -41,10 +41,10 @@
     <string name="filter_title_time">Zeit</string>
     <string name="filter_title_day">Tag</string>
 
-    <string name="marked">Es wurde deiner Liste hinzugefügt!!</string>
+    <string name="marked">Es wurde deiner Liste hinzugefügt!</string>
     <string name="removed">Es wurde erfolgreich von deiner Liste entfernt!</string>
     <string name="welcome_screen_title">Deine favorisierten Veranstaltungen!</string>
-    <string name="welcome_screen_message">Du kannst hier deine Lieblingsveranstaltungen festhalten !</string>
+    <string name="welcome_screen_message">Du kannst hier deine Lieblingsveranstaltungen festhalten!</string>
 
     <string-array name="time_slots">
         <item>9:00 - 10:30</item>
@@ -78,4 +78,5 @@
     <string name="wednesday_short">28.02.2018</string>
     <string name="thursday_short">01.03.2018</string>
     <string name="friday_short">02.03.2018</string>
+    <string name="talk">Vortrag</string>
 </resources>
