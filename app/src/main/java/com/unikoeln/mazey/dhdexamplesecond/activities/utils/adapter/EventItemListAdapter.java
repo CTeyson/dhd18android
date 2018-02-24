@@ -88,6 +88,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         holder.titleView.setText(events.get(position).getPresentationTitle() == null ? events.get(position).getSessionTitle() : events.get(position).getPresentationTitle());
         holder.authorView.setText(events.get(position).getPresentationAuthor() == null ? "" : events.get(position).getPresentationAuthor().replaceAll(";", ""));
         holder.descriptionView.setText(events.get(position).getPresentationDescription() == null ? events.get(position).getSessionAbstract() : events.get(position).getPresentationDescription());
+        //events.get(position).getPresentationDescription() == null ? events.get(position).getSessionDescription().subString(0, 300) : events.get(position).getPresentationDescription().subString(0,300);
         if (holder.descriptionView.length() >= 300) {
             holder.descriptionView.setText(events.get(position).getPresentationDescription().substring(0, 300));
         } else {
@@ -108,6 +109,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                 event.putString("Location", events.get(position).getSessionRoom());
                 event.putString("Time", getTime(position));
                 event.putString("Date", formatted);
+                event.putString("Type", events.get(position).getPresentationContributionType());
                 eventDetailFragment.setArguments(event);
 
                 FragmentTransaction transaction = ((Activity) context).getFragmentManager().beginTransaction();
