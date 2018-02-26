@@ -80,5 +80,6 @@
     <string name="thursday_short">01/03/2018</string>
     <string name="friday_short">02/03/2018</string>
     <string name="talk">Talk</string>
+    <string name="placeholder">                                                                                                                   </string>
 </resources>
 
