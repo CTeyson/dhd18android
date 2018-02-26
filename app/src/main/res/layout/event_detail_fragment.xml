@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="8dp"
-            android:text="Seminargebäude - S73"
+            android:text="Seminargebäude - Tagungsraum"
             android:textIsSelectable="true"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_title" />
@@ -69,6 +69,18 @@
             android:textIsSelectable="true"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/event_location" />
+
+        <TextView
+            android:id="@+id/event_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:text="Workshop"
+            android:textIsSelectable="true"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_time" />
 
        <!-- <ImageView
             android:id="@+id/event_bookmark"
@@ -94,7 +106,7 @@
             android:src="@drawable/ic_menu_share"
             android:tint="@color/colorDhdPrimary"
             app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/event_time" />
+            app:layout_constraintTop_toBottomOf="@id/event_type" />
 
         <ImageView
             android:id="@+id/event_calendar"
@@ -107,7 +119,7 @@
             android:src="@drawable/ic_event_black_24dp_4"
             android:tint="@color/colorDhdPrimary"
             app:layout_constraintRight_toLeftOf="@id/event_share"
-            app:layout_constraintTop_toBottomOf="@id/event_time" />
+            app:layout_constraintTop_toBottomOf="@id/event_type" />
 
         <android.support.constraint.Barrier
             android:id="@+id/barrier"

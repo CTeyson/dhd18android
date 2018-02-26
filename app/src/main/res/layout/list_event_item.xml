@@ -36,14 +36,16 @@
 
     <TextView
         android:id="@+id/presentationAuthor"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Geschrieben"
+        android:text="Test Test Test Test Test Test"
         android:maxLines="2"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/location"
         app:layout_constraintTop_toBottomOf="@+id/presentationTitle" />
+
 
     <TextView
         android:id="@+id/location"
@@ -51,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
-        android:text="ORT"
+        android:text="Gebäude Gebäude Gebäude"
         app:layout_constraintTop_toBottomOf="@+id/presentationTitle"
         app:layout_constraintRight_toRightOf="parent"/>
 

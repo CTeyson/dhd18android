@@ -107,6 +107,7 @@ public class CustomArrayAdapter extends BaseAdapter {
                 event.putString("Location", listData.get(position).getSessionRoomInfo());
                 event.putString("Time", getTime(position));
                 event.putString("Date", formatted);
+                event.putString("Type", listData.get(position).getPresentationContributionType());
                 eventDetailFragment.setArguments(event);
 
                 FragmentTransaction transaction = ((Activity) context).getFragmentManager().beginTransaction();

@@ -31,6 +31,7 @@ public class EventDetailFragment extends Fragment {
         String strLocationText = getArguments().getString("Location");
         String strTimeText = getArguments().getString("Time");
         String strDateText = getArguments().getString("Date");
+        String strTypeText = getArguments().getString("Type");
 
         // TextViews definieren
         TextView abstractText = view.findViewById(R.id.event_abstract);
@@ -39,6 +40,7 @@ public class EventDetailFragment extends Fragment {
         TextView locationText = view.findViewById(R.id.event_location);
         TextView timeText = view.findViewById(R.id.event_time);
         TextView dateText = view.findViewById(R.id.event_separator);
+        TextView typeText = view.findViewById(R.id.event_type);
 
         ImageView shareImg = view.findViewById(R.id.event_share);
         ImageView calImg = view.findViewById(R.id.event_calendar);
@@ -50,6 +52,7 @@ public class EventDetailFragment extends Fragment {
         locationText.setText(strLocationText);
         timeText.setText(strTimeText);
         dateText.setText(strDateText);
+        typeText.setText(strTypeText);
 
         // Format des Datums verschönern
         if (strDateText.contains("26 Feb")) {
@@ -66,6 +69,14 @@ public class EventDetailFragment extends Fragment {
         }
         else if (strDateText.contains("02 Mar")) {
             dateText.setText(getString(R.string.friday));
+        }
+
+        if (strTypeText.equals("Worshop")) {
+            typeText.setText("Workshop");
+        }
+
+        if (strTypeText.equals("Vortrag")) {
+            typeText.setText(getString(R.string.talk));
         }
 
         shareImg.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +119,7 @@ public class EventDetailFragment extends Fragment {
             strDateText = getString(R.string.friday_short);
         }
 
-        String shareOutput = ("DHd 2018: " + strDateText + ", " + strTimeText + ": " + strTitleText);
+        String shareOutput = ("DHd 2018: " + strDateText + ", " + strTimeText + ": " + strTitleText + " in " + strLocationText);
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
