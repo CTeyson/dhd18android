@@ -38,6 +38,15 @@
     <string name="privacy_paragraph2">Please be advised though, that our navigation function allows you to open the Google Maps app of your device to help you navigate to the seminar buildings. The Google Maps app itself is saving several kinds of personal data for its navigation functions. Please consult the Google Privacy Policy for further information on the use of personal data of your Google Maps app: https://www.google.de/intl/en_de/policies/privacy/.</string>
     <string name="privacy_paragraph3">Please be aware, that this mobile app has no influence on the data usage of other mobile apps like Google Maps.</string>
 
+    <string name="disclaimer_mapFunction_headline">Angaben zum GoogleMaps-Routenplaner</string>
+    <string name="disclaimer_mapFunction">Wir weisen Sie jedoch darauf hin, dass die Nutzung unserer Navigationsfunktion ihnen per Knopfdruck ermöglicht, die Google Maps-App Ihres Smartphones aufzurufen, um sich von der Google Maps-App zu den Veranstaltungsräumen navigieren zu lassen. Die Google Maps-App bezieht und verarbeitet persönliche Daten für seine Navigationsfunktionen. Für nähere Informationen informieren Sie sich bitte anhand der Google Datenschutzerklärung unter https://www.google.de/intl/de/policies/privacy/. \n\nBitte haben Sie Verständnis dafür, dass diese App hierauf keinen Einfluss nehmen kann.</string>
+
+    <string name="disclaimer_sharingFunction_headline">Angaben zur Sharing-Funktion</string>
+    <string name="disclaimer_sharingFunction">Darüber hinaus möchten wir darauf hinweisen, dass Sie in unserer Veranstaltungsansicht die Möglichkeit haben, Veranstaltungsinformationen aus dieser App an unterschiedliche Social Media-Dienste zu übertragen und direkt über Ihren jeweiligen Social Media-Account öffentlich zu posten (zu “sharen”). Bitte beachten Sie, dass viele Social-Media-Dienste bei jedem Aufruf unterschiedliche Daten von Ihrem Handy beziehen. Bitte informieren Sie sich vor Nutzung unserer Sharing-Funktion anhand der Datenschutzerklärung des von Ihnen gewählten Social Media-Anbieters.</string>
+
+    <string name="disclaimer_calendarFunction_headline">Angaben zur Kalenderfunktion</string>
+    <string name="disclaimer_calendarFunction">Diese App bietet Ihnen außerdem die Möglichkeit durch Klick auf den Kalender-Knopf in der Veranstaltungsansicht, Veranstaltungen an denen Sie teilnehmen möchten automatisch in Ihrer Kalender-App zu vermerken. Auf Knopfdruck übermittelt diese App die Veranstaltungsdaten an die Kalender-App Ihres Smartphones. Sie haben vor Speicherung der Veranstaltungsdaten im jeweiligen Zeitfenster noch die Möglichkeit, den Termineintrag zu bestätigen, eine Veränderung Ihres Kalenders ohne Ihre ausdrückliche Bestätigung erfolgt nicht.</string>
+
     <string name="filter_headline">Filter events:</string>
     <string name="filter_title_time">Time</string>
     <string name="filter_title_day">Day</string>
@@ -81,5 +90,9 @@
     <string name="friday_short">02/03/2018</string>
     <string name="talk">Talk</string>
     <string name="placeholder">                                                                                                                   </string>
+
+    <string name="meet_the_team_headline">Das Entwicklerteam:</string>
+    <string name="meet_the_team_text">Software Engineering: \nMarco Zeyen\n\nJava-Programmierung: \nBetül Büsra\n\nXML-Layouting und Bugtesting: \nTobias Weber\n\nProject Management und Rechtliches: \nJürgen Schmitz\n\niOS Version: \nChristian Theisen</string>
+
 </resources>
 
