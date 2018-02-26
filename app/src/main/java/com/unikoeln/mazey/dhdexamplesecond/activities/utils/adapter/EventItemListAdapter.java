@@ -111,7 +111,11 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                 EventDetailFragment eventDetailFragment = new EventDetailFragment();
 
                 Bundle event = new Bundle();
-                event.putString("Title", events.get(position).getPresentationTitle() == "" ? events.get(position).getSessionTitle() : events.get(position).getPresentationTitle());
+                if (events.get(position).getPresentationTitle() != null) {
+                    event.putString("Title", events.get(position).getPresentationTitle());
+                } else if (events.get(position).getSessionTitle() != null) {
+                    event.putString("Title", events.get(position).getSessionTitle());
+                }
                 event.putString("Abstract", events.get(position).getPresentationDescription());
                 event.putString("Author", events.get(position).getPresentationAuthor() == null ? "" : events.get(position).getPresentationAuthor().replaceAll(";", ""));
                 event.putString("Location", events.get(position).getSessionRoom());

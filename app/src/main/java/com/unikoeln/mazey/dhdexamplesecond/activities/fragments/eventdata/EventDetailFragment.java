@@ -71,11 +71,11 @@ public class EventDetailFragment extends Fragment {
             dateText.setText(getString(R.string.friday));
         }
 
-        if (strTypeText.equals("Worshop")) {
+        if (strTypeText != null && strTypeText.equalsIgnoreCase("Worshop")) {
             typeText.setText("Workshop");
         }
 
-        if (strTypeText.equals("Vortrag")) {
+        if (strTypeText != null && strTypeText.equalsIgnoreCase("Vortrag")) {
             typeText.setText(getString(R.string.talk));
         }
 
