@@ -87,10 +87,18 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         holder.selector.setText(formatted);
         holder.titleView.setText(events.get(position).getPresentationTitle() == null ? events.get(position).getSessionTitle() : events.get(position).getPresentationTitle());
         holder.authorView.setText(events.get(position).getPresentationAuthor() == null ? "" : events.get(position).getPresentationAuthor().replaceAll(";", ""));
-        holder.descriptionView.setText(events.get(position).getPresentationDescription() == null ? events.get(position).getSessionAbstract() : events.get(position).getPresentationDescription());
-        //events.get(position).getPresentationDescription() == null ? events.get(position).getSessionDescription().subString(0, 300) : events.get(position).getPresentationDescription().subString(0,300);
         if (holder.descriptionView.length() >= 300) {
-            holder.descriptionView.setText(events.get(position).getPresentationDescription().substring(0, 300));
+            if (!(events.get(position).getPresentationDescription() == null) && !events.get(position).getPresentationDescription().equalsIgnoreCase("")) {
+                holder.descriptionView.setText(events.get(position).getSessionAbstract());
+            } else if (!(events.get(position).getSessionAbstract() == null) && !events.get(position).getSessionAbstract().equalsIgnoreCase("")) {
+                holder.descriptionView.setText(events.get(position).getPresentationDescription());
+            } else {
+                // Conventional way of getting a string from strings.xml does not work
+                    // String placeholder = context.getResources().getString(R.string.placeholder);
+                    // holder.descriptionView.setText(placeholder);
+                // Therefore hard coded text in code
+                holder.descriptionView.setText("                                                                                                                                              ");
+            }
         } else {
             holder.descriptionView.setText(events.get(position).getPresentationDescription());
         }

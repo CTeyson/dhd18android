@@ -52,4 +52,5 @@
     <string name="removed">It was removed successfully!</string>
     <string name="welcome_screen_title">Your favorite events!</string>
     <string name="welcome_screen_message">This is the overview of your favorite events!</string>
+    <string name="placeholder">                                                                                                                   </string>
 </resources>
