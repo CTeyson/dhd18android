@@ -77,6 +77,11 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         final String fittingDate = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
         holder.title.setText(boomarkedData.get(position).getPresentationTitle());
+        if (boomarkedData.get(position).getPresentationTitle() != null) {
+            holder.title.setText(boomarkedData.get(position).getPresentationTitle());
+        } else if (boomarkedData.get(position).getSessionTitle() != null) {
+            holder.title.setText(boomarkedData.get(position).getSessionTitle());
+        }
         holder.author.setText(boomarkedData.get(position).getPresentationAuthor());
         holder.location.setText(boomarkedData.get(position).getSessionRoom());
         //
