@@ -90,7 +90,12 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
                 EventDetailFragment eventDetailFragment = new EventDetailFragment();
 
                 Bundle event = new Bundle();
-                event.putString("Title", boomarkedData.get(position).getPresentationTitle() == "" ? boomarkedData.get(position).getSessionTitle() : boomarkedData.get(position).getPresentationTitle());
+                if (boomarkedData.get(position).getPresentationTitle() != null) {
+                    event.putString("Title", boomarkedData.get(position).getPresentationTitle());
+                } else if (boomarkedData.get(position).getSessionTitle() != null) {
+                    event.putString("Title", boomarkedData.get(position).getSessionTitle());
+                }
+                //event.putString("Title", boomarkedData.get(position).getPresentationTitle() == "" ? boomarkedData.get(position).getSessionTitle() : boomarkedData.get(position).getPresentationTitle());
                 event.putString("Abstract", boomarkedData.get(position).getPresentationDescription());
                 event.putString("Author", boomarkedData.get(position).getPresentationAuthor() == null ? "" : boomarkedData.get(position).getPresentationAuthor().replaceAll(";", ""));
                 event.putString("Location", boomarkedData.get(position).getSessionRoom());
