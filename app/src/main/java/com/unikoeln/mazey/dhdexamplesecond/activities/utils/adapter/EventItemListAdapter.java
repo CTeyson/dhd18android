@@ -81,10 +81,9 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         final String date = events.get(position).getPresentationStartTime().toString();
-
         final String formatted = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
-        holder.selector.setText(formatted);
+        //holder.selector.setText(formatted);
         holder.titleView.setText(events.get(position).getPresentationTitle() == null ? events.get(position).getSessionTitle() : events.get(position).getPresentationTitle());
         holder.authorView.setText(events.get(position).getPresentationAuthor() == null ? "" : events.get(position).getPresentationAuthor().replaceAll(";", ""));
         if (holder.descriptionView.length() >= 300) {
@@ -104,6 +103,23 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         }
         holder.locationView.setText(events.get(position).getSessionRoom());
         holder.reportedDateView.setText(getTime(position));
+
+        // Format des Datums verschönern
+        if (formatted.contains("26 Feb")) {
+            holder.selector.setText(context.getString(R.string.monday));
+        }
+        else if (formatted.contains("27 Feb")) {
+            holder.selector.setText(context.getString(R.string.tuesday));
+        }
+        else if (formatted.contains("28 Feb")) {
+            holder.selector.setText(context.getString(R.string.wednesday));
+        }
+        else if (formatted.contains("01 Mar")) {
+            holder.selector.setText(context.getString(R.string.thursday));
+        }
+        else if (formatted.contains("02 Mar")) {
+            holder.selector.setText(context.getString(R.string.friday));
+        }
 
         holder.descriptionView.setOnClickListener(new View.OnClickListener() {
             @Override

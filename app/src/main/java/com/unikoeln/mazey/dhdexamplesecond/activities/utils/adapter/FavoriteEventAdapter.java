@@ -42,7 +42,6 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         TextView title;
         TextView author;
         TextView location;
-        //
         TextView time;
         ImageView delete;
         TextView selector;
@@ -55,7 +54,6 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
             title = (TextView) view.findViewById(R.id.favorite_title);
             author = (TextView) view.findViewById(R.id.favorite_author);
             location = (TextView) view.findViewById(R.id.favorite_location);
-            //
             time = (TextView) view.findViewById(R.id.favorite_time);
             selector = (TextView) view.findViewById(R.id.separator);
             delete = (ImageView) view.findViewById(R.id.delete);
@@ -84,9 +82,25 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         }
         holder.author.setText(boomarkedData.get(position).getPresentationAuthor());
         holder.location.setText(boomarkedData.get(position).getSessionRoom());
-        //
         holder.time.setText(getTime(position));
-        holder.selector.setText(fittingDate);
+        //holder.selector.setText(fittingDate);
+
+        // Format des Datums verschönern
+        if (fittingDate.contains("26 Feb")) {
+            holder.selector.setText(context.getString(R.string.monday));
+        }
+        else if (fittingDate.contains("27 Feb")) {
+            holder.selector.setText(context.getString(R.string.tuesday));
+        }
+        else if (fittingDate.contains("28 Feb")) {
+            holder.selector.setText(context.getString(R.string.wednesday));
+        }
+        else if (fittingDate.contains("01 Mar")) {
+            holder.selector.setText(context.getString(R.string.thursday));
+        }
+        else if (fittingDate.contains("02 Mar")) {
+            holder.selector.setText(context.getString(R.string.friday));
+        }
 
         //einfügen der Detailseite
         holder.title.setOnClickListener(new View.OnClickListener() {
