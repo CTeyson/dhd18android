@@ -46,17 +46,19 @@ public class MapFragment extends Fragment {
     }
 
     private void setPositionAndMarkerForConference() {
-        LatLng cologneUniversityMainBuilding = new LatLng(50.928124, 6.928649);
+        //LatLng cologneUniversityMainBuilding = new LatLng(50.928124, 6.928649);
         LatLng cologneUniversitySeminarBuilding = new LatLng(50.926891, 6.927229);
-        LatLng cologneUniversityCafeteria = new LatLng(50.927824, 6.933278);
+        //LatLng cologneUniversityCafeteria = new LatLng(50.927824, 6.933278);
         LatLng cologneUniversityArtheatre = new LatLng(50.953100, 6.918708);
+        LatLng cologneUniversityHoersaalBuilding = new LatLng(50.927306, 6.928301);
 
         LatLng CameraPositionCoordinates = new LatLng(50.941087, 6.927253);
 
-        googleMap.addMarker(new MarkerOptions().position(cologneUniversityMainBuilding).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_mainbuilding)));
+        //googleMap.addMarker(new MarkerOptions().position(cologneUniversityMainBuilding).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_mainbuilding)));
         googleMap.addMarker(new MarkerOptions().position(cologneUniversitySeminarBuilding).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_seminarbuilding)));
-        googleMap.addMarker(new MarkerOptions().position(cologneUniversityCafeteria).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_mensa)));
+        //googleMap.addMarker(new MarkerOptions().position(cologneUniversityCafeteria).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_mensa)));
         googleMap.addMarker(new MarkerOptions().position(cologneUniversityArtheatre).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_artheatre)));
+        googleMap.addMarker(new MarkerOptions().position(cologneUniversityHoersaalBuilding).title(getString(R.string.map_marker_headline)).snippet(getString(R.string.map_marker_hoersaalbuilding)));
 
         CameraPosition cameraPositionMain = new CameraPosition.Builder().target(CameraPositionCoordinates).zoom(13).build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPositionMain));
