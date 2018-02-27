@@ -68,11 +68,11 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+   // @Override
+   /* public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         return id == R.id.action_settings || super.onOptionsItemSelected(item);
-    }
+    } */
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
