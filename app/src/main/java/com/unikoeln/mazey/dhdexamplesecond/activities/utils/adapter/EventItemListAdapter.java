@@ -137,8 +137,13 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             public void onClick(View view) {
                 String strDateText = formatted;
                 String strTimeText = getTime(position);
-                String strTitleText = events.get(position).getPresentationTitle();
-                String strLocationText = events.get(position).getSessionRoom(); // mit neuer XML testen!
+                String strTitleText = "Title";
+                if (events.get(position).getPresentationTitle() != null) {
+                    strTitleText = events.get(position).getPresentationTitle();
+                } else if (events.get(position).getSessionTitle() != null) {
+                    strTitleText = events.get(position).getSessionTitle();
+                }
+                String strLocationText = events.get(position).getSessionRoom();
                 String shareVia = context.getString(R.string.share_via);
 
                 if (strDateText.contains("26 Feb")) {
@@ -153,7 +158,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                     strDateText = context.getString(R.string.friday_short);
                 }
 
-                String shareOutput = ("DHd 2018: " + strDateText + ", " + strTimeText + ": " + strTitleText);
+                String shareOutput = ("DHd 2018: " + strDateText + ", " + strTimeText + ": " + strTitleText + " in " + strLocationText);
 
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
