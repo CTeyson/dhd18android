@@ -22,8 +22,7 @@ public class ImprintFragment extends Fragment implements AdapterView.OnItemSelec
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        // change fragment-xml file to start an other fragment then originally intended
-        //view = inflater.inflate(R.layout.settings_fragment, container, false);
+                        //  inflate xml-fragment imprint_privacy_fragment
         view = inflater.inflate(R.layout.imprint_privacy_fragment, container, false);
 
 

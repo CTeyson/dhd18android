@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<!-- Filter Controls -->
     <TextView
         android:id="@+id/filter_headline"
         android:layout_width="wrap_content"
@@ -71,7 +72,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/filter_time"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
+    <!--  Recycler view to  display events depending on filter-selection-->
     <android.support.v7.widget.RecyclerView
 
         android:id="@+id/list_event"

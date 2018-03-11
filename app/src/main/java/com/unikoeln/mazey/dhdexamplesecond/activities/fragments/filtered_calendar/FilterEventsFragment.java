@@ -22,7 +22,7 @@ import com.unikoeln.mazey.dhdexamplesecond.R;
 
         @Nullable
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
+                            //  filtered_calendar_fragment
             view = inflater.inflate(R.layout.filtered_calendar_fragment, container, false);
 
 

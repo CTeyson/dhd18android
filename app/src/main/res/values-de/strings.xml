@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">dhdexamplesecond</string>
-
+    <!--  General Controls strings   -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!--  Menu strings     -->
     <string name="action_settings">Einstellungen</string>
     <string name="app_name_dhd">DHd Konferenz 2018</string>
     <string name="veranstaltungen">Veranstaltungen</string>
@@ -17,12 +18,15 @@
 
     <string name="sample_abstract">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
 
+    <!--  Strings for google-map markers     -->
     <string name="map_marker_headline">Dhd Konferenz 2018</string>
     <string name="map_marker_mainbuilding">Hauptgebäude</string>
     <string name="map_marker_seminarbuilding">Seminargebäude</string>
     <string name="map_marker_mensa">Uni-Mensa</string>
     <string name="map_marker_artheatre">Artheater</string>
 
+
+    <!--  Strings for Imprint     -->
     <string name="imprint_privacy_headline">Impressum / Datenschutz</string>
     <string name="imprint_headline">Impressum</string>
     <string name="tmg_parag">Angaben gemäß § 5 TMG:</string>
@@ -36,7 +40,7 @@
     <string name="meet_the_team_headline">Das Entwicklerteam:</string>
     <string name="meet_the_team_text">Software Engineering: \nMarco Zeyen\n\nJava-Programmierung: \nBetül Büsra\n\nXML-Layouting und Bugtesting: \nTobias Weber\n\nProject Management und Rechtliches: \nJürgen Schmitz\n\niOS Version: \nChristian Theisen</string>
 
-
+    <!--  Strings for Privacy Policy     -->
     <string name="privacy_headline">Datenschutzerklärung</string>
     <string name="privacy_paragraph1">Diese App erhebt und speichert selbst keinerlei persönliche Daten von Ihrem Smartphone.</string>
 
@@ -49,6 +53,9 @@
     <string name="disclaimer_calendarFunction_headline">Angaben zur Kalenderfunktion</string>
     <string name="disclaimer_calendarFunction">Diese App bietet Ihnen außerdem die Möglichkeit durch Klick auf den Kalender-Knopf in der Veranstaltungsansicht, Veranstaltungen an denen Sie teilnehmen möchten automatisch in Ihrer Kalender-App zu vermerken. Auf Knopfdruck übermittelt diese App die Veranstaltungsdaten an die Kalender-App Ihres Smartphones. Sie haben vor Speicherung der Veranstaltungsdaten im jeweiligen Zeitfenster noch die Möglichkeit, den Termineintrag zu bestätigen, eine Veränderung Ihres Kalenders ohne Ihre ausdrückliche Bestätigung erfolgt nicht.</string>
 
+
+
+    <!--  Strings for Filter Fragment     -->
     <string name="filter_headline">Veranstaltungen filtern:</string>
     <string name="filter_title_time">Zeit</string>
     <string name="filter_title_day">Tag</string>
