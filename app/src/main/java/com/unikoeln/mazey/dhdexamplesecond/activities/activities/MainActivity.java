@@ -14,15 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
-import com.unikoeln.mazey.dhdexamplesecond.activities.data.eventdata.EventItem;
-import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.WorkInProgressFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventFavoriteFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventOverviewListFragment;
-import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.FilterEventsFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.location.MapFragment;
 import com.unikoeln.mazey.dhdexamplesecond.activities.fragments.imprint.ImprintFragment;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -68,12 +63,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-   // @Override
-   /* public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        return id == R.id.action_settings || super.onOptionsItemSelected(item);
-    } */
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -85,12 +74,9 @@ public class MainActivity extends AppCompatActivity
             fragment = new EventOverviewListFragment();
         } else if (id == R.id.nav_timetable) {
             fragment = new EventFavoriteFragment();
-            //} else if (id == R.id.nav_filter_events) {
-            //fragment = new FilterEventsFragment();
         } else if (id == R.id.nav_navigation) {
             fragment = new MapFragment();
         } else if (id == R.id.nav_settings) {
-            // save the new Object "ImprinFragment" in fragment
             fragment = new ImprintFragment();
         }
 
@@ -103,7 +89,4 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public List<EventItem> getList() {
-        return null;
-    }
 }
