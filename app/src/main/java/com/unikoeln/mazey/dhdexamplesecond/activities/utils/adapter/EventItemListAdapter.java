@@ -186,23 +186,15 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
 
         //set tag
-        if (
-
-                checkFavoriteItem(events.get(position)))
-
-        {
+        if (checkFavoriteItem(events.get(position))) {
             holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
             holder.imageView.setTag("checked");
-        } else
-
-        {
+        } else {
             holder.imageView.setImageResource(R.drawable.ic_bookmark_border_black_24dp_copy_3);
             holder.imageView.setTag("removed");
         }
 
-        holder.imageView.setOnClickListener(new View.OnClickListener()
-
-        {
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -252,9 +244,7 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
                 }
             }
         }
-
         return check;
-
     }
 
     @Override
@@ -269,6 +259,4 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
 
         return String.format("%1s%2s%3s", start.toString().substring(11, 16), " - ", end.toString().substring(11, 16));
     }
-
-
 }
