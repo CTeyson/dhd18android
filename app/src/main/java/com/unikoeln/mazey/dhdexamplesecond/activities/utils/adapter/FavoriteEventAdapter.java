@@ -23,15 +23,15 @@ import java.util.List;
 
 public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdapter.ViewHolder> {
 
-    private List<EventItem> boomarkedData;
+    private List<EventItem> bookmarkedData;
     private LayoutInflater layoutInflater;
     private Context context;
     private SharedPreference sharedPreference;
 
-    public FavoriteEventAdapter(Context context, List<EventItem> boomarkedData) {
+    public FavoriteEventAdapter(Context context, List<EventItem> bookmarkedData) {
         this.context = context;
-        this.boomarkedData = boomarkedData;
-        Collections.sort(boomarkedData);
+        this.bookmarkedData = bookmarkedData;
+        Collections.sort(bookmarkedData);
         sharedPreference = new SharedPreference();
     }
 
@@ -71,17 +71,17 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        final String date = boomarkedData.get(position).getPresentationStartTime().toString();
+        final String date = bookmarkedData.get(position).getPresentationStartTime().toString();
         final String fittingDate = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
-        holder.title.setText(boomarkedData.get(position).getPresentationTitle());
-        if (boomarkedData.get(position).getPresentationTitle() != null) {
-            holder.title.setText(boomarkedData.get(position).getPresentationTitle());
-        } else if (boomarkedData.get(position).getSessionTitle() != null) {
-            holder.title.setText(boomarkedData.get(position).getSessionTitle());
+        holder.title.setText(bookmarkedData.get(position).getPresentationTitle());
+        if (bookmarkedData.get(position).getPresentationTitle() != null) {
+            holder.title.setText(bookmarkedData.get(position).getPresentationTitle());
+        } else if (bookmarkedData.get(position).getSessionTitle() != null) {
+            holder.title.setText(bookmarkedData.get(position).getSessionTitle());
         }
-        holder.author.setText(boomarkedData.get(position).getPresentationAuthor());
-        holder.location.setText(boomarkedData.get(position).getSessionRoom());
+        holder.author.setText(bookmarkedData.get(position).getPresentationAuthor());
+        holder.location.setText(bookmarkedData.get(position).getSessionRoom());
         holder.time.setText(getTime(position));
         //holder.selector.setText(fittingDate);
 
@@ -109,18 +109,18 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
                 EventDetailFragment eventDetailFragment = new EventDetailFragment();
 
                 Bundle event = new Bundle();
-                if (boomarkedData.get(position).getPresentationTitle() != null) {
-                    event.putString("Title", boomarkedData.get(position).getPresentationTitle());
-                } else if (boomarkedData.get(position).getSessionTitle() != null) {
-                    event.putString("Title", boomarkedData.get(position).getSessionTitle());
+                if (bookmarkedData.get(position).getPresentationTitle() != null) {
+                    event.putString("Title", bookmarkedData.get(position).getPresentationTitle());
+                } else if (bookmarkedData.get(position).getSessionTitle() != null) {
+                    event.putString("Title", bookmarkedData.get(position).getSessionTitle());
                 }
-                //event.putString("Title", boomarkedData.get(position).getPresentationTitle() == "" ? boomarkedData.get(position).getSessionTitle() : boomarkedData.get(position).getPresentationTitle());
-                event.putString("Abstract", boomarkedData.get(position).getPresentationDescription());
-                event.putString("Author", boomarkedData.get(position).getPresentationAuthor() == null ? "" : boomarkedData.get(position).getPresentationAuthor().replaceAll(";", ""));
-                event.putString("Location", boomarkedData.get(position).getSessionRoom());
+                //event.putString("Title", bookmarkedData.get(position).getPresentationTitle() == "" ? bookmarkedData.get(position).getSessionTitle() : bookmarkedData.get(position).getPresentationTitle());
+                event.putString("Abstract", bookmarkedData.get(position).getPresentationDescription());
+                event.putString("Author", bookmarkedData.get(position).getPresentationAuthor() == null ? "" : bookmarkedData.get(position).getPresentationAuthor().replaceAll(";", ""));
+                event.putString("Location", bookmarkedData.get(position).getSessionRoom());
                 event.putString("Time", getTime(position));
                 event.putString("Date", fittingDate);
-                event.putString("Type", boomarkedData.get(position).getPresentationContributionType());
+                event.putString("Type", bookmarkedData.get(position).getPresentationContributionType());
                 eventDetailFragment.setArguments(event);
 
                 FragmentTransaction transaction = ((Activity) context).getFragmentManager().beginTransaction();
@@ -135,9 +135,9 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (checkFavoriteItem(boomarkedData.get(position))) {
+                if (checkFavoriteItem(bookmarkedData.get(position))) {
 
-                    sharedPreference.removeFavorite(context, boomarkedData.get(position));
+                    sharedPreference.removeFavorite(context, bookmarkedData.get(position));
                     holder.delete.setImageResource(R.drawable.add_26);
                     notifyDataSetChanged();
 
@@ -147,7 +147,7 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
 
                 } else {
 
-                    sharedPreference.addFavorite(context, boomarkedData.get(position));
+                    sharedPreference.addFavorite(context, bookmarkedData.get(position));
                     holder.delete.setImageResource(R.drawable.trash_24px);
                     notifyDataSetChanged();
 
@@ -178,15 +178,15 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
     //Zeit hinzugefügt
     private String getTime(int position) {
 
-        Date start = boomarkedData.get(position).getPresentationStartTime();
-        Date end = boomarkedData.get(position).getPresentationEndTime();
+        Date start = bookmarkedData.get(position).getPresentationStartTime();
+        Date end = bookmarkedData.get(position).getPresentationEndTime();
 
         return String.format("%1s%2s%3s", start.toString().substring(11, 16), " - ", end.toString().substring(11, 16));
     }
 
     @Override
     public int getItemCount() {
-        return boomarkedData.size();
+        return bookmarkedData.size();
     }
 
     //letzte Klammer
