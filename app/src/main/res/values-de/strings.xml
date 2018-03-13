@@ -35,7 +35,7 @@
     <string name="responsible_person_for_content">Dr. Jürgen Hermes\nAlbertus-Magnus-Platz\n50923 Köln</string>
     <string name="privacy_headline">Datenschutzerklärung</string>
     <string name="privacy_paragraph1">Diese App erhebt und speichert selbst keinerlei persönliche Daten von Ihrem Smartphone.</string>
-    <string name="privacy_paragraph2">Wir weisen Sie jedoch darauf hin, dass die Nutzung unserer Navigationsfunktion Ihnen per Knopfdruck ermöglicht, die Google Maps-App Ihres Smartphones aufzurufen, um sich von der Google Maps-App zu den Veranstaltungsräumen navigieren zu lassen. Die Google Maps-App bezieht und verarbeitet persönliche Daten für seine Navigationsfunktionen. Für nähere Informationen informieren Sie sich bitte anhand der Google Datenschutzerklärung unter https://www.google.de/intl/de/policies/privacy/.</string>
+    <string name="privacy_paragraph2">Wir weisen Sie jedoch darauf hin, dass die Nutzung unserer Navigationsfunktion ihnen per Knopfdruck ermöglicht, die Google Maps-App Ihres Smartphones aufzurufen, um sich von der Google Maps-App zu den Veranstaltungsräumen navigieren zu lassen. Die Google Maps-App bezieht und verarbeitet persönliche Daten für seine Navigationsfunktionen. Für nähere Informationen informieren Sie sich bitte anhand der Google Datenschutzerklärung unter https://www.google.de/intl/de/policies/privacy/. \\n\\nBitte haben Sie Verständnis dafür, dass diese App hierauf keinen Einfluss nehmen kann</string>
     <string name="privacy_paragraph3">Bitte haben Sie Verständnis dafür, dass diese App hierauf keinen Einfluss nehmen kann.</string>
 
     <string name="disclaimer_mapFunction_headline">Angaben zum GoogleMaps-Routenplaner</string>
@@ -93,5 +93,6 @@
 
     <string name="meet_the_team_headline">Das Entwicklerteam:</string>
     <string name="meet_the_team_text">Software Engineering: \nMarco Zeyen\n\nJava-Programmierung: \nBetül Büsra Tosun\n\nXML-Layouting und Bugtesting: \nTobias Weber\n\nProject Management und Rechtliches: \nJürgen Schmitz\n\niOS Version: \nChristian Theisen</string>
+    <string name="filter_events">Veranstaltungen filtern</string>
 
 </resources>
