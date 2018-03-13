@@ -1,46 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">dhdexamplesecond</string>
-
+    <!--  General Controls strings   -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!--  Menu strings     -->
     <string name="action_settings">Settings</string>
     <string name="app_name_dhd">DHd Conference 2018</string>
     <string name="veranstaltungen">Events</string>
+    <string name="filter_events">Filter Events</string>
     <string name="timetable">Bookmarked Events</string>
     <string name="veranstaltungsort">Location</string>
     <string name="imprint">Imprint</string>
     <string name="subtitle">Criticism of digital reason</string>
+
     <string name="settings_language">Language:</string>
     <string name="settings_headline">General settings</string>
 
+
+
     <string name="sample_abstract">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
 
+    <!--  Strings for google-map markers     -->
     <string name="map_marker_headline">Dhd Conference 2018</string>
     <string name="map_marker_mainbuilding">Mainbuilding</string>
     <string name="map_marker_seminarbuilding">Seminarbuilding</string>
-    <string name="map_marker_hoersaalbuilding">Hörsaalbuilding</string>
     <string name="map_marker_mensa">University Cafeteria</string>
     <string name="map_marker_artheatre">Artheatre</string>
 
+    <!--  Strings for Imprint     -->
     <string name="imprint_privacy_headline">Imprint / Privacy Policy</string>
     <string name="imprint_headline">Imprint</string>
     <string name="tmg_parag">General information of the service provider (§ 5 TMG):</string>
-    <string name="institution_name">University of Cologne Sprachliche Informationsverarbeitung Institut for Institute of Linguistics</string>
-    <string name="adress">Albertus-Magnus-Platz 50923 Cologne</string>
+    <string name="institution_name">University of Cologne\nSprachliche Informationsverarbeitung\nInstitut für Institute of Linguistics</string>
+    <string name="adress">Albertus-Magnus-Platz\n50923 Cologne</string>
     <string name="accountable_person">Accountable person: Dr. Jürgen Hermes</string>
     <string name="contact_headline">Contact:</string>
-    <string name="contact_details">Phone: 0221/470 5193 \nFax: 0221/470 4170 \nE-Mail: buero@spinfo.uni-koeln.de \nInternet: http://www.spinfo.phil-fak.uni-koeln.de/</string>
+    <string name="contact_details">Phone: 0221/470 5193\nFax: 0221/470 4170\nE-Mail: buero@spinfo.uni-koeln.de\nInternet: http://www.spinfo.phil-fak.uni-koeln.de/</string>
     <string name="rstv">Responsible for the editorial content (§ 55 parag. 2 RStV):</string>
-    <string name="responsible_person_for_content">Dr. Jürgen Hermes Albertus-Magnus-Platz 50923 Cologne</string>
+    <string name="responsible_person_for_content">Dr. Jürgen Hermes\nAlbertus-Magnus-Platz\n50923 Cologne</string>
+    <string name="meet_the_team_headline">The development team:</string>
+    <string name="meet_the_team_text">Software Engineering: \nMarco Zeyen\nJava-Programming: \nBetül Büsra\nXML-Layouting and Bugtesting: \nTobias Weber\nProject Management and Legal stuff: \nJürgen Schmitz\niOS Version: \nChristian Theisen</string>
+
+    <!--  Strings for Privacy Policy     -->
     <string name="privacy_headline">Privacy Policy</string>
     <string name="privacy_paragraph1">This mobile app is not actively extracting and saving any personal data from your smartphone.</string>
-    <string name="privacy_paragraph2">Please be advised though, that our navigation function allows you to open the Google Maps app of your device to help you navigate to the seminar buildings. The Google Maps app itself is saving several kinds of personal data for its navigation functions. Please consult the Google Privacy Policy for further information on the use of personal data of your Google Maps app: https://www.google.de/intl/en_de/policies/privacy/.</string>
-    <string name="privacy_paragraph3">Please be aware, that this mobile app has no influence on the data usage of other mobile apps like Google Maps.</string>
 
     <string name="disclaimer_mapFunction_headline">Additional Information for the GoogleMaps-Navigation</string>
-    <string name="disclaimer_mapFunction">Please be advised though, that our navigation function allows you to open the Google Maps app of your device to help you navigate to the seminar buildings. The Google Maps app itself is saving several kinds of personal data for its navigation functions. Please consult the Google Privacy Policy for further information on the use of personal data of your Google Maps app: https://www.google.de/intl/en_de/policies/privacy/.   Please be aware, that this mobile app has no influence on the data usage of other mobile apps like Google Maps.</string>
+    <string name="disclaimer_mapFunction">Please be advised though, that our navigation function allows you to open the Google Maps app of your device to help you navigate to the seminar buildings. The Google Maps app itself is saving several kinds of personal data for its navigation functions. Please consult the Google Privacy Policy for further information on the use of personal data of your Google Maps app: https://www.google.de/intl/en_de/policies/privacy/. \n\nPlease be aware, that this mobile app has no influence on the data usage of other mobile apps like Google Maps.</string>
 
     <string name="disclaimer_sharingFunction_headline">Additional Information for the sharing function </string>
     <string name="disclaimer_sharingFunction">Please be aware, that this mobile app includes a sharing function to share events via social media. If you share any event, the service of the selected social media service is called. Please be aware that many social media services track personal data from your smartphone. We advise you to consult the privacy policy of the social media service you want to select before using our sharing function.</string>
@@ -48,14 +56,11 @@
     <string name="disclaimer_calendarFunction_headline">Additional Information for the calendar function</string>
     <string name="disclaimer_calendarFunction">This mobile app allows you to mark events of your choosing directly on the calendar-app of your smartphone by clicking on the calendar button on the event overview. This mobile app is only transferring the event information to your calendar app, so that it is easier to mark the date. After you clicked the calendar button you get the opportunity to confirm the new calendar date. The dates of your calendar app are not changed without you accessing your calendar app and confirming the date.</string>
 
+
+    <!--  Strings for Filter Fragment     -->
     <string name="filter_headline">Filter events:</string>
     <string name="filter_title_time">Time</string>
     <string name="filter_title_day">Day</string>
-
-    <string name="marked">It was added successfully to your list!</string>
-    <string name="removed">It was removed successfully!</string>
-    <string name="welcome_screen_title">Your favorite events!</string>
-    <string name="welcome_screen_message">This is the overview of your favorite events!</string>
 
     <string-array name="time_slots">
         <item>9:00 - 10:30</item>
@@ -74,26 +79,9 @@
         <item>Friday</item>
     </string-array>
 
+    <!--  Strings for Language switcher - not yet implemented     -->
     <string-array name="language_choices">
         <item>German</item>
         <item>English</item>
     </string-array>
-    <string name="share_via">Share via</string>
-    <string name="monday">Monday, 26 February 2018</string>
-    <string name="tuesday">Tuesday, 27 February 2018</string>
-    <string name="wednesday">Wednesday, 28 February 2018</string>
-    <string name="thursday">Thursday, 01 March 2018</string>
-    <string name="friday">Friday, 02 March 2018</string>
-    <string name="monday_short">26/02/2018</string>
-    <string name="tuesday_short">27/02/2018</string>
-    <string name="wednesday_short">28/02/2018</string>
-    <string name="thursday_short">01/03/2018</string>
-    <string name="friday_short">02/03/2018</string>
-    <string name="talk">Talk</string>
-    <string name="placeholder">                                                                                                                   </string>
-
-    <string name="meet_the_team_headline">Development:</string>
-    <string name="meet_the_team_text">Software Engineering:  Marco Zeyen  Java-Programming:  Betül Büsra Tosun  XML-Layouting and Bug-testing:  Tobias Weber  Project Management and legal discretion:  Jürgen Schmitz  iOS Version:  Christian Theisen</string>
-
 </resources>
-

@@ -9,58 +9,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.unikoeln.mazey.dhdexamplesecond.R;
-// this class is impemented when imprint-menupoint is clicked
+
+// this class is implemented when imprint-menupoint is clicked
 public class ImprintFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    private int check;
-
-    private Context context;
     private View view;
-    private Spinner spinner;
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        // change fragment-xml file to start an other fragment then originally intended
-        //view = inflater.inflate(R.layout.settings_fragment, container, false);
-        view = inflater.inflate(R.layout.imprint_privacy, container, false);
+                        //  inflate xml-fragment imprint_privacy_fragment
+        view = inflater.inflate(R.layout.imprint_privacy_fragment, container, false);
 
-
-        /* // This isnt needed for now, because the imprint is a static fragment
-        context = this.getContext();
-        check = 0;
-        spinner = view.findViewById(R.id.language_spinner);
-        this.initSpinner();
-        this.clickListener();*/
 
         return view;
     }
 
-    // No Listener needed yet
-    private void clickListener() {
 
-    }
-
-    /*
-    private void initSpinner() {
-        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(context, R.array.language_choices, android.R.layout.simple_spinner_item);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(arrayAdapter);
-        spinner.setOnItemSelectedListener(this);
-    }
-    */
-
-
-    // ???
+    // CallBack-methode for  selection of items
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
     }
 
-    // Easter EGG!!
+    // CallBack-methode for not selecting any item
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
         Snackbar.make(view, "You came here for nothing?!", Snackbar.LENGTH_SHORT).show();
