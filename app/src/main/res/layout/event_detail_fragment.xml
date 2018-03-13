@@ -30,7 +30,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Android für absolute Anfänger"
+            android:text="Workshop 1a"
             android:textIsSelectable="true"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="von Caesar, Julius, Podolski, Lukas, Mustermann, Maximilian von und zu"
+            android:text="Caesar, Julius; Mustermann, Maximilian von und zu"
             android:textIsSelectable="true"
             app:layout_constraintEnd_toStartOf="@+id/event_location"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -139,7 +139,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:paddingBottom="16dp"
-            android:text="Hallo Test fdsggggggggggggggggsssssssssssssssd dfsddddddddddddddddddddddd"
+            android:text="@string/sample_abstract"
             android:textIsSelectable="true"
             app:layout_constraintTop_toBottomOf="@id/barrier" />
 
