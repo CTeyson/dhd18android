@@ -1,28 +1,32 @@
 <resources>
     <string name="app_name">dhdexamplesecond</string>
-
+    <!--  General Controls strings   -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!--  Menu strings     -->
     <string name="action_settings">Einstellungen</string>
     <string name="app_name_dhd">DHd Konferenz 2018</string>
     <string name="veranstaltungen">Veranstaltungen</string>
     <string name="veranstaltungsort">Veranstaltungsort</string>
     <string name="timetable">Meine Veranstaltungen</string>
     <string name="imprint">Impressum</string>
+    <string name="filter_events">Veranstaltungen filtern</string>
     <string name="subtitle">Kritik der digitalen Vernunft</string>
     <string name="settings_language">Sprache:</string>
     <string name="settings_headline">Allgemeine Einstellungen</string>
 
     <string name="sample_abstract">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
 
+    <!--  Strings for google-map markers     -->
     <string name="map_marker_headline">Dhd Konferenz 2018</string>
     <string name="map_marker_mainbuilding">Hauptgebäude</string>
     <string name="map_marker_seminarbuilding">Seminargebäude</string>
-    <string name="map_marker_hoersaalbuilding">Hörsaalgebäude</string>
     <string name="map_marker_mensa">Uni-Mensa</string>
     <string name="map_marker_artheatre">Artheater</string>
 
+
+    <!--  Strings for Imprint     -->
     <string name="imprint_privacy_headline">Impressum / Datenschutz</string>
     <string name="imprint_headline">Impressum</string>
     <string name="tmg_parag">Angaben gemäß § 5 TMG:</string>
@@ -33,13 +37,15 @@
     <string name="contact_details">Telefon: 0221/470 5193\nTelefax: 0221/470 4170\nE-Mail: buero@spinfo.uni-koeln.de\nInternet: http://www.spinfo.phil-fak.uni-koeln.de/</string>
     <string name="rstv">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</string>
     <string name="responsible_person_for_content">Dr. Jürgen Hermes\nAlbertus-Magnus-Platz\n50923 Köln</string>
+    <string name="meet_the_team_headline">Das Entwicklerteam:</string>
+    <string name="meet_the_team_text">Software Engineering: \nMarco Zeyen\n\nJava-Programmierung: \nBetül Büsra\n\nXML-Layouting und Bugtesting: \nTobias Weber\n\nProject Management und Rechtliches: \nJürgen Schmitz\n\niOS Version: \nChristian Theisen</string>
+
+    <!--  Strings for Privacy Policy     -->
     <string name="privacy_headline">Datenschutzerklärung</string>
     <string name="privacy_paragraph1">Diese App erhebt und speichert selbst keinerlei persönliche Daten von Ihrem Smartphone.</string>
-    <string name="privacy_paragraph2">Wir weisen Sie jedoch darauf hin, dass die Nutzung unserer Navigationsfunktion Ihnen per Knopfdruck ermöglicht, die Google Maps-App Ihres Smartphones aufzurufen, um sich von der Google Maps-App zu den Veranstaltungsräumen navigieren zu lassen. Die Google Maps-App bezieht und verarbeitet persönliche Daten für seine Navigationsfunktionen. Für nähere Informationen informieren Sie sich bitte anhand der Google Datenschutzerklärung unter https://www.google.de/intl/de/policies/privacy/.</string>
-    <string name="privacy_paragraph3">Bitte haben Sie Verständnis dafür, dass diese App hierauf keinen Einfluss nehmen kann.</string>
 
     <string name="disclaimer_mapFunction_headline">Angaben zum GoogleMaps-Routenplaner</string>
-    <string name="disclaimer_mapFunction">Wir weisen Sie jedoch darauf hin, dass die Nutzung unserer Navigationsfunktion Ihnen per Knopfdruck ermöglicht, die Google Maps-App Ihres Smartphones aufzurufen, um sich von der Google Maps-App zu den Veranstaltungsräumen navigieren zu lassen. Die Google Maps-App bezieht und verarbeitet persönliche Daten für seine Navigationsfunktionen. Für nähere Informationen informieren Sie sich bitte anhand der Google Datenschutzerklärung unter https://www.google.de/intl/de/policies/privacy/. \n\nBitte haben Sie Verständnis dafür, dass diese App hierauf keinen Einfluss nehmen kann.</string>
+    <string name="disclaimer_mapFunction">Wir weisen Sie jedoch darauf hin, dass die Nutzung unserer Navigationsfunktion ihnen per Knopfdruck ermöglicht, die Google Maps-App Ihres Smartphones aufzurufen, um sich von der Google Maps-App zu den Veranstaltungsräumen navigieren zu lassen. Die Google Maps-App bezieht und verarbeitet persönliche Daten für seine Navigationsfunktionen. Für nähere Informationen informieren Sie sich bitte anhand der Google Datenschutzerklärung unter https://www.google.de/intl/de/policies/privacy/. \n\nBitte haben Sie Verständnis dafür, dass diese App hierauf keinen Einfluss nehmen kann.</string>
 
     <string name="disclaimer_sharingFunction_headline">Angaben zur Sharing-Funktion</string>
     <string name="disclaimer_sharingFunction">Darüber hinaus möchten wir darauf hinweisen, dass Sie in unserer Veranstaltungsansicht die Möglichkeit haben, Veranstaltungsinformationen aus dieser App an unterschiedliche Social Media-Dienste zu übertragen und direkt über Ihren jeweiligen Social Media-Account öffentlich zu posten (zu “sharen”). Bitte beachten Sie, dass viele Social-Media-Dienste bei jedem Aufruf unterschiedliche Daten von Ihrem Handy beziehen. Bitte informieren Sie sich vor Nutzung unserer Sharing-Funktion anhand der Datenschutzerklärung des von Ihnen gewählten Social Media-Anbieters.</string>
@@ -47,14 +53,12 @@
     <string name="disclaimer_calendarFunction_headline">Angaben zur Kalenderfunktion</string>
     <string name="disclaimer_calendarFunction">Diese App bietet Ihnen außerdem die Möglichkeit durch Klick auf den Kalender-Knopf in der Veranstaltungsansicht, Veranstaltungen an denen Sie teilnehmen möchten automatisch in Ihrer Kalender-App zu vermerken. Auf Knopfdruck übermittelt diese App die Veranstaltungsdaten an die Kalender-App Ihres Smartphones. Sie haben vor Speicherung der Veranstaltungsdaten im jeweiligen Zeitfenster noch die Möglichkeit, den Termineintrag zu bestätigen, eine Veränderung Ihres Kalenders ohne Ihre ausdrückliche Bestätigung erfolgt nicht.</string>
 
+
+
+    <!--  Strings for Filter Fragment     -->
     <string name="filter_headline">Veranstaltungen filtern:</string>
     <string name="filter_title_time">Zeit</string>
     <string name="filter_title_day">Tag</string>
-
-    <string name="marked">Es wurde deiner Liste hinzugefügt!</string>
-    <string name="removed">Es wurde erfolgreich von deiner Liste entfernt!</string>
-    <string name="welcome_screen_title">Deine favorisierten Veranstaltungen!</string>
-    <string name="welcome_screen_message">Du kannst hier deine Lieblingsveranstaltungen festhalten!</string>
 
     <string-array name="time_slots">
         <item>9:00 - 10:30</item>
@@ -77,21 +81,4 @@
         <item>Deutsch</item>
         <item>Englisch</item>
     </string-array>
-    <string name="share_via">Teilen über</string>
-    <string name="monday">Montag, 26. Februar 2018</string>
-    <string name="tuesday">Dienstag, 27. Februar 2018</string>
-    <string name="wednesday">Mittwoch, 28. Februar 2018</string>
-    <string name="thursday">Donnerstag, 01. März 2018</string>
-    <string name="friday">Freitag, 02. März 2018</string>
-    <string name="monday_short">26.02.2018</string>
-    <string name="tuesday_short">27.02.2018</string>
-    <string name="wednesday_short">28.02.2018</string>
-    <string name="thursday_short">01.03.2018</string>
-    <string name="friday_short">02.03.2018</string>
-    <string name="talk">Vortrag</string>
-    <string name="placeholder">                                                                                                                   </string>
-
-    <string name="meet_the_team_headline">Das Entwicklerteam:</string>
-    <string name="meet_the_team_text">Software Engineering: \nMarco Zeyen\n\nJava-Programmierung: \nBetül Büsra Tosun\n\nXML-Layouting und Bugtesting: \nTobias Weber\n\nProject Management und Rechtliches: \nJürgen Schmitz\n\niOS Version: \nChristian Theisen</string>
-
 </resources>
