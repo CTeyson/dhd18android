@@ -33,7 +33,7 @@ public class EventDetailFragment extends Fragment {
         String strDateText = getArguments().getString("Date");
         String strTypeText = getArguments().getString("Type");
 
-        // TextViews definieren
+        // Views definieren
         TextView abstractText = view.findViewById(R.id.event_abstract);
         TextView titleText = view.findViewById(R.id.event_title);
         TextView authorText = view.findViewById(R.id.event_author);
@@ -71,10 +71,12 @@ public class EventDetailFragment extends Fragment {
             dateText.setText(getString(R.string.friday));
         }
 
+        // contribution_type in der XML
+        // wegen Schreibfehler im Tag des Datenexports
         if (strTypeText != null && strTypeText.equalsIgnoreCase("Worshop")) {
             typeText.setText("Workshop");
         }
-
+        // Anpassung für englischsprachige Version, bei anderen Types nicht nötig
         if (strTypeText != null && strTypeText.equalsIgnoreCase("Vortrag")) {
             typeText.setText(getString(R.string.talk));
         }
@@ -103,6 +105,7 @@ public class EventDetailFragment extends Fragment {
         String strLocationText = getArguments().getString("Location");
         String shareVia = getString(R.string.share_via);
 
+        // für kommende Jahre anzupassen
         if (strDateText.contains("26 Feb")) {
             strDateText = getString(R.string.monday_short);
         }
@@ -129,6 +132,7 @@ public class EventDetailFragment extends Fragment {
     }
 
     // Kalendar-Button: Daten zum Event sammeln und per Intent in Kalendar-App übergeben
+    // für kommende Jahre anzupassen
     private void addToCalendar() {
         String strTitleText = getArguments().getString("Title");
         String strDateText = getArguments().getString("Date");

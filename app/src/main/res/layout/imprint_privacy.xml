@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
+<!-- ScrollView makes overflow of the including constraint-Layout scrollable    -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,13 +8,16 @@
     android:layout_height="match_parent"
     >
 
-
+    <!-- Constraint-Layout to wrap the text-views  -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
+        <!-- Start individual Text-views for every paragraph  -->
 
+
+        <!-- Start Imprint -->
         <TextView
             android:id="@+id/imprint_privacy_headline"
             android:layout_width="0dp"
@@ -140,7 +143,7 @@
             app:layout_constraintLeft_toLeftOf="@id/wrapper"
             app:layout_constraintTop_toBottomOf="@id/rstv" />
 
-
+        <!-- Start Meet the Team -->
         <TextView
             android:id="@+id/meet_the_team_headline"
             android:layout_width="0dp"
@@ -165,7 +168,7 @@
             app:layout_constraintLeft_toLeftOf="@id/wrapper"
             app:layout_constraintTop_toBottomOf="@id/meet_the_team_headline" />
 
-
+        <!-- Start Privacy Policy -->
         <TextView
             android:id="@+id/privacy_headline"
             android:layout_width="0dp"
