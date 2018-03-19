@@ -20,7 +20,8 @@ public class MapFragment extends Fragment {
 
     private MapView mapView;
     private GoogleMap googleMap;
-
+	/** VIEW-INFLATING: Start inflater to bring xml-layout in existence as a view
+	*/
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,6 +37,9 @@ public class MapFragment extends Fragment {
         return view;
     }
 
+	/** MAP-INITIALIZATION: Define initialization of the googlemap and then start methode for marker-setting setPositionAndMarkerForConference()
+	*/
+
     private void initMap() {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
@@ -45,6 +49,10 @@ public class MapFragment extends Fragment {
             }
         });
     }
+	
+	
+	/** MARKER-SETTING: Save GPS-coordinates in LatLng properties, then place the markers on the map with the addMarker-methode, defining the coordinates via MarkerOptions()
+	*/
 
     private void setPositionAndMarkerForConference() {
         // set GPS-coordinates for Markers
