@@ -1,3 +1,8 @@
+/**
+ * This adapter is important to get the bookmarked events of the general overview.
+ * They are displayed by using this adapter.
+ * */
+
 package com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter;
 
 import android.app.Activity;
@@ -46,6 +51,10 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         ImageView delete;
         TextView selector;
 
+        /**
+         * Each view, which was generated in the lines before, is assigned to a id of the seperate layout file
+         * "favorite_event_item to display them correctly
+         * */
         public ViewHolder(View view) {
             super(view);
 
@@ -74,6 +83,9 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         final String date = bookmarkedData.get(position).getPresentationStartTime().toString();
         final String fittingDate = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
+        /**
+         * generating title and set also other views with values
+         * */
         holder.title.setText(bookmarkedData.get(position).getPresentationTitle());
         if (bookmarkedData.get(position).getPresentationTitle() != null) {
             holder.title.setText(bookmarkedData.get(position).getPresentationTitle());
@@ -85,7 +97,9 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         holder.time.setText(getTime(position));
         //holder.selector.setText(fittingDate);
 
-        // Format des Datums verschönern
+        /**
+         * the date will shown in a better overview
+         * */
         if (fittingDate.contains("26 Feb")) {
             holder.selector.setText(context.getString(R.string.monday));
         }
@@ -102,7 +116,9 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
             holder.selector.setText(context.getString(R.string.friday));
         }
 
-        //einfügen der Detailseite
+        /**
+         * The user has the possibility to have the detailed overview of this event by clicking on the title
+         * */
         holder.title.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,7 +147,11 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
             }
         });
 
-        /*ermöglicht löschen und neu: direktes erneutes hinzufügen, elegantes umgehen des fragmentaktualsiertproblems*/
+        /**
+         * this part is allowing to delete and to add favorite events in the seperate file
+         * after removing his event out of his seperate overview user is still able to add this one again to his list
+         * by just pushing the new changed plus button
+         * */
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,6 +180,11 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         });
     }
 
+    /**
+     * this function is needed to check if the events are already bookmarked
+     * for this, the function receives one element of {@link EventItem}
+     * it will compared with the list which is saved in the {@link SharedPreference} class
+     * */
     public boolean checkFavoriteItem(EventItem checkEvent) {
         boolean check = false;
         List<EventItem> favorites = sharedPreference.getFavorites(context);
@@ -175,7 +200,9 @@ public class FavoriteEventAdapter extends RecyclerView.Adapter<FavoriteEventAdap
         return check;
     }
 
-    //Zeit hinzugefügt
+    /**
+    * getting the time in a specific format
+    * */
     private String getTime(int position) {
 
         Date start = bookmarkedData.get(position).getPresentationStartTime();

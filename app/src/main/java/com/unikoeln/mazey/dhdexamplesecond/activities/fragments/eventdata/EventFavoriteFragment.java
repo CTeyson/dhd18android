@@ -1,3 +1,7 @@
+/**
+ * This Fragment is necessary to show/list your favorite elements in one seperate overview
+ * */
+
 package com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata;
 
 import android.app.Fragment;

@@ -1,3 +1,18 @@
+/**
+ * this class allows us to save the current event states
+ * for this, 4 methods are used
+ * it is the principe of key / value
+ * 1. function:
+ * allows saving of the favorite events in form of list of the type EventItem
+ * and after this files will converted by using Gson and saving this in a seperate file on the user's phone
+ * 2. function
+ * adds new events to the list and after all this new one gets saved (by using the first function) again
+ * 3. function
+ * removes the event and saves again the new list
+ * 4. function
+ * converting the gson file back to a java object so that there is again a list to work with
+ * */
+
 package com.unikoeln.mazey.dhdexamplesecond.activities.utils;
 
 import android.content.Context;

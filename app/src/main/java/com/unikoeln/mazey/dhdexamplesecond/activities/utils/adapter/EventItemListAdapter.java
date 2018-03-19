@@ -190,7 +190,11 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         });
 
 
-        //set tag
+        /**
+         * mandatory to mark events even after starting the app again
+         * by using setTag it is possible to change the state of the current imageView and to change the icon if necessary
+         * this makes it possible to know if the event is already bookmarked and in the list of the {@link SharedPreference} or not
+         * */
         if (checkFavoriteItem(events.get(position))) {
             holder.imageView.setImageResource(R.drawable.ic_bookmark_black_24dp_copy_3);
             holder.imageView.setTag("checked");
@@ -199,6 +203,11 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             holder.imageView.setTag("removed");
         }
 
+        /**
+         * event gets bookmarked by clicking on the icon
+         * getting the information out of setTag, convert to a string to compare and to know which state is saved in that moment
+         * depending on the state it will added or removed from the list of the sharedPreference class
+         * */
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -237,6 +246,10 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         });
 
     }
+
+    /**
+     * necessary to prove if the event is already bookmarked or not
+     * */
 
     public boolean checkFavoriteItem(EventItem checkEvent) {
         boolean check = false;
