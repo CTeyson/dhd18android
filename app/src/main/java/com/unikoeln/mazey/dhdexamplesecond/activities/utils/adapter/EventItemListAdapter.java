@@ -83,7 +83,6 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         final String date = events.get(position).getPresentationStartTime().toString();
         final String formatted = date.substring(8, 10) + " " + date.substring(4, 7) + " " + date.substring(30, 34);
 
-        //holder.selector.setText(formatted);
         holder.titleView.setText(events.get(position).getPresentationTitle() == null ? events.get(position).getSessionTitle() : events.get(position).getPresentationTitle());
         holder.authorView.setText(events.get(position).getPresentationAuthor() == null ? "" : events.get(position).getPresentationAuthor().replaceAll(";", ""));
         if (holder.descriptionView.length() >= 300) {
@@ -92,10 +91,11 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             } else if (!(events.get(position).getSessionAbstract() == null) && !events.get(position).getSessionAbstract().equalsIgnoreCase("")) {
                 holder.descriptionView.setText(events.get(position).getPresentationDescription());
             } else {
-                // Conventional way of getting a string from strings.xml does not work
-                    // String placeholder = context.getResources().getString(R.string.placeholder);
-                    // holder.descriptionView.setText(placeholder);
-                // Therefore hard coded text in code
+                /** Conventional way of getting a string from strings.xml does not work
+                 *      // String placeholder = context.getResources().getString(R.string.placeholder);
+                 *      // holder.descriptionView.setText(placeholder);
+                 *      *   Therefore hard coded text in code
+                 */
                 holder.descriptionView.setText("                                                                                                                                              ");
             }
         } else {
@@ -104,7 +104,6 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
         holder.locationView.setText(events.get(position).getSessionRoom());
         holder.reportedDateView.setText(getTime(position));
 
-        // Format des Datums verschönern
         if (formatted.contains("26 Feb")) {
             holder.selector.setText(context.getString(R.string.monday));
         }
@@ -121,6 +120,9 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             holder.selector.setText(context.getString(R.string.friday));
         }
 
+        /** Open {@link  com.unikoeln.mazey.dhdexamplesecond.activities.fragments.eventdata.EventDetailFragment}
+         *  and bundle the information for the clicked event
+         */
         holder.descriptionView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,6 +150,9 @@ public class EventItemListAdapter extends RecyclerView.Adapter<EventItemListAdap
             }
         });
 
+        /** Share-Button: Generates a text and allows the user to share it via the devices most frequently used apps
+         *  Dates need to be changed in the coming years
+         *  */
         holder.shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
