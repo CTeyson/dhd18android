@@ -24,7 +24,11 @@ public class EventDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.event_detail_fragment, container, false);
 
-        // Strings aus EventOverviewList holen
+
+        /** Get strings from bundle 'event' in {@link com.unikoeln.mazey.dhdexamplesecond.activities.utils.adapter.EventItemListAdapter}
+         *  Set the right strings for each view
+         *  Dates need to be changed in the coming years
+          */
         String strAbstractText = getArguments().getString("Abstract");
         String strTitleText = getArguments().getString("Title");
         String strAuthorText = getArguments().getString("Author");
@@ -33,7 +37,6 @@ public class EventDetailFragment extends Fragment {
         String strDateText = getArguments().getString("Date");
         String strTypeText = getArguments().getString("Type");
 
-        // Views definieren
         TextView abstractText = view.findViewById(R.id.event_abstract);
         TextView titleText = view.findViewById(R.id.event_title);
         TextView authorText = view.findViewById(R.id.event_author);
@@ -45,7 +48,6 @@ public class EventDetailFragment extends Fragment {
         ImageView shareImg = view.findViewById(R.id.event_share);
         ImageView calImg = view.findViewById(R.id.event_calendar);
 
-        // Strings den TextViews zuweisen
         abstractText.setText(strAbstractText);
         titleText.setText(strTitleText);
         authorText.setText(strAuthorText);
@@ -54,7 +56,6 @@ public class EventDetailFragment extends Fragment {
         dateText.setText(strDateText);
         typeText.setText(strTypeText);
 
-        // Format des Datums verschönern
         if (strDateText.contains("26 Feb")) {
             dateText.setText(getString(R.string.monday));
         }
@@ -71,12 +72,14 @@ public class EventDetailFragment extends Fragment {
             dateText.setText(getString(R.string.friday));
         }
 
-        // contribution_type in der XML
-        // wegen Schreibfehler im Tag des Datenexports
+        /** Tag "p1_contribution_type" in the c4me-Export
+         *  2018: Panel, Poster, Vortrag, Workshop
+         *  "Vortrag" needs to be translated to "Talk" for the english version, not necessary for other Types
+         *  There was a typo in "Workshop" in the export, which is corrected here.
+         */
         if (strTypeText != null && strTypeText.equalsIgnoreCase("Worshop")) {
             typeText.setText("Workshop");
         }
-        // Anpassung für englischsprachige Version, bei anderen Types nicht nötig
         if (strTypeText != null && strTypeText.equalsIgnoreCase("Vortrag")) {
             typeText.setText(getString(R.string.talk));
         }
@@ -97,7 +100,9 @@ public class EventDetailFragment extends Fragment {
         return view;
     }
 
-    // Share-Button: Zu teilenden Text erstellen und per Intent mit externer App teilen
+    /** Share-Button: Generates a text and allows the user to share it via the devices most frequently used apps
+     *  Dates need to be changed in the coming years
+     *  */
     private void shareEvent() {
         String strDateText = getArguments().getString("Date");
         String strTimeText = getArguments().getString("Time");
@@ -105,7 +110,6 @@ public class EventDetailFragment extends Fragment {
         String strLocationText = getArguments().getString("Location");
         String shareVia = getString(R.string.share_via);
 
-        // für kommende Jahre anzupassen
         if (strDateText.contains("26 Feb")) {
             strDateText = getString(R.string.monday_short);
         }
@@ -131,8 +135,10 @@ public class EventDetailFragment extends Fragment {
         startActivity(Intent.createChooser(sendIntent, shareVia));
     }
 
-    // Kalendar-Button: Daten zum Event sammeln und per Intent in Kalendar-App übergeben
-    // für kommende Jahre anzupassen
+    /** Calendar-Button: Get title, date and location for each event and create a new event in the default calendar app
+     *  Dates and strings need to be changed in the coming years
+     *  Event is not saved directly to the calendar app, so no extra permissions required.
+     */
     private void addToCalendar() {
         String strTitleText = getArguments().getString("Title");
         String strDateText = getArguments().getString("Date");
