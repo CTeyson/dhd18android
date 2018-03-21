@@ -50,6 +50,11 @@ public class FileUtils {
         return tmp;
     }
 
+    /**
+     * Serializes a {@link List} of type {@link EventItem} and stores it privately on the device.</p>
+     * @param events {@link List} of type {@link EventItem}
+     * @param context Android Context.
+     */
     private void serializeEventList(List<EventItem> events, Context context) {
         try {
             FileOutputStream fileOutputStream = context.openFileOutput("event_item_list.biz", Context.MODE_PRIVATE);
@@ -62,6 +67,13 @@ public class FileUtils {
         }
     }
 
+    /**
+     * Returns a {@link String} in from the assets.</p>
+     * To do so, this method utilises {@link AssetManager} in order to retrieve a file which is stored on the device.
+     * To read this file, {@link IOUtils} is used.</p>
+     * @param context Android Context
+     * @return File Content
+     */
     private String getAsstes(Context context) {
         String content = null;
         try {

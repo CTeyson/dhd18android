@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * XML Parser for locally availble file that can be found on the device.
+ */
+
 public class XMLParser {
 
     public List<EventItem> createEventItemListFromLocalFile(List<Node> nodes) {
